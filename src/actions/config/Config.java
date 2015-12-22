@@ -2,9 +2,9 @@ package config;
 
 public class Config {
 	//username & password of default site 
-	public static final String default_username ="Test01";
-	public static final String default_password ="12345678";
-	public static final String default_site ="http://192.168.190.135:8888/Joomla_1.6.0/administrator";
+	public static final String default_username ="admin";
+	public static final String default_password ="admin";
+	public static final String default_site ="http://192.168.190.135:8888/Joomla_2.5.28/administrator/index.php";
 	
 	// Time wait for page loading
 	 public static long long_wait_time = 5;

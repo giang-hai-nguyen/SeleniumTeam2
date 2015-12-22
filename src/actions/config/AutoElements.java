@@ -221,7 +221,7 @@ public class AutoElements extends Initialize {
 	  * @author: Giang Nguyen 12-07
 	  * @edit by: 
 	  */
-	 public String getitemAccessStatus(WebDriver driver, String control, String title)
+	 public String getTextitem(WebDriver driver, String control, String title)
 	 {
 		 element = driver.findElement(By.xpath(String.format(control, title)));
 		 return element.getText();

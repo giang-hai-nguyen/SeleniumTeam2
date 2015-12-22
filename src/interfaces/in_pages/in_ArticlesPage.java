@@ -2,17 +2,7 @@ package in_pages;
 
 public class in_ArticlesPage {
 	
-	
-	public static final String new_button = "//li[@id='toolbar-new']/a/span";
-	public static final String edit_button = "//li[@id='toolbar-edit']/a/span";
-	public static final String publish_button= "//li[@id='toolbar-publish']/a/span";
-	public static final String unpublish_button= "//li[@id='toolbar-unpublish']/a/span";
-	public static final String archive_button= "//li[@id='toolbar-archive']/a/span";
-	public static final String checkin_button= "//li[@id='toolbar-checkin']/a/span";
-	public static final String trash_button= "//li[@id='toolbar-trash']/a/span";
-	public static final String help_button= "//li[@id='toolbar-help']/a/span";
-	
-	
+	/***************Main Article Page***************/	
 	public static final String filter_textbox = "//input[@id='filter_search']";
 	public static final String search_button = "//button[@type='submit']";
 	public static final String state_filter_dropdown = "//select[@name='filter_published']";
@@ -26,4 +16,19 @@ public class in_ArticlesPage {
 	public static final String publish_status_icon = "//a[contains(text(),'%s')]/../following-sibling::td[1]/a/span";
 	public static final String access_status = "//a[contains(text(),'%s')]/../following-sibling::td[5]";
 	
+	
+	/***************New/Edit Article Page***************/
+	
+	public static final String title_texbox ="//input[@id='jform_title']";
+	public static final String category_dropdown="//select[@id='jform_catid']";
+	public static final String status_dropdown ="//select[@id='jform_state']";
+	public static final String access_dropdown ="//select[@id='jform_access']";
+	public static final String save_button ="//div[@id='toolbar']//span[@class='icon-32-apply']";
+	public static final String saveclose_button="//li[@id='toolbar-save']/a/span";
+	public static final String savenew_button="//li[@id='toolbar-save-new']/a/span";
+	public static final String cancel_button="//li[@id='toolbar-cancel']/a/span";
+	
+	
+	public static final String arttext_frame_textbox="//iframe[@id='jform_articletext_ifr']";
+	public static final String frame_textbox="//body[@id='tinymce']";
 }
