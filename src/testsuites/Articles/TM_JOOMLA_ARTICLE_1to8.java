@@ -1,19 +1,17 @@
-package testsuite_Articles;
+package Articles;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
-
-import actions.ac_AdministratorPage;
-import actions.ac_ArticlePage;
-import actions.ac_LoginPage;
-import commons.Config;
-import interfaces.int_AdminstratorPage;
-import interfaces.int_ArticlesPage;
+import ac_common.*;
+import ac_pages.*;
+import config.Config;
+import in_common.*;
+import in_pages.*;
 
 public class TM_JOOMLA_ARTICLE_1to8 extends ac_ArticlePage {
 	
 	private WebDriver driver;
-	private ac_LoginPage LoginPage;	
+	private ac_LoginPage LoginPage;
 	private ac_AdministratorPage AdminPage;
 	private ac_ArticlePage ArticlePage;
 	
@@ -45,7 +43,7 @@ public class TM_JOOMLA_ARTICLE_1to8 extends ac_ArticlePage {
 	{
 		ArticlePage = new ac_ArticlePage(driver);
 		ArticlePage.navigatemenu(driver, "Content", "Article Manager", null);
-		ArticlePage.click(driver, int_ArticlesPage.new_button);
+		ArticlePage.click(driver, in_ArticlesPage.new_button);
 		ArticlePage.fillInfoArticle(title, category, null, null, arttext, "save & close");
 		/*
 		 * VP
@@ -60,7 +58,7 @@ public class TM_JOOMLA_ARTICLE_1to8 extends ac_ArticlePage {
 	public void TC_JOOMLA_ARTICLE_002()
 	{
 		ArticlePage.selectCheckboxItem(driver, title);
-		ArticlePage.click(driver, int_ArticlesPage.edit_button);
+		ArticlePage.click(driver, in_ArticlesPage.edit_button);
 		ArticlePage.fillInfoArticle(title_modified, category, null, null, arttext_modified, "save & close");
 		
 		/*
@@ -80,7 +78,7 @@ public class TM_JOOMLA_ARTICLE_1to8 extends ac_ArticlePage {
 	{
 		//ArticlePage.click(driver, int_ArticlesPage.new_button);
 		//ArticlePage.fillInfoArticle(title_modified, category, state_unpublish, null, arttext_modified, "save & close");
-		ArticlePage.selectToolbarButtons(title_modified, int_AdminstratorPage.toolbar_publish);
+		ArticlePage.selectToolbarButtons(title_modified, in_AdminstratorPage.toolbar_publish);
 		/*
 		 * VP
 		 * 1. "Article successfully saved" message is displayed
@@ -97,7 +95,7 @@ public class TM_JOOMLA_ARTICLE_1to8 extends ac_ArticlePage {
 	@Test
 	public void TC_JOOMLA_ARTICLE_004()
 	{
-		ArticlePage.selectToolbarButtons(title_modified, int_AdminstratorPage.toolbar_unpublish);
+		ArticlePage.selectToolbarButtons(title_modified, in_AdminstratorPage.toolbar_unpublish);
 		/*
 		 * VP
 		 * 1. "Article successfully saved" message is displayed
@@ -111,7 +109,7 @@ public class TM_JOOMLA_ARTICLE_1to8 extends ac_ArticlePage {
 	public void TC_JOOMLA_ARTICLE_005()
 	{
 		ArticlePage.selectCheckboxItem(driver, title_modified);
-		ArticlePage.click(driver, int_ArticlesPage.archive_button);
+		ArticlePage.click(driver, in_ArticlesPage.archive_button);
 		/*
 		 * VP
 		 * 1. The "1 article archived" message is displayed
@@ -126,7 +124,7 @@ public class TM_JOOMLA_ARTICLE_1to8 extends ac_ArticlePage {
 	public void TC_JOOMLA_ARTICLE_007()
 	{
 		ArticlePage.selectCheckboxItem(driver, title_modified);
-		ArticlePage.click(driver, int_ArticlesPage.trash_button);
+		ArticlePage.click(driver, in_ArticlesPage.trash_button);
 		/*
 		 * VP
 		 * 1. The "1 article successfully trashed" message is displayed
@@ -141,7 +139,7 @@ public class TM_JOOMLA_ARTICLE_1to8 extends ac_ArticlePage {
 		public void TC_JOOMLA_ARTICLE_015()
 		{
 			ArticlePage.selectCheckboxItem(driver, title);
-			ArticlePage.clickStatusIconInTheList(driver, title, int_ArticlesPage.publish_status_icon);
+			ArticlePage.clickStatusIconInTheList(driver, title, in_ArticlesPage.publish_status_icon);
 			/*
 			 * VP
 			 * 1. The icon of the selected item is showed as 'unpublish'. 
@@ -150,7 +148,7 @@ public class TM_JOOMLA_ARTICLE_1to8 extends ac_ArticlePage {
 			ArticlePage.checkArticlePublishStatus(message_unpublish, title, "state unpublish");
 			
 			ArticlePage.selectCheckboxItem(driver, title);
-			ArticlePage.clickStatusIconInTheList(driver, title, int_ArticlesPage.publish_status_icon);
+			ArticlePage.clickStatusIconInTheList(driver, title, in_ArticlesPage.publish_status_icon);
 			/*
 			 * VP
 			 * 1. The icon of the selected item is showed as 'Publish'. 
@@ -165,7 +163,7 @@ public class TM_JOOMLA_ARTICLE_1to8 extends ac_ArticlePage {
 		{
 			ArticlePage = new ac_ArticlePage(driver);
 			ArticlePage.navigatemenu(driver, "Content", "Article Manager", null);
-			ArticlePage.click(driver, int_ArticlesPage.new_button);
+			ArticlePage.click(driver, in_ArticlesPage.new_button);
 			ArticlePage.fillInfoArticle(title, category, null, access_public, arttext, "save & close");
 			/*
 			 * VP

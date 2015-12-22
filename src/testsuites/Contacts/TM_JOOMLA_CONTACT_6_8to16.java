@@ -1,15 +1,13 @@
-package testsuite_Contacts;
+package Contacts;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import actions.ac_AdministratorPage;
-import actions.ac_ContactPage;
-import actions.ac_LoginPage;
-import commons.Config;
-import interfaces.in_ContactsPage;
+import ac_common.*;
+import ac_pages.*;
+import in_pages.*;
+import config.Config;
 
 public class TM_JOOMLA_CONTACT_6_8to16 extends ac_ContactPage{
 		

@@ -1,15 +1,14 @@
-package testsuite_Weblinks;
+package Weblinks;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import actions.ac_AdministratorPage;
-import actions.ac_ArticlePage;
-import actions.ac_LoginPage;
-import actions.ac_WeblinksPage;
-import commons.Config;
-import interfaces.*;
+import ac_common.*;
+import ac_pages.*;
+import config.*;
+import in_common.*;
+import in_pages.*;
 
 public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	private WebDriver driver;
@@ -43,7 +42,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	{
 		WeblinksPage = new ac_WeblinksPage(driver);
 		WeblinksPage.navigatemenu(driver, "Components", "Weblinks", null);
-		WeblinksPage.click(driver, int_WeblinksPage.new_button);
+		WeblinksPage.click(driver, in_WeblinksPage.new_button);
 		WeblinksPage.fillInfoWeblinks(weblinks_title, weblinks_url, null, "save & close");
 		/*
 		 * VP
@@ -59,7 +58,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	public void TC_JOOMLA_WEBLINKS_002()
 	{
 		WeblinksPage.selectCheckboxItem(driver, weblinks_title);
-		WeblinksPage.click(driver, int_WeblinksPage.edit_button);
+		WeblinksPage.click(driver, in_WeblinksPage.edit_button);
 		WeblinksPage.fillInfoWeblinks(weblinks_title_modified, weblinks_url_modified, null, "save & close");
 		
 		/*
@@ -76,14 +75,14 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	public void TC_JOOMLA_WEBLINKS_003()
 	{
 		WeblinksPage.selectCheckboxItem(driver, weblinks_title_modified);
-		WeblinksPage.clickToolbarButton(driver, int_AdminstratorPage.toolbar_unpublish);
+		WeblinksPage.clickToolbarButton(driver, in_AdminstratorPage.toolbar_unpublish);
 		/*
 		 * VP
 		 * 1. The icon of the selected item is showed as 'Unpublish'. 
 		 * 2. The "1 weblink successfully unpublished" message is displayed
 		 */		
 		verifyTrue(doesTextPresent(driver, message_unpublish));
-		verifyTrue(getitemStatus(driver, int_WeblinksPage.publish_status_icon, weblinks_title_modified).equals("state unpublish"));
+		verifyTrue(getitemStatus(driver, in_WeblinksPage.publish_status_icon, weblinks_title_modified).equals("state unpublish"));
 		
 	}
 
@@ -92,14 +91,14 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	public void TC_JOOMLA_WEBLINKS_004()
 	{
 		WeblinksPage.selectCheckboxItem(driver, weblinks_title_modified);
-		WeblinksPage.clickToolbarButton(driver, int_AdminstratorPage.toolbar_publish);
+		WeblinksPage.clickToolbarButton(driver, in_AdminstratorPage.toolbar_publish);
 		/*
 		 * VP
 		 * 1. "Article successfully saved" message is displayed
 		 * 2. Verify the article is unpublished successfully
 		 */
 		verifyTrue(doesTextPresent(driver, message_publish));
-		verifyTrue(getitemStatus(driver, int_WeblinksPage.publish_status_icon, weblinks_title_modified).equals("state publish"));
+		verifyTrue(getitemStatus(driver, in_WeblinksPage.publish_status_icon, weblinks_title_modified).equals("state publish"));
 	}
 	
 	
@@ -108,14 +107,14 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	public void TC_JOOMLA_WEBLINKS_005()
 	{
 		WeblinksPage.selectCheckboxItem(driver, weblinks_title_modified);
-		WeblinksPage.click(driver, int_WeblinksPage.archive_button);
+		WeblinksPage.click(driver, in_WeblinksPage.archive_button);
 		/*
 		 * VP
 		 * 1. The "1 article archived" message is displayed
 		 * 2. The archived article is displayed on the table grid
 		 */
 		verifyTrue(doesTextPresent(driver, message_archive));
-		selectitems(driver, int_WeblinksPage.status_filter_dropdown, "Archived");
+		selectitems(driver, in_WeblinksPage.status_filter_dropdown, "Archived");
 		verifyTrue(doesitemExist(driver, weblinks_title_modified));
 	}
 	
@@ -123,14 +122,14 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	public void TC_JOOMLA_WEBLINKS_006()
 	{
 		WeblinksPage.selectCheckboxItem(driver, weblinks_title_modified);
-		WeblinksPage.click(driver, int_WeblinksPage.checkin_button);
+		WeblinksPage.click(driver, in_WeblinksPage.checkin_button);
 		/*
 		 * VP
 		 * 1. The "1 article successfully trashed" message is displayed
 		 * 2. The deleted article is displayed on the table grid
 		 */
 		verifyTrue(doesTextPresent(driver, message_checkin));
-		clearText(driver, int_WeblinksPage.filter_textbox);
+		clearText(driver, in_WeblinksPage.filter_textbox);
 //		selectitems(driver, int_WeblinksPage.status_filter_dropdown, "Trashed");
 //		verifyTrue(doesitemExist(driver, weblinks_title_modified));
 	}
@@ -140,15 +139,15 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	public void TC_JOOMLA_WEBLINKS_007()
 	{
 		WeblinksPage.selectCheckboxItem(driver, weblinks_title_modified);
-		WeblinksPage.click(driver, int_WeblinksPage.trash_button);
+		WeblinksPage.click(driver, in_WeblinksPage.trash_button);
 		/*
 		 * VP
 		 * 1. The "1 article successfully trashed" message is displayed
 		 * 2. The deleted article is displayed on the table grid
 		 */
 		verifyTrue(doesTextPresent(driver, message_trash));
-		clearText(driver, int_WeblinksPage.filter_textbox);
-		selectitems(driver, int_WeblinksPage.status_filter_dropdown, "Trashed");
+		clearText(driver, in_WeblinksPage.filter_textbox);
+		selectitems(driver, in_WeblinksPage.status_filter_dropdown, "Trashed");
 		verifyTrue(doesitemExist(driver, weblinks_title_modified));
 	}
 	
