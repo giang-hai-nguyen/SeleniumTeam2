@@ -16,8 +16,8 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	private ac_AdministratorPage AdminPage;
 	private ac_WeblinksPage WeblinksPage;
 	
-	public String weblinks_title = randUniqueString("Test Weblink ");
-	public String weblinks_title_modified = randUniqueString("Test Weblink modified ");
+	public String weblinks_title = randUniqueString("Test Weblink");
+	public String weblinks_title_modified = randUniqueString("Test Weblink modified");
 	public String weblinks_url = "http://www.joomla.org";
 	public String weblinks_url_modified = "http://www.google.com";
 	public String message_create = "Weblink successfully saved";
@@ -44,11 +44,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 		WeblinksPage.navigatemenu(driver, "Components", "Weblinks", null);
 		WeblinksPage.click(driver, in_WeblinksPage.new_button);
 		WeblinksPage.fillInfoWeblinks(weblinks_title, weblinks_url, null, "save & close");
-		/*
-		 * VP
-		 * 1. "Weblink successfully saved" message is displayed
-		 * 2. Created weblink is displayed on the weblinks table
-		 */
+		
 		verifyTrue(doesTextPresent(driver, message_create));
 		verifyTrue(doesitemExist(driver, weblinks_title));
 	}
@@ -76,11 +72,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	{
 		WeblinksPage.selectCheckboxItem(driver, weblinks_title_modified);
 		WeblinksPage.clickToolbarButton(driver, in_AdminstratorPage.toolbar_unpublish);
-		/*
-		 * VP
-		 * 1. The icon of the selected item is showed as 'Unpublish'. 
-		 * 2. The "1 weblink successfully unpublished" message is displayed
-		 */		
+			
 		verifyTrue(doesTextPresent(driver, message_unpublish));
 		verifyTrue(getitemStatus(driver, in_WeblinksPage.publish_status_icon, weblinks_title_modified).equals("state unpublish"));
 		
@@ -92,11 +84,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	{
 		WeblinksPage.selectCheckboxItem(driver, weblinks_title_modified);
 		WeblinksPage.clickToolbarButton(driver, in_AdminstratorPage.toolbar_publish);
-		/*
-		 * VP
-		 * 1. "Article successfully saved" message is displayed
-		 * 2. Verify the article is unpublished successfully
-		 */
+		
 		verifyTrue(doesTextPresent(driver, message_publish));
 		verifyTrue(getitemStatus(driver, in_WeblinksPage.publish_status_icon, weblinks_title_modified).equals("state publish"));
 	}
@@ -108,11 +96,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	{
 		WeblinksPage.selectCheckboxItem(driver, weblinks_title_modified);
 		WeblinksPage.click(driver, in_WeblinksPage.archive_button);
-		/*
-		 * VP
-		 * 1. The "1 article archived" message is displayed
-		 * 2. The archived article is displayed on the table grid
-		 */
+		
 		verifyTrue(doesTextPresent(driver, message_archive));
 		selectitems(driver, in_WeblinksPage.status_filter_dropdown, "Archived");
 		verifyTrue(doesitemExist(driver, weblinks_title_modified));
@@ -123,15 +107,9 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	{
 		WeblinksPage.selectCheckboxItem(driver, weblinks_title_modified);
 		WeblinksPage.click(driver, in_WeblinksPage.checkin_button);
-		/*
-		 * VP
-		 * 1. The "1 article successfully trashed" message is displayed
-		 * 2. The deleted article is displayed on the table grid
-		 */
+		
 		verifyTrue(doesTextPresent(driver, message_checkin));
 		clearText(driver, in_WeblinksPage.filter_textbox);
-//		selectitems(driver, int_WeblinksPage.status_filter_dropdown, "Trashed");
-//		verifyTrue(doesitemExist(driver, weblinks_title_modified));
 	}
 	
 	
@@ -140,11 +118,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	{
 		WeblinksPage.selectCheckboxItem(driver, weblinks_title_modified);
 		WeblinksPage.click(driver, in_WeblinksPage.trash_button);
-		/*
-		 * VP
-		 * 1. The "1 article successfully trashed" message is displayed
-		 * 2. The deleted article is displayed on the table grid
-		 */
+	
 		verifyTrue(doesTextPresent(driver, message_trash));
 		clearText(driver, in_WeblinksPage.filter_textbox);
 		selectitems(driver, in_WeblinksPage.status_filter_dropdown, "Trashed");
@@ -152,46 +126,14 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	}
 	
 	
-//	@Test
-		//Verify user can change the status of articles using the Status column
-//		public void TC_JOOMLA_ARTICLE_015()
-//		{
-//			ArticlePage.selectCheckboxItem(driver, title_modified);
-//			ArticlePage.clickStatusIconInTheList(driver, title_modified, int_ArticlesPage.publish_status_icon);
-//			/*
-//			 * VP
-//			 * 1. The icon of the selected item is showed as 'unpublish'. 
-//			 * 2. The "1 article unpublished" message is displayed
-//			 */
-//			ArticlePage.checkArticlePublishStatus(message_unpublish, title_modified, "state unpublish");
-//			
-//			ArticlePage.selectCheckboxItem(driver, title_modified);
-//			ArticlePage.clickStatusIconInTheList(driver, title_modified, int_ArticlesPage.publish_status_icon);
-//			/*
-//			 * VP
-//			 * 1. The icon of the selected item is showed as 'Publish'. 
-//			 * 2. The "1 article published" message is displayed
-//			 */
-//			ArticlePage.checkArticlePublishStatus(message_publish, title_modified, "state publish");
-//		}
+	@Test (description = "Verify user can access weblink's help section")
+	public void TC_JOOMLA_WEBLINKS_008()
+	{
+		WeblinksPage.click(driver, in_WeblinksPage.help_button);
 		
-//		@Test
-		//Verify user can create a new article with 'Public' Access Level property
-//		public void TC_JOOMLA_ARTICLE_017()
-//		{
-//			ArticlePage = new ac_ArticlePage(driver);
-//			ArticlePage.navigatemenu(driver, "Content", "Article Manager", null);
-//			ArticlePage.click(driver, int_ArticlesPage.new_button);
-//			ArticlePage.fillInfoArticle(title, category, null, access_public, arttext, "save & close");
-			/*
-			 * VP
-			 * 1. "Article successfully saved" message is displayed
-			 * 2. Created article is displayed on the articles table
-			 * 3. The Access Level of the article is displayed as 'Public'
-			 */
-//			ArticlePage.checkArticleExist(message_create, title);
-//			ArticlePage.checkArticleIsPublic(title, "Public");
-//		}
+		
+		
+	}
 	
 	//@AfterClass
 	public void teardown(){
