@@ -3,6 +3,7 @@ package ac_pages;
 import org.openqa.selenium.WebDriver;
 
 import config.Config;
+import in_pages.in_CategoryPage;
 import in_pages.in_WeblinksPage;
 
 public class ac_CategoryPage extends ac_common.CommonElements {
@@ -18,42 +19,37 @@ public class ac_CategoryPage extends ac_common.CommonElements {
 	
 	public ac_CategoryPage getWeblinksPage(WebDriver driver)
 	{
-		return new ac_WeblinksPage(driver);
+		return new ac_CategoryPage(driver);
 	}
 	/**
 	 * @author: Hang Tran
 	 * @edit by: 
 	 */
-	public void fillInfoWeblinks(String name, String url, String status, String saveoption){
+	public void fillInfoCategory(String name, String access, String status, String saveoption){
 		//click(driver, int_ArticlesPage.new_button);
 		if (name != null)
-			//driver.findElement(By.xpath(int_NewArtPage.title_texbox)).clear();
-			clearText(driver, ac_CategoryPage.title_texbox);
-			enter(driver, ac_CategoryPage.title_texbox, name);
-		if (url != null)
-				//driver.findElement(By.xpath(int_NewArtPage.title_texbox)).clear();
-				clearText(driver, ac_CategoryPage.url_texbox);
-				enter(driver, ac_CategoryPage.url_texbox, url);
+			clearText(driver, in_CategoryPage.title_texbox);
+			enter(driver, in_CategoryPage.title_texbox, name);
+		if (access != null)
+			selectitems(driver, in_CategoryPage.access_status, access);
 		if (status != null){
-			selectitems(driver, ac_CategoryPage.status_dropdown, status);
-			//Select select_state = new Select (driver.findElement(By.xpath(int_NewArtPage.status_dropdown)));
-		    //select_state.selectByVisibleText(state);
+			selectitems(driver, in_CategoryPage.status_dropdown, status);
 		}		
 		
 		if (saveoption == "save")
-			click(driver, ac_CategoryPage.save_button);
+			click(driver, in_CategoryPage.save_button);
 		else if (saveoption == "save & close")
-			click(driver, ac_CategoryPage.saveclose_button);
+			click(driver, in_CategoryPage.saveclose_button);
 		else if (saveoption == "save & new")
-			click(driver, ac_CategoryPage.savenew_button);
+			click(driver, in_CategoryPage.savenew_button);
 		else if (saveoption == "cancel")
-			click(driver, ac_CategoryPage.cancel_button);
+			click(driver, in_CategoryPage.cancel_button);
 	}
 	
 	 public void checkWeblinksArchived(String message, String title)
 	{
 		verifyTrue(doesTextPresent(driver, message));
-		selectitems(driver, ac_CategoryPage.status_filter_dropdown, "Archived");
+		selectitems(driver, in_CategoryPage.status_filter_dropdown, "Archived");
 		verifyTrue(doesitemExist(driver, title));
 	}
 	/**
@@ -63,8 +59,8 @@ public class ac_CategoryPage extends ac_common.CommonElements {
 	public void checkWeblinksTrashed(String message, String title)
 	{
 		verifyTrue(doesTextPresent(driver, message));
-		clearText(driver, ac_CategoryPage.filter_textbox);
-		selectitems(driver, ac_CategoryPage.status_filter_dropdown, "Trashed");
+		clearText(driver, in_CategoryPage.filter_textbox);
+		selectitems(driver, in_CategoryPage.status_filter_dropdown, "Trashed");
 		verifyTrue(doesitemExist(driver, title));
 	}
 	
