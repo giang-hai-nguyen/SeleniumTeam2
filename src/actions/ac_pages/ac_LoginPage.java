@@ -2,7 +2,7 @@ package ac_pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class ac_LoginPage extends config.AutoElements{
+public class ac_LoginPage extends ac_common.CommonElements{
 		
 	public ac_LoginPage(WebDriver driver) {
 		// TODO Auto-generated constructor stub

@@ -2,7 +2,7 @@ package ac_common;
 
 import org.openqa.selenium.WebDriver;
 
-public class ac_AdministratorPage extends config.AutoElements{
+public class ac_AdministratorPage extends ac_common.CommonElements{
 	
 	private WebDriver driver;
 	

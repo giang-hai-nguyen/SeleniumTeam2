@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import in_pages.in_ArticlesPage;
 
-public class ac_ArticlePage extends config.AutoElements {
+public class ac_ArticlePage extends ac_common.CommonElements {
 	
 	public ac_ArticlePage() {
 		// TODO Auto-generated constructor stub

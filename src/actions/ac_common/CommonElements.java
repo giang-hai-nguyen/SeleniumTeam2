@@ -1,4 +1,4 @@
-package config;
+package ac_common;
 
 import java.util.Calendar;
 
@@ -11,11 +11,13 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 
+import config.Config;
+import config.Initialize;
 import in_common.in_AdminstratorPage;
 
 import org.testng.Assert;
 
-public class AutoElements extends Initialize {
+public class CommonElements extends Initialize {
 	public void click(WebDriver driver, String control)
 	{
 		element  = findAnElement(driver, control);

@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import in_pages.in_ContactsPage;
 
-public class ac_ContactPage extends config.AutoElements {
+public class ac_ContactPage extends ac_common.CommonElements {
 	private WebDriver driver;
 	
 	public ac_ContactPage() {

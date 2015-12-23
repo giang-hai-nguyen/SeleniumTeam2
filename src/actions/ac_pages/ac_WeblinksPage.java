@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import config.Config;
 import in_pages.in_WeblinksPage;
 
-public class ac_WeblinksPage extends config.AutoElements {
+public class ac_WeblinksPage extends ac_common.CommonElements {
 	
 	public ac_WeblinksPage() {
 		// TODO Auto-generated constructor stub
