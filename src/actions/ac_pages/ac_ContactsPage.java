@@ -4,13 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import in_pages.in_ContactsPage;
 
-public class ac_ContactPage extends ac_common.CommonElements {
+public class ac_ContactsPage extends ac_common.CommonElements {
 	private WebDriver driver;
 	
-	public ac_ContactPage() {
+	public ac_ContactsPage() {
 		// TODO Auto-generated constructor stub
 	}
-	public ac_ContactPage(WebDriver driver) {
+	public ac_ContactsPage(WebDriver driver) {
 		// TODO Auto-generated constructor stub
 		this.driver = driver;
 	}

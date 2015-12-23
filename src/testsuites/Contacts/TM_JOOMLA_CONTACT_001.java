@@ -9,7 +9,7 @@ import config.*;
 import in_pages.*;
 
 
-public class TM_JOOMLA_CONTACT_001 extends ac_ContactPage
+public class TM_JOOMLA_CONTACT_001 extends ac_ContactsPage
 {
 	
 	@BeforeClass
@@ -22,7 +22,7 @@ public class TM_JOOMLA_CONTACT_001 extends ac_ContactPage
 	@Test (description = "Verify user can create new contact with valid information")
 	public void TC_JOOMLA_CONTACTS_001()
 	{
-		ContactPage = new ac_ContactPage(driver);
+		ContactPage = new ac_ContactsPage(driver);
 		ContactPage.navigatemenu(driver, "Components", "Contacts", "Contacts");
 		ContactPage.clickToolbarButton(driver, "new");
 		ContactPage.fillContactInfo(name, category, state_unpublish, null, null);
@@ -90,17 +90,16 @@ public class TM_JOOMLA_CONTACT_001 extends ac_ContactPage
 	private WebDriver driver;
 	private ac_LoginPage LoginPage;	
 	private ac_AdministratorPage AdminPage;
-	private ac_ContactPage ContactPage;
+	private ac_ContactsPage ContactPage;
 	
-	public String name = randUniqueString("Test Contact ");
-	public String name_modified = randUniqueString("Test Contact modified ");
-	public String message_create = "Contact successfully saved";
-	public String category = "- Sample Data-Contact";
-	public String category_modified = "- - Park Site";
-	public String state_unpublish = "Unpublished";
-	public String state_publish = "Published";
-	public String message_publish = "1 contact successfully published";
-	public String message_unpublish = "1 contact successfully unpublished";
-	public String message_archive = "1 contact archived";
-	public String message_trash = "1 contact successfully trashed";
+	private String name = randUniqueString("Test Contact");
+	private String name_modified = randUniqueString("Test Contact modified");
+	private String message_create = "Contact successfully saved";
+	private String category = "- Sample Data-Contact";
+	private String category_modified = "- - Park Site";
+	private String state_unpublish = "Unpublished";
+	private String message_publish = "1 contact successfully published";
+	private String message_unpublish = "1 contact successfully unpublished";
+	private String message_archive = "1 contact archived";
+	private String message_trash = "1 contact successfully trashed";
 }

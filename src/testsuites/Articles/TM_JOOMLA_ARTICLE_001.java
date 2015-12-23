@@ -7,7 +7,7 @@ import ac_pages.*;
 import config.Config;
 import in_pages.*;
 
-public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlePage 
+public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage 
 {
 	@BeforeClass
 	public void Setup() {
@@ -19,7 +19,7 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlePage
 	@Test (description = "Verify user can create new article with valid information")
 	public void TC_JOOMLA_ARTICLE_001()
 	{
-		ArticlePage = new ac_ArticlePage(driver);
+		ArticlePage = new ac_ArticlesPage(driver);
 		ArticlePage.navigatemenu(driver, "Content", "Article Manager", null);
 		ArticlePage.clickToolbarButton(driver, "new");
 		ArticlePage.fillArticleInfo(title, category, state_unpublish, null, arttext);
@@ -97,7 +97,7 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlePage
 	@Test (description = "Verify user can create a new article with 'Public' Access Level property")
 	public void TC_JOOMLA_ARTICLE_017()
 	{
-		ArticlePage = new ac_ArticlePage(driver);
+		ArticlePage = new ac_ArticlesPage(driver);
 		ArticlePage.navigatemenu(driver, "Content", "Article Manager", null);
 		ArticlePage.clickToolbarButton(driver, "new");
 		ArticlePage.fillArticleInfo(title, category, null, access_public, arttext);
@@ -117,19 +117,19 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlePage
 	private WebDriver driver;
 	private ac_LoginPage LoginPage;
 	private ac_AdministratorPage AdminPage;
-	private ac_ArticlePage ArticlePage;
+	private ac_ArticlesPage ArticlePage;
 	
-	public String title = randUniqueString("Test Article ");
-	public String title_modified = randUniqueString("Test Article modified ");
-	public String message_create = "Article successfully saved";
-	public String arttext = "this is article content";
-	public String arttext_modified = "this is article content modified";
-	public String category = "- - Sample Data-Articles";
-	public String message_archive = "1 article archived.";
-	public String message_trash = "1 article trashed.";
-	public String state_unpublish = "Unpublished";
-	public String state_publish = "Published";
-	public String message_publish = "1 article published.";
-	public String message_unpublish = "1 article unpublished.";
-	public String access_public = "Public";
+	private String title = randUniqueString("Test Article");
+	private String title_modified = randUniqueString("Test Article modified");
+	private String message_create = "Article successfully saved";
+	private String arttext = "this is article content";
+	private String arttext_modified = "this is article content modified";
+	private String category = "- - Sample Data-Articles";
+	private String message_archive = "1 article archived.";
+	private String message_trash = "1 article trashed.";
+	private String state_unpublish = "Unpublished";
+	private String state_publish = "Published";
+	private String message_publish = "1 article published.";
+	private String message_unpublish = "1 article unpublished.";
+	private String access_public = "Public";
 }

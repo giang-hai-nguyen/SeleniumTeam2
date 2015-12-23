@@ -5,22 +5,22 @@ import org.openqa.selenium.WebDriver;
 
 import in_pages.in_ArticlesPage;
 
-public class ac_ArticlePage extends ac_common.CommonElements {
+public class ac_ArticlesPage extends ac_common.CommonElements {
 	
-	public ac_ArticlePage() {
+	public ac_ArticlesPage() {
 		// TODO Auto-generated constructor stub
 		
 	}
 	
-	public ac_ArticlePage(WebDriver driver) {
+	public ac_ArticlesPage(WebDriver driver) {
 		// TODO Auto-generated constructor stub
 		//driver = this.driver;
 		this.driver = driver;
 	}
 	
-	public ac_ArticlePage getActiclePage(WebDriver driver)
+	public ac_ArticlesPage getActiclePage(WebDriver driver)
 	{
-		return new ac_ArticlePage(driver);
+		return new ac_ArticlesPage(driver);
 	}
 	/**
 	 * @author: TuanNguyen

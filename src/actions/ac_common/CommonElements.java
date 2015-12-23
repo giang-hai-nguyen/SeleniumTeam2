@@ -64,7 +64,7 @@ public class CommonElements extends Initialize {
 		minute = date.get(Calendar.MINUTE);
 		hour = date.get(Calendar.HOUR);
 
-		return basestring + day + month + year + second + minute + hour;
+		return basestring + " " + day + month + year + second + minute + hour;
 	}
 	/**
 	 * @author: Tuan Nguyen

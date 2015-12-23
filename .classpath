@@ -9,6 +9,6 @@
 	<classpathentry kind="lib" path="D:/Training/Selenium Advanced/selenium-2.48.2/selenium-java-2.48.2.jar"/>
 	<classpathentry kind="lib" path="D:/Training/Selenium Advanced/selenium-2.48.2/selenium-java-2.48.2-srcs.jar"/>
 	<classpathentry kind="lib" path="D:/Training/Selenium Advanced/selenium-2.48.2/selenium-server-standalone-2.48.2.jar"/>
-	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="lib" path="libs/testng-6.9.10.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
