@@ -7,28 +7,8 @@ import ac_pages.*;
 import config.Config;
 import in_pages.*;
 
-public class TM_JOOMLA_ARTICLE_1to5_7 extends ac_ArticlePage {
-	
-	private WebDriver driver;
-	private ac_LoginPage LoginPage;
-	private ac_AdministratorPage AdminPage;
-	private ac_ArticlePage ArticlePage;
-	
-	public String title = randUniqueString("Test Article ");
-	public String title_modified = randUniqueString("Test Article modified ");
-	public String message_create = "Article successfully saved";
-	public String arttext = "this is article content";
-	public String arttext_modified = "this is article content modified";
-	public String category = "- - Sample Data-Articles";
-	public String message_archive = "1 article archived.";
-	public String message_trash = "1 article trashed.";
-	public String state_unpublish = "Unpublished";
-	public String state_publish = "Published";
-	public String message_publish = "1 article published.";
-	public String message_unpublish = "1 article unpublished.";
-	public String access_public = "Public";
-	
-	
+public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlePage 
+{
 	@BeforeClass
 	public void Setup() {
 		driver = openBrowser();
@@ -47,42 +27,35 @@ public class TM_JOOMLA_ARTICLE_1to5_7 extends ac_ArticlePage {
 		verifyTrue(ArticlePage.doesTextPresent(driver, message_create));
 		verifyTrue(ArticlePage.doesitemExist(driver, title));
 	}
-	/*
-	 *Create by:Tuan nguyen 12-03
-	 *Edit by: Hang Tran				
-	 */
-	@Test (description = "Verify user can publish an unpublished article")
-	public void TC_JOOMLA_ARTICLE_003()
-	{
-		ArticlePage.selectCheckboxItem(driver, title);
-		ArticlePage.clickToolbarButton(driver, "publish");
-		verifyTrue(ArticlePage.doesTextPresent(driver, message_publish));
-		verifyTrue(getitemStatus(driver, in_ArticlesPage.publish_status_icon, title).equals(state_publish));
-		
-	}
 	
 	@Test (description = "Verify user can edit an article")
 	public void TC_JOOMLA_ARTICLE_002()
 	{
 		ArticlePage.selectCheckboxItem(driver, title);
 		ArticlePage.clickToolbarButton(driver, "edit");
-		ArticlePage.fillArticleInfo(title_modified, category, state_publish, null, arttext_modified);
+		ArticlePage.fillArticleInfo(title_modified, category, null, null, arttext_modified);
 		ArticlePage.clickToolbarButton(driver, "save");
 		verifyTrue(ArticlePage.doesTextPresent(driver, message_create));
 		verifyTrue(ArticlePage.doesitemExist(driver, title_modified));
 	}
 	
-	/*
-	 *Create by:Tuan nguyen 12-03
-	 *Edit by: Hang Tran	 				
-	 */
+	@Test (description = "Verify user can publish an unpublished article")
+	public void TC_JOOMLA_ARTICLE_003()
+	{
+		ArticlePage.selectCheckboxItem(driver, title_modified);
+		ArticlePage.clickToolbarButton(driver, "publish");
+		verifyTrue(ArticlePage.doesTextPresent(driver, message_publish));
+		verifyTrue(getitemStatus(driver, in_ArticlesPage.publish_status_icon, title_modified).equals("state publish"));
+		
+	}
+	
 	@Test (description = "Verify user can unpublish an published article")
 	public void TC_JOOMLA_ARTICLE_004()
 	{
 		ArticlePage.selectCheckboxItem(driver, title_modified);
 		ArticlePage.clickToolbarButton(driver, "unpublish");
 		verifyTrue(ArticlePage.doesTextPresent(driver, message_unpublish));
-		verifyTrue(getitemStatus(driver, in_ArticlesPage.publish_status_icon, title_modified).equals(state_unpublish));
+		verifyTrue(getitemStatus(driver, in_ArticlesPage.publish_status_icon, title_modified).equals("state unpublish"));
 	}
 	
 	@Test (description = "Verify user can move an article to the archive")
@@ -102,7 +75,7 @@ public class TM_JOOMLA_ARTICLE_1to5_7 extends ac_ArticlePage {
 		ArticlePage.selectCheckboxItem(driver, title_modified);
 		ArticlePage.clickToolbarButton(driver, "trash");
 		verifyTrue(ArticlePage.doesTextPresent(driver, message_trash));
-		ArticlePage.selectitems(driver, in_ContactsPage.filter_state_dropdown, "Trash");
+		ArticlePage.selectitems(driver, in_ContactsPage.filter_state_dropdown, "Trashed");
 		verifyTrue(ArticlePage.doesitemExist(driver, title_modified));
 	}
 	
@@ -140,4 +113,23 @@ public class TM_JOOMLA_ARTICLE_1to5_7 extends ac_ArticlePage {
 		AdminPage.Logout();		
 		driver.close();
 	}
+	
+	private WebDriver driver;
+	private ac_LoginPage LoginPage;
+	private ac_AdministratorPage AdminPage;
+	private ac_ArticlePage ArticlePage;
+	
+	public String title = randUniqueString("Test Article ");
+	public String title_modified = randUniqueString("Test Article modified ");
+	public String message_create = "Article successfully saved";
+	public String arttext = "this is article content";
+	public String arttext_modified = "this is article content modified";
+	public String category = "- - Sample Data-Articles";
+	public String message_archive = "1 article archived.";
+	public String message_trash = "1 article trashed.";
+	public String state_unpublish = "Unpublished";
+	public String state_publish = "Published";
+	public String message_publish = "1 article published.";
+	public String message_unpublish = "1 article unpublished.";
+	public String access_public = "Public";
 }

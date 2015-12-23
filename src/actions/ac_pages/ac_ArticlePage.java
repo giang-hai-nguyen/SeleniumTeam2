@@ -40,10 +40,12 @@ public class ac_ArticlePage extends config.AutoElements {
 			selectitems(driver, in_ArticlesPage.access_dropdown, access);
 		}
 		if (arttext != null)
+		{
 			switchToFrame(driver, in_ArticlesPage.arttext_frame_textbox);
 			driver.findElement(By.xpath(in_ArticlesPage.frame_textbox)).clear();
 			enter(driver, in_ArticlesPage.frame_textbox, arttext);
 			switchBackDefaultframe(driver);
+		}
 	}
 	private WebDriver driver;
 }

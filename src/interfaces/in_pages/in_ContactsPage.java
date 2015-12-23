@@ -18,7 +18,7 @@ public class in_ContactsPage {
 	public static final String paging_dropdown = "//select[@id='limit']";
 	
 	//table adminlist
-	public static final String publish_status_icon = "//a[contains(text(),'%s')]/../following-sibling::td[1]/a/span";
+	public static final String publish_status_icon = "//a[contains(text(),'%s')]/../following-sibling::td[2]/a/span";
 	public static final String checkin_status_icon = "//a[contains(text(),'%s')]/preceding-sibling::a/span";
 	
 	/***************New/Edit Contact Page***************/

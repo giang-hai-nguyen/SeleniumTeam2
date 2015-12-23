@@ -38,10 +38,12 @@ public class ac_ContactPage extends config.AutoElements {
 			selectitems(driver, in_ContactsPage.access_dropdown, access);
 		}
 		if (otherInfo != null)
+		{
 			switchToFrame(driver, in_ContactsPage.otherinfo_iframe);
 			driver.findElement(By.xpath(in_ContactsPage.frame_textbox)).clear();
 			enter(driver, in_ContactsPage.frame_textbox, otherInfo);
 			switchBackDefaultframe(driver);
+		}
 	}
 
 }

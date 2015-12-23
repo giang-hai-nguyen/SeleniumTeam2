@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test name="Test">
+  <test name="Articles">
     <classes>
-      <class name="Contacts.TM_JOOMLA_CONTACT_1to5_7"/>
+    	<class name="Articles.TM_JOOMLA_ARTICLE_1to5_7_15_17"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="Contacts">
+    <classes>
+      	<class name="Contacts.TM_JOOMLA_CONTACT_1to5_7"/>
+      	<class name="Contacts.TM_JOOMLA_CONTACT_6_8to16"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -9,22 +9,8 @@ import ac_pages.*;
 import in_pages.*;
 import config.Config;
 
-public class TM_JOOMLA_CONTACT_6_8to16 extends ac_ContactPage{
-		
-	private WebDriver driver;
-	private ac_LoginPage LoginPage;	
-	private ac_AdministratorPage AdminPage;
-	private ac_ContactPage ContactPage;
-		
-	public String name = randUniqueString("Test Contact ");
-	public String name_modified = randUniqueString("Test Contact modified ");
-	public String message_create = "Contact successfully saved";
-	public String category = "Sample Data-Contact";
-	public String state_unpublish = "Unpublished";
-	public String state_publish = "Published";
-	public String message_checkin = "1 contact successfully checked in";
-	public String state_checkin = "state checkedout";
-	
+public class TM_JOOMLA_CONTACT_002 extends ac_ContactPage
+{
 	@BeforeClass
 	public void Setup() {
 		driver = openBrowser();
@@ -42,7 +28,7 @@ public class TM_JOOMLA_CONTACT_6_8to16 extends ac_ContactPage{
 		ContactPage = new ac_ContactPage(driver);
 		ContactPage.navigatemenu(driver, "Components", "Contacts", "Contacts");
 		ContactPage.clickToolbarButton(driver, "new");
-		ContactPage.fillContactInfo(name, category, state_publish, null, null);
+		ContactPage.fillContactInfo(name, category, null, null, null);
 		ContactPage.clickToolbarButton(driver, "apply");
 		verifyTrue(ContactPage.doesTextPresent(driver, message_create));
 		ContactPage.clickToolbarButton(driver, "cancel");
@@ -60,4 +46,19 @@ public class TM_JOOMLA_CONTACT_6_8to16 extends ac_ContactPage{
 		AdminPage.Logout();		
 		driver.close();
 	}
+	
+	private WebDriver driver;
+	private ac_LoginPage LoginPage;	
+	private ac_AdministratorPage AdminPage;
+	private ac_ContactPage ContactPage;
+		
+	public String name = randUniqueString("Test Contact ");
+	public String name_modified = randUniqueString("Test Contact modified ");
+	public String message_create = "Contact successfully saved";
+	public String category = "Sample Data-Contact";
+	public String state_unpublish = "Unpublished";
+	public String state_publish = "Published";
+	public String message_checkin = "1 contact successfully checked in";
+	public String state_checkin = "state checkedout";
+	
 }
