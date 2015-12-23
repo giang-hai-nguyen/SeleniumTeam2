@@ -27,7 +27,7 @@ public class TM_JOOMLA_CONTACT_6_8to16 extends ac_ContactPage{
 	
 	@BeforeClass
 	public void Setup() {
-		driver = openAUT();
+		driver = openBrowser();
 		LoginPage = new ac_LoginPage(driver);
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}

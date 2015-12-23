@@ -32,7 +32,7 @@ public class TM_JOOMLA_WEBLINKS_001_to_05_07 extends ac_WeblinksPage{
 	
 	@BeforeClass
 	public void Setup() {
-		driver = openAUT();
+		driver = openBrowser();
 		LoginPage = new ac_LoginPage(driver);
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}

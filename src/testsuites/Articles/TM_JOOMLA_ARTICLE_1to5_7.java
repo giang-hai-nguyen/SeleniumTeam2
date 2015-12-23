@@ -7,7 +7,7 @@ import ac_pages.*;
 import config.Config;
 import in_pages.*;
 
-public class TM_JOOMLA_ARTICLE_1to8 extends ac_ArticlePage {
+public class TM_JOOMLA_ARTICLE_1to5_7 extends ac_ArticlePage {
 	
 	private WebDriver driver;
 	private ac_LoginPage LoginPage;
@@ -31,7 +31,7 @@ public class TM_JOOMLA_ARTICLE_1to8 extends ac_ArticlePage {
 	
 	@BeforeClass
 	public void Setup() {
-		driver = openAUT();
+		driver = openBrowser();
 		LoginPage = new ac_LoginPage(driver);
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
