@@ -25,16 +25,17 @@ public class ac_CategoryPage extends ac_common.CommonElements {
 	 * @author: Hang Tran
 	 * @edit by: 
 	 */
-	public void fillInfoCategory(String name, String access, String status, String saveoption){
+	public void fillInfoCategory(String name, String status, String access, String language, String saveoption){
 		//click(driver, int_ArticlesPage.new_button);
 		if (name != null)
 			clearText(driver, in_CategoryPage.title_texbox);
 			enter(driver, in_CategoryPage.title_texbox, name);
+		if (status != null)
+			selectitems(driver, in_CategoryPage.status_dropdown, status);
 		if (access != null)
 			selectitems(driver, in_CategoryPage.access_status, access);
-		if (status != null){
-			selectitems(driver, in_CategoryPage.status_dropdown, status);
-		}		
+		if (language !=null)
+			selectitems(driver, in_CategoryPage.language_dropdown, language);	
 		
 		if (saveoption == "save")
 			click(driver, in_CategoryPage.save_button);
