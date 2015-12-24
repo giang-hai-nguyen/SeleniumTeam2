@@ -1,7 +1,6 @@
 package Category;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -11,8 +10,7 @@ import ac_pages.ac_LoginPage;
 import config.Config;
 import in_pages.in_CategoryPage;
 
-
-public class TM_JOOMLA_CATEGORY_003 extends ac_CategoryPage {
+public class TM_JOOMLA_CATEGORY_004 extends ac_CategoryPage {
 	@BeforeClass
 	public void Setup() {
 		driver = openBrowser();
@@ -20,28 +18,20 @@ public class TM_JOOMLA_CATEGORY_003 extends ac_CategoryPage {
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 	
-	@Test (description = "Verify that user can search a category by using filter dropdown lists")
-	public void TC_JOOMLA_CATEGORY_MANAGER_009()
+	@Test (description = "Verify that user can cancel adding action while adding a new create")
+	public void TC_JOOMLA_CATEGORY_MANAGER_012()
 	{
 		CategoryPage = new ac_CategoryPage(driver);
 		CategoryPage.navigatemenu(driver, "Content", "Category Manager", null);
 		CategoryPage.click(driver, in_CategoryPage.new_button);
-		CategoryPage.fillInfoCategory(category_title, "Unpublished", "Registered", "English (UK)", "save & close");
+		CategoryPage.fillInfoCategory(category_title, null, null, null, "cancel");
 		
-		verifyTrue(doesitemExist(driver, category_title));
-		clearText(driver, in_CategoryPage.filter_textbox);
-		click(driver, in_CategoryPage.search_button);
-		
-		CategoryPage.selectitems(driver, in_CategoryPage.status_filter_dropdown, "Unpublished");
-		CategoryPage.selectitems(driver, in_CategoryPage.access_filter_dropdown, "Registered");
-		CategoryPage.selectitems(driver, in_CategoryPage.language_filter_dropdown, "English (UK)");
-	
-		verifyTrue(doesitemExist(driver, category_title));
-		
+		verifyFalse(doesitemExist(driver, category_title));
+				
 	}
 	
 	
-	@AfterClass
+//	@AfterClass
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
 		AdminPage.Logout();		
@@ -54,7 +44,6 @@ public class TM_JOOMLA_CATEGORY_003 extends ac_CategoryPage {
 	private ac_CategoryPage CategoryPage;
 	
 	public String category_title = randUniqueString("Test Category");
-	public String category_title_modified = randUniqueString("Test Category modified");
-}
 
+}
 
