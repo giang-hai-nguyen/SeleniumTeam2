@@ -27,7 +27,7 @@ public class TM_JOOMLA_CATEGORY_001 extends ac_CategoryPage {
 		CategoryPage = new ac_CategoryPage(driver);
 		CategoryPage.navigatemenu(driver, "Content", "Category Manager", null);
 		CategoryPage.click(driver, in_CategoryPage.new_button);
-		CategoryPage.fillInfoCategory(category_title, null, null, "save & close");
+		CategoryPage.fillInfoCategory(category_title, null, null, null, "save & close");
 		
 		verifyTrue(doesTextPresent(driver, message_create));
 		verifyTrue(doesitemExist(driver, category_title));
@@ -39,7 +39,7 @@ public class TM_JOOMLA_CATEGORY_001 extends ac_CategoryPage {
 	{
 		CategoryPage.selectCheckboxItem(driver, category_title);
 		CategoryPage.click(driver, in_CategoryPage.edit_button);
-		CategoryPage.fillInfoCategory(category_title_modified, null, null, "save & close");
+		CategoryPage.fillInfoCategory(category_title_modified, null, null, null, "save & close");
 		
 		verifyTrue(doesTextPresent(driver, message_create));
 		verifyTrue(doesitemExist(driver, category_title_modified));

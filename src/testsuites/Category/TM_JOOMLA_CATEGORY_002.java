@@ -26,7 +26,7 @@ public class TM_JOOMLA_CATEGORY_002 extends ac_CategoryPage {
 		CategoryPage = new ac_CategoryPage(driver);
 		CategoryPage.navigatemenu(driver, "Content", "Category Manager", null);
 		CategoryPage.click(driver, in_CategoryPage.new_button);
-		CategoryPage.fillInfoCategory(category_title, null, null, "save & close");
+		CategoryPage.fillInfoCategory(category_title, null, null, null, "save & close");
 		
 		verifyTrue(doesitemExist(driver, category_title));
 		clearText(driver, in_CategoryPage.filter_textbox);
