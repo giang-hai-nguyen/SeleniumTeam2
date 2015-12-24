@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Weblinks">
+    <classes>
+      	<class name="Contacts.TM_JOOMLA_WEBLINKS_001"/>
+      	<class name="Contacts.TM_JOOMLA_WEBLINKS_002"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -93,19 +93,6 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 		verifyTrue(ArticlePage.doesTextPresent(driver, message_unpublish));
 		verifyTrue(getitemStatus(driver, in_ArticlesPage.publish_status_icon, title_modified).equals(state_unpublish));
 	}
-		
-	@Test (description = "Verify user can create a new article with 'Public' Access Level property")
-	public void TC_JOOMLA_ARTICLE_017()
-	{
-		ArticlePage = new ac_ArticlesPage(driver);
-		ArticlePage.navigatemenu(driver, "Content", "Article Manager", null);
-		ArticlePage.clickToolbarButton(driver, "new");
-		ArticlePage.fillArticleInfo(title, category, null, access_public, arttext);
-		ArticlePage.clickToolbarButton(driver, "save");
-		verifyTrue(ArticlePage.doesTextPresent(driver, message_create));
-		verifyTrue(ArticlePage.doesitemExist(driver, title));
-		verifyTrue(getTextitem(driver, in_ArticlesPage.access_status, title).contains(access_public));
-	}
 	
 	@AfterClass
 	public void teardown(){
@@ -131,5 +118,4 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 	private String state_publish = "Published";
 	private String message_publish = "1 article published.";
 	private String message_unpublish = "1 article unpublished.";
-	private String access_public = "Public";
 }
