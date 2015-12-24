@@ -18,20 +18,18 @@ public class in_BannerClientPage {
 			
 			public static final String filter_textbox = "//input[@id='filter_search']";
 			public static final String search_button = "//button[@type='submit']";
-			public static final String status_filter_dropdown = "//select[@name='filter_published']";
-			public static final String access_filter_dropdown = "//select[@name='filter_access']";
-			public static final String language_filter_dropdown = "//select[@name='filter_language']";
-			
+			public static final String status_filter_dropdown = "//select[@name='filter_state']";
+						
 			public static final String row_checkbox = "//a[contains(text(),'%s')]/../preceding-sibling::td/input";
 			public static final String article_link = "//a[contains(text(),'%s')]";
 			public static final String message_header = "//dl[@id='system-message']";
-			public static final String publish_status_icon = "//a[contains(text(),'%s')]/../following-sibling::td[1]/a/span";
+			public static final String publish_status_icon = "//a[contains(text(),'%s')]/../following-sibling::td[2]/a/span";
 			
 			
 			
 			//Fill info
 			
-			public static final String clientname_texbox ="//input[@id='jform_title']";
+			public static final String clientname_texbox ="//input[@id='jform_name']";
 			public static final String contact_textbox = "//input[@id='jform_contact']";
 			public static final String email_textbox = "//input[@id='jform_email']";
 			public static final String status_dropdown ="//select[@id='jform_state']";

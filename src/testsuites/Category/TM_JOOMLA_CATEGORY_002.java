@@ -29,8 +29,12 @@ public class TM_JOOMLA_CATEGORY_002 extends ac_CategoryPage {
 		CategoryPage.fillInfoCategory(category_title, null, null, null, "save & close");
 		
 		verifyTrue(doesitemExist(driver, category_title));
+		
 		clearText(driver, in_CategoryPage.filter_textbox);
 		click(driver, in_CategoryPage.search_button);
+		CategoryPage.searchItem(driver, category_title);
+		verifyTrue(doesitemExist(driver, category_title));
+		
 		
 	}
 	

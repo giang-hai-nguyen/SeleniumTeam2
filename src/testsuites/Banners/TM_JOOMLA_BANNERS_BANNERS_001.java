@@ -43,35 +43,35 @@ public class TM_JOOMLA_BANNERS_BANNERS_001 extends ac_BannersPage {
 		
 	}
 	
-	@Test (description = "Verify that user can unpublish a banner")
-	public void TC_JOOMLA_BANNERS_BANNERS_004()
-	{
-		BannerPage.selectCheckboxItem(driver, name_modified);
-		BannerPage.clickToolbarButton(driver, "unpublish");
-		verifyTrue(BannerPage.doesTextPresent(driver, message_unpublish));
-		verifyTrue(getitemStatus(driver, in_ContactsPage.publish_status_icon, name_modified).equals("state unpublish"));
-	}
-	
-	@Test (description = "Verify that user can archive a banner")
-	public void TC_JOOMLA_BANNERS_BANNERS_005()
-	{
-		BannerPage.selectCheckboxItem(driver, name_modified);
-		BannerPage.clickToolbarButton(driver, "archive");
-		verifyTrue(BannerPage.doesTextPresent(driver, message_archive));
-		BannerPage.selectitems(driver, in_ContactsPage.filter_state_dropdown, "Archived");
-		verifyTrue(BannerPage.doesitemExist(driver, name_modified));
-	}
-	
-	@Test (description ="Verify that user can send a banner to trash")
-	public void TC_JOOMLA_BANNERS_BANNERS_007()
-	{
-		BannerPage.selectCheckboxItem(driver, name_modified);
-		BannerPage.clickToolbarButton(driver, "trash");
-		verifyTrue(BannerPage.doesTextPresent(driver, message_trash));
-		BannerPage.selectitems(driver, in_ContactsPage.filter_state_dropdown, "Trashed");
-		verifyTrue(BannerPage.doesitemExist(driver, name_modified));
-	}
-	
+//	@Test (description = "Verify that user can unpublish a banner")
+//	public void TC_JOOMLA_BANNERS_BANNERS_004()
+//	{
+//		BannerPage.selectCheckboxItem(driver, name_modified);
+//		BannerPage.clickToolbarButton(driver, "unpublish");
+//		verifyTrue(BannerPage.doesTextPresent(driver, message_unpublish));
+//		verifyTrue(getitemStatus(driver, in_ContactsPage.publish_status_icon, name_modified).equals("state unpublish"));
+//	}
+//	
+//	@Test (description = "Verify that user can archive a banner")
+//	public void TC_JOOMLA_BANNERS_BANNERS_005()
+//	{
+//		BannerPage.selectCheckboxItem(driver, name_modified);
+//		BannerPage.clickToolbarButton(driver, "archive");
+//		verifyTrue(BannerPage.doesTextPresent(driver, message_archive));
+//		BannerPage.selectitems(driver, in_ContactsPage.filter_state_dropdown, "Archived");
+//		verifyTrue(BannerPage.doesitemExist(driver, name_modified));
+//	}
+//	
+//	@Test (description ="Verify that user can send a banner to trash")
+//	public void TC_JOOMLA_BANNERS_BANNERS_007()
+//	{
+//		BannerPage.selectCheckboxItem(driver, name_modified);
+//		BannerPage.clickToolbarButton(driver, "trash");
+//		verifyTrue(BannerPage.doesTextPresent(driver, message_trash));
+//		BannerPage.selectitems(driver, in_ContactsPage.filter_state_dropdown, "Trashed");
+//		verifyTrue(BannerPage.doesitemExist(driver, name_modified));
+//	}
+//	
 	@AfterClass
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);

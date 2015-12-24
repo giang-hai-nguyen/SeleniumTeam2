@@ -12,6 +12,7 @@ public class in_CategoryPage {
 		public static final String checkin_button= "//li[@id='toolbar-checkin']/a/span";
 		public static final String trash_button= "//li[@id='toolbar-trash']/a/span";
 		public static final String help_button= "//li[@id='toolbar-help']/a/span";
+
 		
 		//Filter/Sort, Search, Table
 		
@@ -42,5 +43,5 @@ public class in_CategoryPage {
 		public static final String save_button ="/li[@id='toolbar-apply']/a/span";
 		public static final String saveclose_button="//li[@id='toolbar-save']/a/span";
 		public static final String savenew_button="//li[@id='toolbar-save-new']/a/span";
-		public static final String cancel_button="[@id='toolbar-cancel']/a/span";
+		public static final String cancel_button= "//li[@id='toolbar-cancel']/a/span";
 	}

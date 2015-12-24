@@ -156,12 +156,19 @@ public class CommonElements extends Initialize {
 	        }
 	    }
 	 
+	 public boolean doesitemExist(WebDriver driver, String item)
+	 {
+		 searchItem(driver, item);
+		 return doesElementExistByType(driver,"link" , item);
+	 }
+	 
 	 public boolean doesElementExistByType(WebDriver driver, String type, String item) 
 	 {
 		 Boolean check = null;
+		 
 		 if (type == "link") {
 			 check = driver.findElement(By.linkText(item)).isDisplayed();
-	  }
+		 }
 	  return check;
 	 }
 	 
@@ -191,9 +198,6 @@ public class CommonElements extends Initialize {
 	 {
 		 try {
 				element = driver.findElement(By.xpath(String.format(control, message)));
-//				String temp = element.getText();
-//				boolean check = temp.contains(message);
-//				return check;  
 				return element.isDisplayed();
 			} 
 			catch (Exception e) {
@@ -205,11 +209,6 @@ public class CommonElements extends Initialize {
 		 return doesTextDisplay(driver, in_AdminstratorPage.messageDynamic, expectedMessage);
 	 }
 	 
-	 public boolean doesitemExist(WebDriver driver, String item)
-	 {
-		 searchItem(driver, item);
-		 return doesElementExistByType(driver, "link", item);
-	 }
 	 /**
 	  * @author: Giang Nguyen
 	  * @edit by: 

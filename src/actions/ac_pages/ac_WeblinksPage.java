@@ -27,19 +27,14 @@ public class ac_WeblinksPage extends ac_common.CommonElements {
 	public void fillInfoWeblinks(String name, String url, String status, String saveoption){
 		//click(driver, int_ArticlesPage.new_button);
 		if (name != null)
-			//driver.findElement(By.xpath(int_NewArtPage.title_texbox)).clear();
 			clearText(driver, in_WeblinksPage.title_texbox);
 			enter(driver, in_WeblinksPage.title_texbox, name);
 		if (url != null)
-				//driver.findElement(By.xpath(int_NewArtPage.title_texbox)).clear();
-				clearText(driver, in_WeblinksPage.url_texbox);
-				enter(driver, in_WeblinksPage.url_texbox, url);
-		if (status != null){
+			clearText(driver, in_WeblinksPage.url_texbox);
+			enter(driver, in_WeblinksPage.url_texbox, url);
+		if (status != null)
 			selectitems(driver, in_WeblinksPage.status_dropdown, status);
-			//Select select_state = new Select (driver.findElement(By.xpath(int_NewArtPage.status_dropdown)));
-		    //select_state.selectByVisibleText(state);
-		}		
-		
+							
 		if (saveoption == "save")
 			click(driver, in_WeblinksPage.save_button);
 		else if (saveoption == "save & close")

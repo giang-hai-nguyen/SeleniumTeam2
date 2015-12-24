@@ -122,16 +122,14 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	private ac_AdministratorPage AdminPage;
 	private ac_WeblinksPage WeblinksPage;
 	
-	public String weblinks_title = randUniqueString("Test Weblink");
-	public String weblinks_title_modified = randUniqueString("Test Weblink modified");
-	public String weblinks_url = "http://www.joomla.org";
-	public String weblinks_url_modified = "http://www.google.com";
-	public String message_create = "Weblink successfully saved";
-	public String message_archive = "1 weblink successfully archived";
-	public String message_checkin = "1 weblink successfully checked in";
-	public String message_trash = "1 weblink successfully trashed";
-	public String status_unpublish = "Unpublished";
-	public String status_publish = "Published";
-	public String message_publish = "1 weblink successfully published";
-	public String message_unpublish = "1 weblink successfully unpublished";
+	private String weblinks_title = randUniqueString("Test Weblink");
+	private String weblinks_title_modified = randUniqueString("Test Weblink modified");
+	private String weblinks_url = "http://www.joomla.org";
+	private String weblinks_url_modified = "http://www.google.com";
+	private String message_create = "Weblink successfully saved";
+	private String message_archive = "1 weblink successfully archived";
+	private String message_checkin = "1 weblink successfully checked in";
+	private String message_trash = "1 weblink successfully trashed";
+	private String message_publish = "1 weblink successfully published";
+	private String message_unpublish = "1 weblink successfully unpublished";
 }

@@ -29,9 +29,13 @@ public class TM_JOOMLA_WEBLINKS_002 extends ac_WeblinksPage {
 		WeblinksPage.fillInfoWeblinks(weblinks_title, weblinks_url, null, "save & close");
 		WeblinksPage.searchItem(driver, weblinks_title);
 		
+		verifyTrue(doesTextPresent(driver, message_create));
 		verifyTrue(doesitemExist(driver, weblinks_title));
+		
 		clearText(driver, in_WeblinksPage.filter_textbox);
 		click(driver, in_WeblinksPage.search_button);
+		WeblinksPage.searchItem(driver, weblinks_title);
+		verifyTrue(doesitemExist(driver, weblinks_title));
 		
 	}
 	
@@ -59,4 +63,5 @@ public class TM_JOOMLA_WEBLINKS_002 extends ac_WeblinksPage {
 	
 	private String weblinks_title = randUniqueString("Test Weblink");
 	private String weblinks_url = "http://www.joomla.org";
+	private String message_create = "Weblink successfully saved";
 }

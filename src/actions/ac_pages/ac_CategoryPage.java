@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import config.Config;
 import in_pages.in_CategoryPage;
-import in_pages.in_WeblinksPage;
+
 
 public class ac_CategoryPage extends ac_common.CommonElements {
 	public ac_CategoryPage() {
@@ -73,7 +73,7 @@ public class ac_CategoryPage extends ac_common.CommonElements {
 	public ac_CategoryPage selectToolbarButtons(String itemName, String button){
 		selectToobarButton(driver, itemName, button);
 		if (button =="publish"||button =="unpublish"||button =="archive"||button =="checkin"||button =="trash"){
-			waitForControl(driver, in_WeblinksPage.message_header, Config.short_wait_time*10);
+			waitForControl(driver, in_CategoryPage.message_header, Config.short_wait_time*10);
 		}
 		return this;
 	}

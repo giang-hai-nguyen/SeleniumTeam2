@@ -1,6 +1,7 @@
 package BannerClient;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -20,8 +21,8 @@ public class TM_JOOMLA_BANNERS_CLIENTS_001 extends ac_BannerClientPage {
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 
-	@Test(description = "Verify that user can create a new category")
-	public void TC_JOOMLA_CATEGORY_MANAGER_001()
+	@Test(description = "Verify that user can create a new client")
+	public void TC_JOOMLA_BANNERS_CLIENTS_001()
 	{
 		BannerClientPage = new ac_BannerClientPage(driver);
 		BannerClientPage.navigatemenu(driver, "Components", "Banners", "Clients");
@@ -33,8 +34,8 @@ public class TM_JOOMLA_BANNERS_CLIENTS_001 extends ac_BannerClientPage {
 	}
 	
 	
-	@Test (description= "Verify that user can edit a category")
-	public void TC_JOOMLA_CATEGORY_MANAGER_002()
+	@Test (description= "Verify that user can edit a client")
+	public void TC_JOOMLA_BANNERS_CLIENTS_002()
 	{
 		BannerClientPage.selectCheckboxItem(driver, bannerclient_title);
 		BannerClientPage.click(driver, in_BannerClientPage.edit_button);
@@ -45,8 +46,8 @@ public class TM_JOOMLA_BANNERS_CLIENTS_001 extends ac_BannerClientPage {
 	}
 	
 	
-	@Test (description = "Verify that user can unpublish a category")
-	public void TC_JOOMLA_CATEGORY_MANAGER_003()
+	@Test (description = "Verify that user can unpublish a client")
+	public void TC_JOOMLA_BANNERS_CLIENTS_003()
 	{
 		BannerClientPage.selectCheckboxItem(driver, bannerclient_title_modified);
 		BannerClientPage.clickToolbarButton(driver, in_AdminstratorPage.toolbar_unpublish);
@@ -56,7 +57,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_001 extends ac_BannerClientPage {
 		
 	}
 
-	@Test (description = "Verify that user can publish a category")
+	@Test (description = "Verify that user can publish a client")
 	public void TC_JOOMLA_CATEGORY_MANAGER_004()
 	{
 		BannerClientPage.selectCheckboxItem(driver, bannerclient_title_modified);
@@ -66,7 +67,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_001 extends ac_BannerClientPage {
 		verifyTrue(getitemStatus(driver, in_BannerClientPage.publish_status_icon, bannerclient_title_modified).equals("state publish"));
 	}
 	
-	@Test (description = "Verify that user can archive a category")
+	@Test (description = "Verify that user can archive a client")
 	public void TC_JOOMLA_CATEGORY_MANAGER_005()
 	{
 		BannerClientPage.selectCheckboxItem(driver, bannerclient_title_modified);
@@ -77,29 +78,8 @@ public class TM_JOOMLA_BANNERS_CLIENTS_001 extends ac_BannerClientPage {
 		verifyTrue(doesitemExist(driver, bannerclient_title_modified));
 	}
 	
-	@Test (description = "Verify that user can send a category to trash")
-	public void TC_JOOMLA_CATEGORY_MANAGER_006()
-	{
-		BannerClientPage.selectCheckboxItem(driver, bannerclient_title_modified);
-		BannerClientPage.click(driver, in_BannerClientPage.trash_button);
-	
-		verifyTrue(doesTextPresent(driver, message_trash));
-		clearText(driver, in_BannerClientPage.filter_textbox);
-		selectitems(driver, in_BannerClientPage.status_filter_dropdown, "Trashed");
-		verifyTrue(doesitemExist(driver, bannerclient_title_modified));
-	}
-	
-	
-	@Test (description = "Verify that user can browse category help page")
-	public void TC_JOOMLA_CATEGORY_MANAGER_007()
-	{
-		BannerClientPage.click(driver, in_BannerClientPage.help_button);
-		
-	
-		
-	}
-	
-	//@AfterClass
+
+	@AfterClass
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
 		AdminPage.Logout();		
@@ -116,8 +96,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_001 extends ac_BannerClientPage {
 	public String bannerclient_title_modified = randUniqueString("Test Banner Client modified");
 	public String message_create = "Client successfully saved";
 	public String message_archive = "1 client successfully archived";
-	public String message_checkin = "1 client successfully checked in";
-	public String message_trash = "1 client successfully trashed";
+	
 	public String status_unpublish = "Unpublished";
 	public String status_publish = "Published";
 	public String message_publish = "1 client successfully published";
