@@ -1,6 +1,7 @@
 package Weblinks;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -44,7 +45,7 @@ public class TM_JOOMLA_WEBLINKS_002 extends ac_WeblinksPage {
 		
 	}
 	
-	//@AfterClass
+	@AfterClass
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
 		AdminPage.Logout();		
