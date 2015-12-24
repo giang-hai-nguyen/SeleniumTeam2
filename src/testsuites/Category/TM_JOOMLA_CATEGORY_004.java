@@ -1,6 +1,7 @@
 package Category;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -11,6 +12,7 @@ import config.Config;
 import in_pages.in_CategoryPage;
 
 public class TM_JOOMLA_CATEGORY_004 extends ac_CategoryPage {
+	
 	@BeforeClass
 	public void Setup() {
 		driver = openBrowser();
@@ -31,7 +33,7 @@ public class TM_JOOMLA_CATEGORY_004 extends ac_CategoryPage {
 	}
 	
 	
-//	@AfterClass
+	@AfterClass
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
 		AdminPage.Logout();		

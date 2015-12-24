@@ -100,6 +100,6 @@ public class TM_JOOMLA_CONTACT_001 extends ac_ContactsPage
 	private String state_unpublish = "Unpublished";
 	private String message_publish = "1 contact successfully published";
 	private String message_unpublish = "1 contact successfully unpublished";
-	private String message_archive = "1 contact archived";
+	private String message_archive = "1 contact successfully archived";
 	private String message_trash = "1 contact successfully trashed";
 }

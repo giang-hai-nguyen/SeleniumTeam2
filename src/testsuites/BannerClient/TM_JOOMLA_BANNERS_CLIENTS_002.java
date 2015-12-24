@@ -3,6 +3,7 @@ package BannerClient;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.server.handler.SwitchToWindow;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 import ac_common.ac_AdministratorPage;
@@ -83,7 +84,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_002 extends ac_BannerClientPage {
 		verifyTrue(doesitemExist(driver, bannerclient_title));
 	}
 	
-	//@AfterClass
+	@AfterClass
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
 		AdminPage.Logout();		

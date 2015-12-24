@@ -45,7 +45,7 @@ public class TM_JOOMLA_ARTICLE_002 extends ac_ArticlesPage
 	private ac_AdministratorPage AdminPage;
 	private ac_ArticlesPage ArticlePage;
 	
-	private String title = randUniqueString("Test Article");
+	private String title = randUniqueString("Article");
 	private String message_create = "Article successfully saved";
 	private String arttext = "this is article content";
 	private String category = "- - Sample Data-Articles";
