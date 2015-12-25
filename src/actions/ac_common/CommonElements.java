@@ -1,6 +1,7 @@
 package ac_common;
 
 import java.util.Calendar;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -156,10 +157,30 @@ public class CommonElements extends Initialize {
 	        }
 	    }
 	 
+	 //===========Hang add=========
+	 public List<WebElement> findListElements(WebDriver driver, String control, String property){
+		 List<WebElement> lElement = driver.findElements(By.xpath(String.format(control, property)));
+		 return lElement;
+		}
+		
+	 public int getTableRows(WebDriver driver, String tableXpath){
+		 String tableRowXpath = "%s/tbody/tr";
+		 int rows = findListElements(driver, tableRowXpath, tableXpath).size();
+		 return rows;
+		}
+	 //=======================
+	 
 	 public boolean doesitemExist(WebDriver driver, String item)
 	 {
 		 searchItem(driver, item);
 		 return doesElementExistByType(driver,"link" , item);
+	 }
+	 
+	 public boolean doesitemNotExist(WebDriver driver, String item)
+	 {
+		 searchItem(driver, item);
+		 int numOfRow= getTableRows(driver, "//table");
+		 return numOfRow==0;
 	 }
 	 
 	 public boolean doesElementExistByType(WebDriver driver, String type, String item) 
@@ -169,6 +190,7 @@ public class CommonElements extends Initialize {
 		 if (type == "link") {
 			 check = driver.findElement(By.linkText(item)).isDisplayed();
 		 }
+		 		 
 	  return check;
 	 }
 	 

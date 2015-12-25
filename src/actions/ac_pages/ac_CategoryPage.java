@@ -26,7 +26,7 @@ public class ac_CategoryPage extends ac_common.CommonElements {
 	 * @edit by: 
 	 */
 	public void fillInfoCategory(String name, String status, String access, String language, String saveoption){
-		//click(driver, int_ArticlesPage.new_button);
+		
 		if (name != null)
 			clearText(driver, in_CategoryPage.title_texbox);
 			enter(driver, in_CategoryPage.title_texbox, name);
