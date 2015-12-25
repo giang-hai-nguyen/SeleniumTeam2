@@ -28,7 +28,7 @@ public class TM_JOOMLA_CATEGORY_004 extends ac_CategoryPage {
 		CategoryPage.click(driver, in_CategoryPage.new_button);
 		CategoryPage.fillInfoCategory(category_title, null, null, null, "cancel");
 		
-		verifyFalse(doesitemExist(driver, category_title));
+		verifyTrue(doesitemNotExist(driver, category_title));
 				
 	}
 	
