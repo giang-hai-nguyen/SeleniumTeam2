@@ -205,13 +205,13 @@ public abstract class CommonElements extends Initialize {
 		{
 			// Store the current window handle
 			String parentWindowHandle = driver.getWindowHandle();
-			//Open new window
-			//clickToolbarButton(driver, "help");
+			// switch to child window
 			for(String winHandle : driver.getWindowHandles()){
 				driver.switchTo().window(winHandle);
 			}
 			boolean check = doesControlExist(driver, control);
 			driver.close();
+			// switch back parent window
 			driver.switchTo().window(parentWindowHandle);
 			return check;
 		}
