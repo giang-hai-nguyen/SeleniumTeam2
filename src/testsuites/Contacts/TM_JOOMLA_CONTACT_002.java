@@ -44,7 +44,7 @@ public class TM_JOOMLA_CONTACT_002 extends ac_ContactsPage
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
 		AdminPage.Logout();		
-		driver.close();
+		closeBrowser();
 	}
 	
 	private WebDriver driver;

@@ -37,7 +37,7 @@ public class in_WeblinksPage {
 	
 	//Save, Save & close, Save & New, Cancel buttons 
 	
-	public static final String save_button ="/li[@id='toolbar-apply']/a/span";
+	public static final String save_button ="//li[@id='toolbar-apply']/a/span";
 	public static final String saveclose_button="//li[@id='toolbar-save']/a/span";
 	public static final String savenew_button="//li[@id='toolbar-save-new']/a/span";
 	public static final String cancel_button="[@id='toolbar-cancel']/a/span";

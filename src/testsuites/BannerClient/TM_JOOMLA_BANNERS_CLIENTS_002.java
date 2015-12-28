@@ -88,7 +88,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_002 extends ac_BannerClientPage {
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
 		AdminPage.Logout();		
-		driver.close();
+		closeBrowser();
 	}
 	
 	private WebDriver driver;

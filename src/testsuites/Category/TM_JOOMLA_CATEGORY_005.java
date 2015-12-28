@@ -46,7 +46,7 @@ public class TM_JOOMLA_CATEGORY_005 extends ac_CategoryPage {
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
 		AdminPage.Logout();		
-		driver.close();
+		closeBrowser();
 	}
 	
 	private WebDriver driver;
