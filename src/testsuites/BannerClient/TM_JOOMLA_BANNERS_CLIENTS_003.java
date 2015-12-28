@@ -42,7 +42,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_003 extends ac_BannerClientPage {
 		verifyTrue(doesitemExist(driver, bannerclient_title2));			
 	}
 	
-	//ffff
+	
 	@AfterClass
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
