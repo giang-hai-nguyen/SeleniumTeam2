@@ -2,7 +2,7 @@ package in_pages;
 
 public class in_BannerClientPage {
 	
-			//BannerClient Page options
+			//BannerClient Page options abc
 	
 			public static final String new_button = "//li[@id='toolbar-new']/a/span";
 			public static final String edit_button = "//li[@id='toolbar-edit']/a/span";

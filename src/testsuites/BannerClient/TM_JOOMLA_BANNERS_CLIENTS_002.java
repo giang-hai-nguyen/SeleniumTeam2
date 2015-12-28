@@ -43,14 +43,14 @@ public class TM_JOOMLA_BANNERS_CLIENTS_002 extends ac_BannerClientPage {
 	}
 	
 	
-//	@Test (description = "Verify that user can browse client help page")
-//	public void TC_JOOMLA_BANNERS_CLIENTS_007()
-//	{
-//		BannerClientPage.click(driver, in_BannerClientPage.help_button);
-//		
-//		
-//		
-//	}
+	@Test (description = "Verify that user can browse client help page")
+	public void TC_JOOMLA_BANNERS_CLIENTS_007()
+	{
+		BannerClientPage.click(driver, in_BannerClientPage.help_button);
+		
+		
+		
+	}
 	
 	@Test (description = "Verify that user can search a client  by using filter textbox")
 	public void TC_JOOMLA_BANNERS_CLIENTS_008()
