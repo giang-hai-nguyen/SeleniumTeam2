@@ -41,4 +41,7 @@ public class in_ContactsPage {
 	// iframe
 	public static final String otherinfo_iframe = "//iframe[@id='jform_misc_ifr']";
 	public static final String frame_textbox ="//body[@id='tinymce']";
+	
+	//help page
+	public static final String help_text ="//p[contains(text(),'It is used to manage contacts in your Joomla! website.')]";
 }

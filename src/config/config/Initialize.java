@@ -19,7 +19,6 @@ public class Initialize {
 public WebDriver closeBrowser() {
 		
 		driver.close();
-		driver.quit();
         
         return driver;
 	} 

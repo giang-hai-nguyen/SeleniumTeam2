@@ -17,11 +17,7 @@ public class TM_JOOMLA_CONTACT_002 extends ac_ContactsPage
 		LoginPage = new ac_LoginPage(driver);
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
-		
-	/*
-	 *Create by: Giang Nguyen
-	 *Edit by:				
-	 */
+	
 	@Test (description = "Verify user can check in a contact")
 	public void TC_JOOMLA_CONTACTS_006()
 	{
@@ -38,6 +34,14 @@ public class TM_JOOMLA_CONTACT_002 extends ac_ContactsPage
 		ContactPage.clickToolbarButton(driver, "checkin");
 		verifyTrue(ContactPage.doesTextPresent(driver, message_checkin));
 		verifyTrue(ContactPage.getitemStatus(driver, in_ContactsPage.checkin_status_icon, name).equals(state_checkin));
+	}
+	
+	@Test (description = "Verify user can access contact's help section")
+	public void TC_JOOMLA_CONTACTS_008()
+	{
+		ContactPage.navigatemenu(driver, "Components", "Contacts", "Contacts");
+		clickToolbarButton(driver, "help");
+		verifyTrue(ContactPage.doesContactHelpPageExist(driver, in_ContactsPage.help_text));
 	}
 	
 	@AfterClass

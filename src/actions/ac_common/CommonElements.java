@@ -2,6 +2,7 @@ package ac_common;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -143,7 +144,13 @@ public abstract class CommonElements extends Initialize {
 	 
 	public boolean doesControlExist(WebDriver driver, String control)
 	{
-		element = findAnElement(driver, control);
+		try
+		{
+			element = findAnElement(driver, control);
+		} catch (NoSuchElementException e)
+		{
+			return false;
+		}
 		return element.isDisplayed();
 	}
 	
@@ -189,7 +196,26 @@ public abstract class CommonElements extends Initialize {
 	 {
 		 return doesTextDisplay(driver, in_AdminstratorPage.messageDynamic, expectedMessage);
 	 }
-
+	 
+	 /**
+	  * @author: Giang Nguyen
+	  * @edit by:
+	  */
+	 public boolean doesContactHelpPageExist(WebDriver driver, String control)
+		{
+			// Store the current window handle
+			String parentWindowHandle = driver.getWindowHandle();
+			//Open new window
+			//clickToolbarButton(driver, "help");
+			for(String winHandle : driver.getWindowHandles()){
+				driver.switchTo().window(winHandle);
+			}
+			boolean check = doesControlExist(driver, control);
+			driver.close();
+			driver.switchTo().window(parentWindowHandle);
+			return check;
+		}
+	 
 	 /****************** Method for moving ********************/
 	
 	/**
