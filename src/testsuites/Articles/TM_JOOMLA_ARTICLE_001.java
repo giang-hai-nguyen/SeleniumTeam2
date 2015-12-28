@@ -98,7 +98,7 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
 		AdminPage.Logout();		
-		driver.close();
+		closeBrowser();
 	}
 	
 	private WebDriver driver;
