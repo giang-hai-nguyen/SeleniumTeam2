@@ -41,7 +41,7 @@ public class TM_JOOMLA_CONTACT_002 extends ac_ContactsPage
 	{
 		ContactPage.navigatemenu(driver, "Components", "Contacts", "Contacts");
 		clickToolbarButton(driver, "help");
-		verifyTrue(ContactPage.doesContactHelpPageExist(driver, in_ContactsPage.help_text));
+		verifyTrue(ContactPage.doesHelpPageExist(driver, in_ContactsPage.help_text));
 	}
 	
 	@AfterClass
