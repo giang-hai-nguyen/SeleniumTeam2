@@ -21,5 +21,8 @@ public class in_AdminstratorPage {
 	public static final String toolbar_option = "popup-options";
 	public static final String toolbar_help = "help";
 	
-	
+	// filter
+	public static final String filter_textbox = "//input[@id='filter_search']";
+	public static final String search_button = "//button[@type='submit']";
+	public static final String clear_button = "//button[contains(text(),'Clear')]";
 }

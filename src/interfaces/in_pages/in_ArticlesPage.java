@@ -3,8 +3,7 @@ package in_pages;
 public class in_ArticlesPage {
 	
 	/***************Main Article Page***************/	
-	public static final String filter_textbox = "//input[@id='filter_search']";
-	public static final String search_button = "//button[@type='submit']";
+
 	public static final String state_filter_dropdown = "//select[@name='filter_published']";
 	public static final String category_filter_dropdown = "//select[@name='filter_category_id']";
 	public static final String access_filter_dropdown = "//select[@name='filter_access']";

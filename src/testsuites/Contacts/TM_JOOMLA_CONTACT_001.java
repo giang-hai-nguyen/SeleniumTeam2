@@ -31,7 +31,7 @@ public class TM_JOOMLA_CONTACT_001 extends ac_ContactsPage
 		verifyTrue(ContactPage.doesitemExist(driver, name));
 	}
 	
-	@Test (description = "Verify user can edit a contact")
+	@Test (description = "Verify user can edit a contact", dependsOnMethods = {"TC_JOOMLA_CONTACTS_001"})
 	public void TC_JOOMLA_CONTACTS_002()
 	{
 		ContactPage.selectCheckboxItem(driver, name);

@@ -83,13 +83,13 @@ public abstract class CommonElements extends Initialize {
 	
 	public void searchItem(WebDriver driver, String searchtext) 
 	 {
-		WebElement txtbox = driver.findElement(By.xpath(in_pages.in_ArticlesPage.filter_textbox));
+		WebElement txtbox = driver.findElement(By.xpath(in_AdminstratorPage.filter_textbox));
 		String a = txtbox.getAttribute("value").toString(); 
 		if ( !a.equals(searchtext)) {
 			txtbox.clear();
 			waitForPageLoad(Config.short_wait_time);
 			txtbox.sendKeys(searchtext);
-			driver.findElement(By.xpath(in_pages.in_ArticlesPage.search_button)).click();
+			driver.findElement(By.xpath(in_AdminstratorPage.search_button)).click();
 		}
 	 }
 	public List<WebElement> findListElements(WebDriver driver, String control, String property){
