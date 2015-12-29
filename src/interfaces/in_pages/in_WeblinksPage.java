@@ -42,5 +42,8 @@ public class in_WeblinksPage {
 	public static final String savenew_button="//li[@id='toolbar-save-new']/a/span";
 	public static final String cancel_button="[@id='toolbar-cancel']/a/span";
 	
+	//Help page
+	public static final String help_text= "//p[contains (text (), 'The Web Links Manager allows you to manage links to other web sites and organize them into categories')]";
+	
 	
 }

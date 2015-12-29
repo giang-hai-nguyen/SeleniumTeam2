@@ -85,6 +85,8 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 		
 		verifyTrue(doesTextPresent(driver, message_checkin));
 		clearText(driver, in_WeblinksPage.filter_textbox);
+		
+		
 	}
 	
 	
@@ -104,7 +106,9 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	@Test (description = "Verify user can access weblink's help section")
 	public void TC_JOOMLA_WEBLINKS_008()
 	{
+		WeblinksPage.navigatemenu(driver, "Components", "Weblinks", null);
 		WeblinksPage.click(driver, in_WeblinksPage.help_button);
+		verifyTrue(WeblinksPage.doesHelpPageExist(driver, in_WeblinksPage.help_text));
 		
 	
 		
