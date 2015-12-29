@@ -10,6 +10,7 @@ import ac_pages.ac_CategoryPage;
 import ac_pages.ac_LoginPage;
 import config.Config;
 import in_common.in_AdminstratorPage;
+import in_pages.in_BannerClientPage;
 import in_pages.in_CategoryPage;
 
 
@@ -95,11 +96,11 @@ public class TM_JOOMLA_CATEGORY_001 extends ac_CategoryPage {
 	@Test (description = "Verify that user can browse category help page")
 	public void TC_JOOMLA_CATEGORY_MANAGER_007()
 	{
+		CategoryPage.navigatemenu(driver, "Content", "Category Manager", null);
 		CategoryPage.click(driver, in_CategoryPage.help_button);
-		
-	
-		
+		verifyTrue(CategoryPage.doesHelpPageExist(driver, in_CategoryPage.help_text));
 	}
+	
 	
 	@AfterClass
 	public void teardown(){

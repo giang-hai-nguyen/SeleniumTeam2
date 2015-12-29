@@ -45,4 +45,7 @@ public class in_CategoryPage {
 		public static final String savenew_button="//li[@id='toolbar-save-new']/a/span";
 		public static final String saveascopy_button = "//li[@id='toolbar-save-copy']/a/span";
 		public static final String cancel_button= "//li[@id='toolbar-cancel']/a/span";
+		
+		//Help page
+		public static final String help_text = "//p[contains (text (), 'The Category Manager is where you can edit existing Categories and create new ones')]";
 	}
