@@ -201,7 +201,7 @@ public abstract class CommonElements extends Initialize {
 	  * @author: Giang Nguyen
 	  * @edit by:
 	  */
-	 public boolean doesContactHelpPageExist(WebDriver driver, String control)
+	 public boolean doesHelpPageExist(WebDriver driver, String control)
 		{
 			// Store the current window handle
 			String parentWindowHandle = driver.getWindowHandle();

@@ -2,7 +2,7 @@ package in_pages;
 
 public class in_BannerClientPage {
 	
-			//BannerClient Page options abc
+			//BannerClient Page options
 	
 			public static final String new_button = "//li[@id='toolbar-new']/a/span";
 			public static final String edit_button = "//li[@id='toolbar-edit']/a/span";
@@ -43,4 +43,7 @@ public class in_BannerClientPage {
 			public static final String savenew_button="//li[@id='toolbar-save-new']/a/span";
 			public static final String saveascopy_button = "//li[@id='toolbar-save-copy']/a/span";
 			public static final String cancel_button= "//li[@id='toolbar-cancel']/a/span";
+			
+			//Help page
+			public static final String help_text = "//p[contains(text(), 'It is used to add or edit banner clients')]";
 }

@@ -11,6 +11,7 @@ import ac_pages.ac_BannerClientPage;
 import ac_pages.ac_LoginPage;
 import config.Config;
 import in_pages.in_BannerClientPage;
+import in_pages.in_ContactsPage;
 import in_pages.in_WeblinksPage;
 
 public class TM_JOOMLA_BANNERS_CLIENTS_002 extends ac_BannerClientPage {
@@ -46,9 +47,9 @@ public class TM_JOOMLA_BANNERS_CLIENTS_002 extends ac_BannerClientPage {
 	@Test (description = "Verify that user can browse client help page")
 	public void TC_JOOMLA_BANNERS_CLIENTS_007()
 	{
+		BannerClientPage.navigatemenu(driver, "Components", "Banners", "Clients");
 		BannerClientPage.click(driver, in_BannerClientPage.help_button);
-		
-		
+		verifyTrue(BannerClientPage.doesHelpPageExist(driver, in_BannerClientPage.help_text));
 		
 	}
 	
