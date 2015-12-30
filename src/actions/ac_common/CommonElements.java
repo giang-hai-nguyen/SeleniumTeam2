@@ -239,15 +239,16 @@ public abstract class CommonElements extends Initialize {
 	 */
 	public void navigatemenu(WebDriver driver, String menuitem1, String menuitem2, String menuitem3 )
 	{
-		String menuitem1_path = "//a[text()='" + menuitem1 + "']"; 
+		String menuitem1_path = "//a[contains(text(),'" + menuitem1 + "')]"; 
 		String menuitem2_path = menuitem1_path + "/../ul/li/a[text()='" + menuitem2 + "']";
 		String menuitem3_path = menuitem2_path + "/../ul/li/a[text()='" + menuitem3 + "']";
 		String temp = null;
 		Actions action = new Actions(driver);
 		if (menuitem1 != null)
 		{
-			action.moveToElement(driver.findElement(By.xpath(menuitem1_path)));
-			temp = menuitem1_path; 
+			WebElement temp2 = driver.findElement(By.xpath(menuitem1_path));
+			temp2.click();
+			//action.click(driver.findElement(By.xpath(menuitem1_path)));
 		}
 		if (menuitem2 != null)
 		{
