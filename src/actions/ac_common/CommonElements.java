@@ -94,7 +94,7 @@ public abstract class CommonElements extends Initialize {
 			waitForPageLoad(Config.short_wait_time/2);
 			txtbox.sendKeys(searchtext);
 			driver.findElement(By.xpath(in_AdminstratorPage.search_button)).click();
-			waitForPageLoad(Config.short_wait_time/2);
+			waitForPageLoad(Config.short_wait_time);
 		}
 	 }
 	public List<WebElement> findListElements(WebDriver driver, String control, String property){

@@ -21,7 +21,7 @@ public class ac_LoginPage extends ac_common.CommonElements{
 		enter(driver, in_pages.in_LoginPage.username_textbox, Username);
 		enter(driver, in_pages.in_LoginPage.password_textbox, Password);
 		click(driver,in_pages.in_LoginPage.login_button);
-		waitForPageLoad(Config.short_wait_time);
+		waitForPageLoad(Config.short_wait_time/2);
 	}
 	
 	private WebDriver driver;

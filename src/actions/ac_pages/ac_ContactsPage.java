@@ -79,11 +79,12 @@ public class ac_ContactsPage extends ac_common.CommonElements {
 		{
 			selecttabs(driver, in_ContactsPage.otherInfo_tabs, "Miscellaneous Information");
 			click(driver, in_ContactsPage.image_frame_image_button);
+			waitForPageLoad(Config.short_wait_time/2);
 			switchToFrame(driver, in_ContactsPage.image_frame);
 			enter(driver, in_ContactsPage.image_frame_url_textbox, "images/"+ image);
 			click(driver, in_ContactsPage.image_frame_insert_button);
+			waitForPageLoad(Config.short_wait_time/2);
 			switchBackDefaultframe(driver);
-			waitForPageLoad(Config.short_wait_time);
 		}
 	}
 	
