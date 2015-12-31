@@ -64,7 +64,13 @@ public abstract class CommonElements extends Initialize {
 	public void selectCheckboxItem(WebDriver driver, String item) 
 	{
 		searchItem(driver, item);
-		driver.findElement(By.xpath("//td/div[a[contains(text(),'" + item + "')]]/../../td/input[@type='checkbox']")).click();
+		driver.findElement(By.xpath(String.format(in_AdminstratorPage.div_checkbox, item))).click();
+	}
+	
+	public void selectCheckboxItemWithoutDiv(WebDriver driver, String item) 
+	{
+		searchItem(driver, item);
+		driver.findElement(By.xpath(String.format(in_AdminstratorPage.without_div_checkbox, item))).click();
 	}
 	
 	/**

@@ -26,4 +26,9 @@ public class in_AdminstratorPage {
 	public static final String filter_textbox = "//input[@id='filter_search']";
 	public static final String search_button = "//button[@type='submit']";
 	public static final String clear_button = "//button/span[@class='icon-remove']";
+	
+	//checkbox
+	public static final String div_checkbox = "//td/div[a[contains(text(),'%s')]]/../../td/input[@type='checkbox']";
+	public static final String without_div_checkbox = "//td[a[contains(text(),'%s')]]/../../td/input[@type='checkbox']";
+	
 }
