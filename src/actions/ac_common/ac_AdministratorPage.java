@@ -17,6 +17,7 @@ public class ac_AdministratorPage extends ac_common.CommonElements{
 	}
 	
 	public void Logout(){		
+		click(driver, in_common.in_AdminstratorPage.drop_open);
 		click(driver, in_common.in_AdminstratorPage.logout_icon);
 	}
 	

@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 
@@ -51,16 +50,22 @@ public abstract class CommonElements extends Initialize {
 		driver.findElement(By.xpath(control)).clear();
 	}
 	
-	public void selectitems(WebDriver driver, String xpath, String item) 
+	public void selectitems(WebDriver driver, String xpath1, String xpath2, String item) 
 	{
-		 Select element= new Select (findAnElement (driver, xpath));
-		 element.selectByVisibleText(item);
+		WebElement element = findAnElement (driver, xpath1);
+		element.click();
+		driver.findElement(By.xpath(String.format(xpath2, item))).click();
+	}
+	
+	public void selecttabs(WebDriver driver, String xpath, String item) 
+	{
+		driver.findElement(By.xpath(String.format(xpath, item))).click();
 	}
 	
 	public void selectCheckboxItem(WebDriver driver, String item) 
 	{
 		searchItem(driver, item);
-		driver.findElement(By.xpath("//td[a[contains(text(),'" + item+ "')]]/../td/input[@type='checkbox']")).click();
+		driver.findElement(By.xpath("//td/div[a[contains(text(),'" + item + "')]]/../../td/input[@type='checkbox']")).click();
 	}
 	
 	/**
@@ -68,7 +73,7 @@ public abstract class CommonElements extends Initialize {
 	  * @edit by: 
 	  */
 	public void clickToolbarButton(WebDriver driver, String button) {
-		driver.findElement(By.xpath("//li[@id='toolbar-" + button + "']/a/span")).click();
+		driver.findElement(By.xpath("//div[@id='toolbar']/div[@id='toolbar-" + button + "']/button/span")).click();
 		waitForPageLoad(Config.short_wait_time/2);
 	}
 	/**

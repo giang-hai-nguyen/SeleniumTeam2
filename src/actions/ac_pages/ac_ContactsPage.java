@@ -32,16 +32,17 @@ public class ac_ContactsPage extends ac_common.CommonElements {
 			clearText(driver, in_ContactsPage.name_textbox);
 			enter(driver, in_ContactsPage.name_textbox, name);
 		if (category != null){
-			selectitems(driver, in_ContactsPage.category_dropdown, category);
+			selectitems(driver, in_ContactsPage.category_dropdown, in_ContactsPage.category_dropdown_values, category);
 		}
 		if (state != null){
-			selectitems(driver, in_ContactsPage.state_dropdown, state);
+			selectitems(driver, in_ContactsPage.state_dropdown,in_ContactsPage.state_dropdown_values, state);
 		}			
 		if (access != null){
-			selectitems(driver, in_ContactsPage.access_dropdown, access);
+			selectitems(driver, in_ContactsPage.access_dropdown,in_ContactsPage.access_dropdown_values, access);
 		}
 		if (otherInfo != null)
 		{
+			selecttabs(driver, in_ContactsPage.otherInfo_tabs, "Miscellaneous Information");
 			switchToFrame(driver, in_ContactsPage.otherinfo_iframe);
 			driver.findElement(By.xpath(in_ContactsPage.frame_textbox)).clear();
 			enter(driver, in_ContactsPage.frame_textbox, otherInfo);
@@ -58,16 +59,17 @@ public class ac_ContactsPage extends ac_common.CommonElements {
 			clearText(driver, in_ContactsPage.name_textbox);
 			enter(driver, in_ContactsPage.name_textbox, name);
 		if (category != null){
-			selectitems(driver, in_ContactsPage.category_dropdown, category);
+			selectitems(driver, in_ContactsPage.category_dropdown, in_ContactsPage.category_dropdown_values, category);
 		}
 		if (state != null){
-			selectitems(driver, in_ContactsPage.state_dropdown, state);
+			selectitems(driver, in_ContactsPage.state_dropdown,in_ContactsPage.state_dropdown_values, state);
 		}			
 		if (access != null){
-			selectitems(driver, in_ContactsPage.access_dropdown, access);
+			selectitems(driver, in_ContactsPage.access_dropdown,in_ContactsPage.access_dropdown_values, access);
 		}
 		if (otherInfo != null)
 		{
+			selecttabs(driver, in_ContactsPage.otherInfo_tabs, "Miscellaneous Information");
 			switchToFrame(driver, in_ContactsPage.otherinfo_iframe);
 			driver.findElement(By.xpath(in_ContactsPage.frame_textbox)).clear();
 			enter(driver, in_ContactsPage.frame_textbox, otherInfo);
@@ -92,16 +94,17 @@ public class ac_ContactsPage extends ac_common.CommonElements {
 			clearText(driver, in_ContactsPage.name_textbox);
 			enter(driver, in_ContactsPage.name_textbox, name);
 		if (category != null){
-			selectitems(driver, in_ContactsPage.category_dropdown, category);
+			selectitems(driver, in_ContactsPage.category_dropdown, in_ContactsPage.category_dropdown_values, category);
 		}
 		if (state != null){
-			selectitems(driver, in_ContactsPage.state_dropdown, state);
+			selectitems(driver, in_ContactsPage.state_dropdown,in_ContactsPage.state_dropdown_values, state);
 		}			
 		if (access != null){
-			selectitems(driver, in_ContactsPage.access_dropdown, access);
+			selectitems(driver, in_ContactsPage.access_dropdown,in_ContactsPage.access_dropdown_values, access);
 		}
 		if (otherInfo != null)
 		{
+			selecttabs(driver, in_ContactsPage.otherInfo_tabs, "Miscellaneous Information");
 			switchToFrame(driver, in_ContactsPage.otherinfo_iframe);
 			driver.findElement(By.xpath(in_ContactsPage.frame_textbox)).clear();
 			enter(driver, in_ContactsPage.frame_textbox, otherInfo);
@@ -131,22 +134,22 @@ public class ac_ContactsPage extends ac_common.CommonElements {
 	{
 		if (status != null)
 		{
-			selectitems(driver, in_ContactsPage.filter_state_dropdown, status);
+			selectitems(driver, in_ContactsPage.filter_state_dropdown, in_ContactsPage.filter_state_dropdown_values, status);
 			waitForPageLoad(Config.short_wait_time/2);
 		}
 		if (category != null)
 		{
-			selectitems(driver, in_ContactsPage.filter_category_dropdown, category);
+			selectitems(driver, in_ContactsPage.filter_category_dropdown,in_ContactsPage.filter_category_dropdown_values, category);
 			waitForPageLoad(Config.short_wait_time/2);
 		}	
 		if (access != null)
 		{
-			selectitems(driver, in_ContactsPage.filter_access_dropdown, access);
+			selectitems(driver, in_ContactsPage.filter_access_dropdown, in_ContactsPage.filter_access_dropdown_values, access);
 			waitForPageLoad(Config.short_wait_time/2);
 		}
 		if (language != null)
 		{
-			selectitems(driver, in_ContactsPage.filter_language_dropdown, language);
+			selectitems(driver, in_ContactsPage.filter_language_dropdown,in_ContactsPage.filter_language_dropdown_values, language);
 			waitForPageLoad(Config.short_wait_time/2);
 		}
 	}

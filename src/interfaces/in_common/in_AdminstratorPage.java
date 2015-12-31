@@ -1,9 +1,10 @@
 package in_common;
 
 public class in_AdminstratorPage {	
-	public static final String logout_icon = "//span[@class='logout']";
+	public static final String drop_open = "//div/ul[@class='nav nav-user pull-right']/li";
+	public static final String logout_icon = "//li[@class='dropdown open']/ul/li/a[text()='Logout']";
 	public static final String mainmenu="//ul[@id='menu']";
-	public static final String messageDynamic = "//li[contains(text(),'%s')]";
+	public static final String messageDynamic = "//div/p[contains(text(),'%s')]";
 	// Toolbar
 	public static final String toolbar_new = "new";
 	public static final String toolbar_edit = "edit";
@@ -24,5 +25,5 @@ public class in_AdminstratorPage {
 	// filter
 	public static final String filter_textbox = "//input[@id='filter_search']";
 	public static final String search_button = "//button[@type='submit']";
-	public static final String clear_button = "//button[contains(text(),'Clear')]";
+	public static final String clear_button = "//button/span[@class='icon-remove']";
 }
