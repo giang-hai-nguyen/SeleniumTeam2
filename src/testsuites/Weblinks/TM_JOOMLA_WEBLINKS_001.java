@@ -25,7 +25,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	{
 		WeblinksPage = new ac_WeblinksPage(driver);
 		WeblinksPage.navigatemenu(driver, "Components", "Weblinks", null);
-		WeblinksPage.click(driver, in_WeblinksPage.new_button);
+		WeblinksPage.clickToolbarButton(driver, "new");
 		WeblinksPage.fillInfoWeblinks(weblinks_title, weblinks_url, null, "save & close");
 		
 		verifyTrue(doesTextPresent(driver, message_create));
@@ -33,7 +33,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	}
 	
 	
-	@Test (description= "Verify user can edit a web link")
+	//@Test (description= "Verify user can edit a web link")
 	public void TC_JOOMLA_WEBLINKS_002()
 	{
 		WeblinksPage.selectCheckboxItem(driver, weblinks_title);
@@ -45,7 +45,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	}
 	
 	
-	@Test (description = "Verify user can unpublish a published web link")
+	//@Test (description = "Verify user can unpublish a published web link")
 	public void TC_JOOMLA_WEBLINKS_003()
 	{
 		WeblinksPage.selectCheckboxItem(driver, weblinks_title_modified);
@@ -56,7 +56,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 		
 	}
 
-	@Test (description = "Verify user can publish an unpublished web link")
+	//@Test (description = "Verify user can publish an unpublished web link")
 	public void TC_JOOMLA_WEBLINKS_004()
 	{
 		WeblinksPage.selectCheckboxItem(driver, weblinks_title_modified);
@@ -66,18 +66,18 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 		verifyTrue(getitemStatus(driver, in_WeblinksPage.publish_status_icon, weblinks_title_modified).equals("state publish"));
 	}
 	
-	@Test (description = "Verify user can move a web link to the archive")
-	public void TC_JOOMLA_WEBLINKS_005()
-	{
-		WeblinksPage.selectCheckboxItem(driver, weblinks_title_modified);
-		WeblinksPage.click(driver, in_WeblinksPage.archive_button);
-		
-		verifyTrue(doesTextPresent(driver, message_archive));
-		selectitems(driver, in_WeblinksPage.status_filter_dropdown, "Archived");
-		verifyTrue(doesitemExist(driver, weblinks_title_modified));
-	}
+//	@Test (description = "Verify user can move a web link to the archive")
+//	public void TC_JOOMLA_WEBLINKS_005()
+//	{
+//		WeblinksPage.selectCheckboxItem(driver, weblinks_title_modified);
+//		WeblinksPage.click(driver, in_WeblinksPage.archive_button);
+//		
+//		verifyTrue(doesTextPresent(driver, message_archive));
+//		selectitems(driver, in_WeblinksPage.status_filter_dropdown, "Archived");
+//		verifyTrue(doesitemExist(driver, weblinks_title_modified));
+//	}
 	
-	@Test (description = "Verify user can check-in a weblink")
+	//@Test (description = "Verify user can check-in a weblink")
 	public void TC_JOOMLA_WEBLINKS_006()
 	{
 		WeblinksPage.selectCheckboxItem(driver, weblinks_title_modified);
@@ -90,20 +90,20 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	}
 	
 	
-	@Test (description = "Verify user can move a web link to trash section")
-	public void TC_JOOMLA_WEBLINKS_007()
-	{
-		WeblinksPage.selectCheckboxItem(driver, weblinks_title_modified);
-		WeblinksPage.click(driver, in_WeblinksPage.trash_button);
+//	@Test (description = "Verify user can move a web link to trash section")
+//	public void TC_JOOMLA_WEBLINKS_007()
+//	{
+//		WeblinksPage.selectCheckboxItem(driver, weblinks_title_modified);
+//		WeblinksPage.click(driver, in_WeblinksPage.trash_button);
+//	
+//		verifyTrue(doesTextPresent(driver, message_trash));
+//		clearText(driver, in_WeblinksPage.filter_textbox);
+//		selectitems(driver, in_WeblinksPage.status_filter_dropdown, "Trashed");
+//		verifyTrue(doesitemExist(driver, weblinks_title_modified));
+//	}
 	
-		verifyTrue(doesTextPresent(driver, message_trash));
-		clearText(driver, in_WeblinksPage.filter_textbox);
-		selectitems(driver, in_WeblinksPage.status_filter_dropdown, "Trashed");
-		verifyTrue(doesitemExist(driver, weblinks_title_modified));
-	}
 	
-	
-	@Test (description = "Verify user can access weblink's help section")
+	//@Test (description = "Verify user can access weblink's help section")
 	public void TC_JOOMLA_WEBLINKS_008()
 	{
 		WeblinksPage.navigatemenu(driver, "Components", "Weblinks", null);
@@ -114,7 +114,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 		
 	}
 	
-	@AfterClass
+	//@AfterClass
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
 		AdminPage.Logout();		

@@ -31,7 +31,7 @@ public class TM_JOOMLA_CATEGORY_001 extends ac_CategoryPage {
 		CategoryPage.clickToolbarButton(driver, "new");
 		CategoryPage.fillInfoCategory(category_title, null, null, null);
 		CategoryPage.clickToolbarButton(driver, "save");
-		
+				
 		verifyTrue(doesTextPresent(driver, message_create));
 		verifyTrue(doesitemExist(driver, category_title));
 	}
@@ -40,47 +40,49 @@ public class TM_JOOMLA_CATEGORY_001 extends ac_CategoryPage {
 	@Test (description= "Verify that user can edit a category", dependsOnMethods = {"TC_JOOMLA_CATEGORY_MANAGER_001"})
 	public void TC_JOOMLA_CATEGORY_MANAGER_002()
 	{
-		CategoryPage.selectCheckboxItem(driver, category_title);
+		CategoryPage.selectCheckboxItemWithoutDiv(driver, category_title);
 		CategoryPage.clickToolbarButton(driver, "edit");
 		CategoryPage.fillInfoCategory(category_title_modified, null, null, null);
+		CategoryPage.clickToolbarButton(driver, "save");
 		
 		verifyTrue(doesTextPresent(driver, message_create));
 		verifyTrue(doesitemExist(driver, category_title_modified));
 	}
 	
 	
-//	@Test (description = "Verify that user can unpublish a category")
-//	public void TC_JOOMLA_CATEGORY_MANAGER_003()
-//	{
-//		CategoryPage.selectCheckboxItem(driver, category_title_modified);
-//		CategoryPage.clickToolbarButton(driver, in_AdminstratorPage.toolbar_unpublish);
-//			
-//		verifyTrue(doesTextPresent(driver, message_unpublish));
-//		verifyTrue(getitemStatus(driver, in_CategoryPage.publish_status_icon, category_title_modified).equals("state unpublish"));
-//		
-//	}
-//
-//	@Test (description = "Verify that user can publish a category")
-//	public void TC_JOOMLA_CATEGORY_MANAGER_004()
-//	{
-//		CategoryPage.selectCheckboxItem(driver, category_title_modified);
-//		CategoryPage.clickToolbarButton(driver, in_AdminstratorPage.toolbar_publish);
-//		
-//		verifyTrue(doesTextPresent(driver, message_publish));
-//		verifyTrue(getitemStatus(driver, in_CategoryPage.publish_status_icon, category_title_modified).equals("state publish"));
-//	}
-//	
-//	@Test (description = "Verify that user can archive a category")
-//	public void TC_JOOMLA_CATEGORY_MANAGER_005()
-//	{
-//		CategoryPage.selectCheckboxItem(driver, category_title_modified);
-//		CategoryPage.click(driver, in_CategoryPage.archive_button);
-//		
-//		verifyTrue(doesTextPresent(driver, message_archive));
-//		selectitems(driver, in_CategoryPage.status_filter_dropdown, "Archived");
-//		verifyTrue(doesitemExist(driver, category_title_modified));
-//	}
-//	
+	@Test (description = "Verify that user can unpublish a category", dependsOnMethods = {"TC_JOOMLA_CATEGORY_MANAGER_002"})
+	public void TC_JOOMLA_CATEGORY_MANAGER_003()
+	{
+		CategoryPage.selectCheckboxItemWithoutDiv(driver, category_title_modified);
+		CategoryPage.clickToolbarButton(driver, "unpublish");
+			
+		verifyTrue(CategoryPage.doesTextPresent(driver, message_unpublish));
+		verifyTrue(getitemStatus(driver, in_CategoryPage.publish_status_icon, category_title_modified).equals("icon-unpublish"));
+		
+	}
+
+	@Test (description = "Verify that user can publish a category", dependsOnMethods = {"TC_JOOMLA_CATEGORY_MANAGER_003"})
+	public void TC_JOOMLA_CATEGORY_MANAGER_004()
+	{
+		CategoryPage.selectCheckboxItemWithoutDiv(driver, category_title_modified);
+		CategoryPage.clickToolbarButton(driver, "publish");
+		
+		verifyTrue(CategoryPage.doesTextPresent(driver, message_publish));
+		verifyTrue(getitemStatus(driver, in_CategoryPage.publish_status_icon, category_title_modified).equals("icon-publish"));
+	}
+	
+	@Test (description = "Verify that user can archive a category", dependsOnMethods = {"TC_JOOMLA_CATEGORY_MANAGER_004"})
+	public void TC_JOOMLA_CATEGORY_MANAGER_005()
+	{
+		CategoryPage.selectCheckboxItemWithoutDiv(driver, category_title_modified);
+		CategoryPage.clickToolbarButton(driver, "archive");
+		
+		verifyTrue(doesTextPresent(driver, message_archive));
+		CategoryPage.click(driver, in_CategoryPage.searchtool_button);
+		CategoryPage.filterCategoryByDropdown("Archived", null, null);
+		verifyTrue(CategoryPage.doesitemExist(driver, category_title_modified));
+	}
+	
 //	@Test (description = "Verify that user can send a category to trash")
 //	public void TC_JOOMLA_CATEGORY_MANAGER_006()
 //	{
@@ -118,11 +120,11 @@ public class TM_JOOMLA_CATEGORY_001 extends ac_CategoryPage {
 	public String category_title = randUniqueString("Test Category");
 	public String category_title_modified = randUniqueString("Test Category modified");
 	public String message_create = "Category successfully saved.";
-	public String message_archive = "1 category successfully archived";
-	public String message_checkin = "1 category successfully checked in";
-	public String message_trash = "1 category successfully trashed";
+	public String message_archive = "1 category successfully archived.";
+	public String message_checkin = "1 category successfully checked in.";
+	public String message_trash = "1 category successfully trashed.";
 	public String status_unpublish = "Unpublished";
 	public String status_publish = "Published";
-	public String message_publish = "1 category successfully published";
-	public String message_unpublish = "1 category successfully unpublished";
+	public String message_publish = "1 category successfully published.";
+	public String message_unpublish = "1 category successfully unpublished.";
 }

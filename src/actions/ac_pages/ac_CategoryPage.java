@@ -2,8 +2,9 @@ package ac_pages;
 
 import org.openqa.selenium.WebDriver;
 
-
+import config.Config;
 import in_pages.in_CategoryPage;
+import in_pages.in_ContactsPage;
 
 
 public class ac_CategoryPage extends ac_common.CommonElements {
@@ -36,7 +37,28 @@ public class ac_CategoryPage extends ac_common.CommonElements {
 			selectitems(driver, in_CategoryPage.access_dropdown, in_CategoryPage.access_dropdown_values, access);
 		if (language !=null)
 			selectitems(driver, in_CategoryPage.language_dropdown, in_CategoryPage.language_dropdown_values, language);
-		
+		//wait to enter info
+		waitForPageLoad(Config.short_wait_time);
+	}
+	
+	
+	public void filterCategoryByDropdown(String status, String access, String language)
+	{
+		if (status != null)
+		{
+			selectitems(driver, in_CategoryPage.filter_status_dropdown, in_CategoryPage.filter_status_dropdown_values, status);
+			waitForPageLoad(Config.short_wait_time/2);
+		}
+		if (access != null)
+		{
+			selectitems(driver, in_CategoryPage.filter_access_dropdown, in_CategoryPage.filter_access_dropdown_values, access);
+			waitForPageLoad(Config.short_wait_time/2);
+		}
+		if (language != null)
+		{
+			selectitems(driver, in_CategoryPage.filter_language_dropdown,in_CategoryPage.filter_language_dropdown_values, language);
+			waitForPageLoad(Config.short_wait_time/2);
+		}
 	}
 	
 //	 public void checkWeblinksArchived(String message, String title)
