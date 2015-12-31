@@ -77,6 +77,7 @@ public class ac_ContactsPage extends ac_common.CommonElements {
 		}
 		if (image != null)
 		{
+			selecttabs(driver, in_ContactsPage.otherInfo_tabs, "Miscellaneous Information");
 			click(driver, in_ContactsPage.image_frame_image_button);
 			switchToFrame(driver, in_ContactsPage.image_frame);
 			enter(driver, in_ContactsPage.image_frame_url_textbox, "images/"+ image);

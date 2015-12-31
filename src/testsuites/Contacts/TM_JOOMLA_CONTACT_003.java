@@ -35,7 +35,6 @@ public class TM_JOOMLA_CONTACT_003 extends ac_ContactsPage {
 	@Test (description = "Verify user can access contact's help section")
 	public void TC_JOOMLA_CONTACTS_008()
 	{
-		ContactPage.navigatemenu(driver, "Components", "Contacts", "Contacts");
 		clickToolbarButton(driver, "help");
 		verifyTrue(ContactPage.doesHelpPageExist(driver, in_ContactsPage.help_text));
 	}

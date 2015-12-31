@@ -52,8 +52,7 @@ public abstract class CommonElements extends Initialize {
 	
 	public void selectitems(WebDriver driver, String xpath1, String xpath2, String item) 
 	{
-		WebElement element = findAnElement (driver, xpath1);
-		element.click();
+		driver.findElement(By.xpath(xpath1)).click();
 		driver.findElement(By.xpath(String.format(xpath2, item))).click();
 	}
 	
@@ -73,7 +72,7 @@ public abstract class CommonElements extends Initialize {
 	  * @edit by: 
 	  */
 	public void clickToolbarButton(WebDriver driver, String button) {
-		driver.findElement(By.xpath("//div[@id='toolbar']/div[@id='toolbar-" + button + "']/button/span")).click();
+		driver.findElement(By.xpath("//div[@id='toolbar']/div[@id='toolbar-" + button + "']/button")).click();
 		waitForPageLoad(Config.short_wait_time/2);
 	}
 	/**
@@ -92,9 +91,10 @@ public abstract class CommonElements extends Initialize {
 		String a = txtbox.getAttribute("value").toString(); 
 		if ( !a.equals(searchtext)) {
 			txtbox.clear();
-			waitForPageLoad(Config.short_wait_time);
+			waitForPageLoad(Config.short_wait_time/2);
 			txtbox.sendKeys(searchtext);
 			driver.findElement(By.xpath(in_AdminstratorPage.search_button)).click();
+			waitForPageLoad(Config.short_wait_time/2);
 		}
 	 }
 	public List<WebElement> findListElements(WebDriver driver, String control, String property){
