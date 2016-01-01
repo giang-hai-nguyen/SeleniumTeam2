@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="170515" started-at="2016-01-01T05:45:25Z" finished-at="2016-01-01T05:48:16Z">
+    <groups>
+      <group name="regression">
+        <method signature="TM_JOOMLA_ARTICLE_003.TC_JOOMLA_ARTICLE_09()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_003@14feea]" name="TC_JOOMLA_ARTICLE_09" class="Articles.TM_JOOMLA_ARTICLE_003"/>
+        <method signature="TM_JOOMLA_ARTICLE_003.TC_JOOMLA_ARTICLE_016()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_003@14feea]" name="TC_JOOMLA_ARTICLE_016" class="Articles.TM_JOOMLA_ARTICLE_003"/>
+        <method signature="TM_JOOMLA_ARTICLE_003.TC_JOOMLA_ARTICLE_010()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_003@14feea]" name="TC_JOOMLA_ARTICLE_010" class="Articles.TM_JOOMLA_ARTICLE_003"/>
+      </group> <!-- regression -->
+    </groups>
+    <test name="Default test" duration-ms="170515" started-at="2016-01-01T05:45:25Z" finished-at="2016-01-01T05:48:16Z">
+      <class name="Articles.TM_JOOMLA_ARTICLE_003">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_003@14feea]" name="Setup" is-config="true" duration-ms="38855" started-at="2016-01-01T12:45:25Z" finished-at="2016-01-01T12:46:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Setup -->
+        <test-method status="PASS" signature="TC_JOOMLA_ARTICLE_09()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_003@14feea]" name="TC_JOOMLA_ARTICLE_09" duration-ms="57629" started-at="2016-01-01T12:46:04Z" description="Verify user can search for articles using the filter text field" finished-at="2016-01-01T12:47:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_JOOMLA_ARTICLE_09 -->
+        <test-method status="PASS" signature="TC_JOOMLA_ARTICLE_016()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_003@14feea]" name="TC_JOOMLA_ARTICLE_016" duration-ms="29751" started-at="2016-01-01T12:47:02Z" description="Verify user can change the feature property of articles using the Featured column" depends-on-methods="Articles.TM_JOOMLA_ARTICLE_003.TC_JOOMLA_ARTICLE_09" finished-at="2016-01-01T12:47:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_JOOMLA_ARTICLE_016 -->
+        <test-method status="PASS" signature="TC_JOOMLA_ARTICLE_010()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_003@14feea]" name="TC_JOOMLA_ARTICLE_010" duration-ms="31781" started-at="2016-01-01T12:47:32Z" description="Verify user can search for articles using the filter dropdown lists" depends-on-methods="Articles.TM_JOOMLA_ARTICLE_003.TC_JOOMLA_ARTICLE_016" finished-at="2016-01-01T12:48:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_JOOMLA_ARTICLE_010 -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_003@14feea]" name="teardown" is-config="true" duration-ms="12459" started-at="2016-01-01T12:48:03Z" finished-at="2016-01-01T12:48:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- Articles.TM_JOOMLA_ARTICLE_003 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

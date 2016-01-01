@@ -77,5 +77,13 @@ public class ac_ArticlesPage extends ac_common.CommonElements {
 			waitForPageLoad(Config.short_wait_time);
 		}
 	}
+	
+	public void changeFeatureArticle(String article) {
+		changeFeatureItem(driver, article);
+	}
+	
+	public boolean doesArticleFeature(String article,String feature) {
+		return doesItemFeature(driver, article,feature);
+	}	
 	private WebDriver driver;
 }
