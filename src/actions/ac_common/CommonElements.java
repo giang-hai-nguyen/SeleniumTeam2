@@ -7,6 +7,7 @@ import java.util.NoSuchElementException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -379,5 +380,97 @@ public abstract class CommonElements extends Initialize {
 		return check;
 	}
 
-	 protected WebElement element;
+	public void clickHeaderID(WebDriver driver){
+		driver.findElement(By.xpath(in_ArticlesPage.header_ID)).click();
+		waitForPageLoad(Config.short_wait_time);
+	}
+	
+	public boolean doesSortingIDAscend(WebDriver driver) {
+
+		Boolean check = null;
+		WebElement webTableElement = driver.findElement(By.xpath(in_ArticlesPage.table_admin));
+		int tableRows = webTableElement.findElements(By.tagName("tr")).size();
+		int tableColumns = driver.findElements(
+				By.xpath(".//*[@id='adminForm']//table/tbody/tr[1]/td")).size();
+
+		for (int i = 1; i < tableRows; i++) {
+			int j = i + 1;
+			String beforeIDvalue = driver.findElement(
+					By.xpath(".//*[@id='adminForm']//table/tbody/tr[" + i
+							+ "]/td[" + tableColumns + "]")).getText();
+			int beforeID = Integer.parseInt(beforeIDvalue);
+			String afterIDvalue = driver.findElement(
+					By.xpath(".//*[@id='adminForm']//table/tbody/tr[" + j
+							+ "]/td[" + tableColumns + "]")).getText();
+			int afterID = Integer.parseInt(afterIDvalue);
+			int compare = Integer.compare(beforeID, afterID);
+
+			if (compare <= 0) {
+				check = true;
+			} else {
+				check = false;
+				break;
+			}
+		}
+		return check;
+	}
+	
+	public boolean doesSortingIDDescend(WebDriver driver) {
+		Boolean check = null;
+		WebElement webTableElement = driver.findElement(By.xpath(in_ArticlesPage.table_admin));
+		int tableRows = webTableElement.findElements(By.tagName("tr")).size();
+		int tableColumns = driver.findElements(
+				By.xpath(".//*[@id='adminForm']//table/tbody/tr[1]/td")).size();
+
+		for (int i = 1; i < tableRows; i++) {
+			int j = i + 1;
+			String beforeIDvalue = driver.findElement(
+					By.xpath(".//*[@id='adminForm']//table/tbody/tr[" + i
+							+ "]/td[" + tableColumns + "]")).getText();
+			int beforeID = Integer.parseInt(beforeIDvalue);
+			String afterIDvalue = driver.findElement(
+					By.xpath(".//*[@id='adminForm']//table/tbody/tr[" + j
+							+ "]/td[" + tableColumns + "]")).getText();
+			int afterID = Integer.parseInt(afterIDvalue);
+			int compare = Integer.compare(beforeID, afterID);
+
+			if (compare >= 0) {
+				check = true;
+			} else {
+				check = false;
+				break;
+			}
+		}
+		return check;
+	}
+
+	public boolean doesPagingAll(WebDriver driver) {
+
+		Boolean check = null;
+		selectdropDownListItem(driver, in_ArticlesPage.dropdownlist_paginate, "All");
+		waitForPageLoad(Config.timeout);
+		WebElement baseTable = driver.findElement(By.xpath(in_ArticlesPage.table_admin));
+		int tableRows = baseTable.findElements(By.tagName("tr")).size();
+		if (tableRows > 100) {
+			check = true;
+		}
+		return check;
+	}
+	
+	public boolean doesPagingNumber(WebDriver driver, int rowlimit) {
+		Boolean check = null;
+		selectdropDownListItem(driver, in_ArticlesPage.dropdownlist_paginate,
+				Integer.toString(rowlimit));		
+		WebElement baseTable = driver.findElement(By.xpath(in_ArticlesPage.table_admin));
+		int tableRows = baseTable.findElements(By.tagName("tr")).size();
+		check = (tableRows == rowlimit);
+		return check;
+	}
+	
+	public void selectdropDownListItem(WebDriver driver, By dropdownlist, String item) {
+		WebElement dropDownListBox = driver.findElement(dropdownlist);
+		Select clickItem = new Select(dropDownListBox);
+		clickItem.selectByVisibleText(item);
+	}
+	protected WebElement element;
 }

@@ -85,5 +85,25 @@ public class ac_ArticlesPage extends ac_common.CommonElements {
 	public boolean doesArticleFeature(String article,String feature) {
 		return doesItemFeature(driver, article,feature);
 	}	
+	
+	public void clickArticleHeaderID(){
+		clickHeaderID(driver);
+	}
+	
+	public boolean doesSortingIDAscending() {
+		return doesSortingIDAscend(driver);
+	}
+	
+	public boolean doesSortingIDDescending() {
+		return doesSortingIDDescend(driver);
+	}
+	
+	public boolean doesPagingNumber(int rowlimit) {
+		return doesPagingNumber(driver, rowlimit);
+	}
+	
+	public boolean doesPagingAll() {
+		return doesPagingAll(driver);
+	}
 	private WebDriver driver;
 }

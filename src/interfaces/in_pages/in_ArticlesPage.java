@@ -1,5 +1,7 @@
 package in_pages;
 
+import org.openqa.selenium.By;
+
 public class in_ArticlesPage {
 	
 	/***************Main Article Page***************/	
@@ -38,5 +40,8 @@ public class in_ArticlesPage {
 	
 	public static final String arttext_frame_textbox="//iframe[@id='jform_articletext_ifr']";
 	public static final String frame_textbox="//body[@id='tinymce']";
+	public static final String header_ID = "//*[@id='adminForm']//table/thead/tr//a[contains(text(),'ID')]";
+	public static final String table_admin = "//*[@id='adminForm']//table/tbody";
+	public static final By dropdownlist_paginate = By.xpath("//select[@id='list_limit']");
 	
 }
