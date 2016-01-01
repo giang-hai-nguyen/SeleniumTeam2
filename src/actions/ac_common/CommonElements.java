@@ -3,7 +3,7 @@ package ac_common;
 import java.util.Calendar;
 import java.util.List;
 import java.util.NoSuchElementException;
-
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -445,12 +445,13 @@ public abstract class CommonElements extends Initialize {
 	}
 
 	public boolean doesPagingAll(WebDriver driver) {
-
+		driver.findElement(By.xpath(in_ArticlesPage.clear_btn)).click();
 		Boolean check = null;
+		((JavascriptExecutor)driver).executeScript("document.getElementById('list_limit').style.display='block';");		
 		selectdropDownListItem(driver, in_ArticlesPage.dropdownlist_paginate, "All");
 		waitForPageLoad(Config.timeout);
 		WebElement baseTable = driver.findElement(By.xpath(in_ArticlesPage.table_admin));
-		int tableRows = baseTable.findElements(By.tagName("tr")).size();
+		int tableRows = baseTable.findElements(By.xpath("//*[@id='adminForm']//table/tbody/tr")).size();
 		if (tableRows > 100) {
 			check = true;
 		}
@@ -458,11 +459,13 @@ public abstract class CommonElements extends Initialize {
 	}
 	
 	public boolean doesPagingNumber(WebDriver driver, int rowlimit) {
+		driver.findElement(By.xpath(in_ArticlesPage.clear_btn)).click();
 		Boolean check = null;
+		((JavascriptExecutor)driver).executeScript("document.getElementById('list_limit').style.display='block';");	
 		selectdropDownListItem(driver, in_ArticlesPage.dropdownlist_paginate,
-				Integer.toString(rowlimit));		
+				Integer.toString(rowlimit));
 		WebElement baseTable = driver.findElement(By.xpath(in_ArticlesPage.table_admin));
-		int tableRows = baseTable.findElements(By.tagName("tr")).size();
+		int tableRows = baseTable.findElements(By.xpath("//*[@id='adminForm']//table/tbody/tr")).size();
 		check = (tableRows == rowlimit);
 		return check;
 	}

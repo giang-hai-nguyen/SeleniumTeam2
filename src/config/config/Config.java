@@ -13,7 +13,7 @@ public class Config {
 	// Time wait for page loading
 	public static long long_wait_time = 5;
 	public static long short_wait_time = 2;
-	public static int timeout = 5;
+	public static int timeout = 10;
 	 
 	//setting
 	public static String contact_yes_featured = "Yes";

@@ -104,6 +104,6 @@ public class ac_ArticlesPage extends ac_common.CommonElements {
 	
 	public boolean doesPagingAll() {
 		return doesPagingAll(driver);
-	}
+	} 
 	private WebDriver driver;
 }

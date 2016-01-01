@@ -42,6 +42,9 @@ public class in_ArticlesPage {
 	public static final String frame_textbox="//body[@id='tinymce']";
 	public static final String header_ID = "//*[@id='adminForm']//table/thead/tr//a[contains(text(),'ID')]";
 	public static final String table_admin = "//*[@id='adminForm']//table/tbody";
-	public static final By dropdownlist_paginate = By.xpath("//select[@id='list_limit']");
+	public static By dropdownlist_paginate = By.xpath("//select[@id='list_limit']");
+	public static final String clear_btn = "//form[@id='adminForm']//button[contains(.,'Clear')]";
+
+	
 	
 }

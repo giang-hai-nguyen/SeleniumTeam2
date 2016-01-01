@@ -50,9 +50,9 @@ public class TM_JOOMLA_ARTICLE_004 extends ac_ArticlesPage
 	
 	@Test (description = "Verify user can paging the articles using the paging control", dependsOnMethods = "TC_JOOMLA_ARTICLE_011", groups = "regression")
 	public void TC_JOOMLA_ARTICLE_012() {
-
-		verifyTrue(ArticlePage.doesPagingNumber(displaypagenumber));
+		
 		verifyTrue(ArticlePage.doesPagingAll());
+		verifyTrue(ArticlePage.doesPagingNumber(displaypagenumber));
 
 	}
 	

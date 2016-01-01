@@ -2,56 +2,29 @@
 <testng-results skipped="0" failed="1" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="206037" started-at="2016-01-01T12:50:35Z" finished-at="2016-01-01T12:54:01Z">
+  <suite name="Default suite" duration-ms="226998" started-at="2016-01-01T16:45:04Z" finished-at="2016-01-01T16:48:51Z">
     <groups>
       <group name="regression">
-        <method signature="TM_JOOMLA_ARTICLE_004.TC_JOOMLA_ARTICLE_011()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_004@17f2dac]" name="TC_JOOMLA_ARTICLE_011" class="Articles.TM_JOOMLA_ARTICLE_004"/>
-        <method signature="TM_JOOMLA_ARTICLE_004.TC_JOOMLA_ARTICLE_012()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_004@17f2dac]" name="TC_JOOMLA_ARTICLE_012" class="Articles.TM_JOOMLA_ARTICLE_004"/>
+        <method signature="TM_JOOMLA_ARTICLE_004.TC_JOOMLA_ARTICLE_011()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_004@13cb165]" name="TC_JOOMLA_ARTICLE_011" class="Articles.TM_JOOMLA_ARTICLE_004"/>
+        <method signature="TM_JOOMLA_ARTICLE_004.TC_JOOMLA_ARTICLE_012()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_004@13cb165]" name="TC_JOOMLA_ARTICLE_012" class="Articles.TM_JOOMLA_ARTICLE_004"/>
       </group> <!-- regression -->
     </groups>
-    <test name="Default test" duration-ms="206037" started-at="2016-01-01T12:50:35Z" finished-at="2016-01-01T12:54:01Z">
+    <test name="Default test" duration-ms="226998" started-at="2016-01-01T16:45:04Z" finished-at="2016-01-01T16:48:51Z">
       <class name="Articles.TM_JOOMLA_ARTICLE_004">
-        <test-method status="PASS" signature="Setup()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_004@17f2dac]" name="Setup" is-config="true" duration-ms="40654" started-at="2016-01-01T19:50:35Z" finished-at="2016-01-01T19:51:16Z">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_004@13cb165]" name="Setup" is-config="true" duration-ms="43286" started-at="2016-01-01T23:45:04Z" finished-at="2016-01-01T23:45:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="TC_JOOMLA_ARTICLE_011()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_004@17f2dac]" name="TC_JOOMLA_ARTICLE_011" duration-ms="143189" started-at="2016-01-01T19:51:16Z" description="Verify user can sort the article table by ID column" finished-at="2016-01-01T19:53:39Z">
+        <test-method status="PASS" signature="TC_JOOMLA_ARTICLE_011()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_004@13cb165]" name="TC_JOOMLA_ARTICLE_011" duration-ms="138016" started-at="2016-01-01T23:45:48Z" description="Verify user can sort the article table by ID column" finished-at="2016-01-01T23:48:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC_JOOMLA_ARTICLE_011 -->
-        <test-method status="FAIL" signature="TC_JOOMLA_ARTICLE_012()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_004@17f2dac]" name="TC_JOOMLA_ARTICLE_012" duration-ms="10467" started-at="2016-01-01T19:53:39Z" description="Verify user can paging the articles using the paging control" depends-on-methods="Articles.TM_JOOMLA_ARTICLE_004.TC_JOOMLA_ARTICLE_011" finished-at="2016-01-01T19:53:49Z">
-          <exception class="org.openqa.selenium.ElementNotVisibleException">
-            <message>
-              <![CDATA[Element is not currently visible and so may not be interacted with
-Command duration or timeout: 10.09 seconds
-Build info: version: '2.48.2', revision: '41bccdd', time: '2015-10-09 19:55:52'
-System info: host: 'NBAOTUAN-PC', ip: '192.168.1.8', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_25'
-Session ID: 78983c52-933a-48e8-a52c-898dfe237f25
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{platform=WINDOWS, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=44.0}]]]>
-            </message>
+        <test-method status="FAIL" signature="TC_JOOMLA_ARTICLE_012()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_004@13cb165]" name="TC_JOOMLA_ARTICLE_012" duration-ms="33594" started-at="2016-01-01T23:48:06Z" description="Verify user can paging the articles using the paging control" depends-on-methods="Articles.TM_JOOMLA_ARTICLE_004.TC_JOOMLA_ARTICLE_011" finished-at="2016-01-01T23:48:39Z">
+          <exception class="java.lang.NullPointerException">
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with
-Command duration or timeout: 10.09 seconds
-Build info: version: '2.48.2', revision: '41bccdd', time: '2015-10-09 19:55:52'
-System info: host: 'NBAOTUAN-PC', ip: '192.168.1.8', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_25'
-Session ID: 78983c52-933a-48e8-a52c-898dfe237f25
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{platform=WINDOWS, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=44.0}]
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:647)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:326)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
-	at org.openqa.selenium.support.ui.Select.setSelected(Select.java:295)
-	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:119)
-	at ac_common.CommonElements.selectdropDownListItem(CommonElements.java:473)
-	at ac_common.CommonElements.doesPagingNumber(CommonElements.java:462)
-	at ac_pages.ac_ArticlesPage.doesPagingNumber(ac_ArticlesPage.java:102)
+              <![CDATA[java.lang.NullPointerException
+	at ac_common.CommonElements.doesPagingAll(CommonElements.java:458)
+	at ac_pages.ac_ArticlesPage.doesPagingAll(ac_ArticlesPage.java:106)
 	at Articles.TM_JOOMLA_ARTICLE_004.TC_JOOMLA_ARTICLE_012(TM_JOOMLA_ARTICLE_004.java:54)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
@@ -77,21 +50,13 @@ Capabilities [{platform=WINDOWS, acceptSslCerts=true, javascriptEnabled=true, cs
 	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:113)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:206)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:177)
-Caused by: org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with
-Build info: version: '2.48.2', revision: '41bccdd', time: '2015-10-09 19:55:52'
-System info: host: 'NBAOTUAN-PC', ip: '192.168.1.8', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_25'
-Driver info: driver.version: unknown
-	at <anonymous class>.fxdriver.preconditions.visible(file:///C:/Users/NBAOTUAN/AppData/Local/Temp/anonymous6041902543108074177webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:9981)
-	at <anonymous class>.DelayedCommand.prototype.checkPreconditions_(file:///C:/Users/NBAOTUAN/AppData/Local/Temp/anonymous6041902543108074177webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12517)
-	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/NBAOTUAN/AppData/Local/Temp/anonymous6041902543108074177webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12534)
-	at <anonymous class>.fxdriver.Timer.prototype.setTimeout/<.notify(file:///C:/Users/NBAOTUAN/AppData/Local/Temp/anonymous6041902543108074177webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:621)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementNotVisibleException -->
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC_JOOMLA_ARTICLE_012 -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_004@17f2dac]" name="teardown" is-config="true" duration-ms="11685" started-at="2016-01-01T19:53:49Z" finished-at="2016-01-01T19:54:01Z">
+        <test-method status="PASS" signature="teardown()[pri:0, instance:Articles.TM_JOOMLA_ARTICLE_004@13cb165]" name="teardown" is-config="true" duration-ms="12066" started-at="2016-01-01T23:48:39Z" finished-at="2016-01-01T23:48:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
