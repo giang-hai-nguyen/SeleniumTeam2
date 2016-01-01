@@ -51,7 +51,7 @@ public class TM_JOOMLA_ARTICLE_003 extends ac_ArticlesPage
 	@Test (description = "Verify user can search for articles using the filter dropdown lists", dependsOnMethods = "TC_JOOMLA_ARTICLE_016", groups = "regression")
 	public void TC_JOOMLA_ARTICLE_010() 
 	{
-		ArticlePage.filterArticleByDropdown(access_public, category, null, null);		
+		ArticlePage.filterArticleByDropdown(access_public, category.substring(2), null, null);		
 		verifyTrue(ArticlePage.doesitemExist(driver, title));
 	}
 		
@@ -63,7 +63,7 @@ public class TM_JOOMLA_ARTICLE_003 extends ac_ArticlesPage
 	private String title = randUniqueString("Article");
 	private String message_create = "Article successfully saved";
 	private String arttext = "this is article content";
-	private String category = "Sample Data-Articles";
+	private String category = "- Sample Data-Articles";
 	private String access_public = "Published";
 
 }

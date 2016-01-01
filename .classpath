@@ -5,9 +5,9 @@
 	<classpathentry kind="src" path="src/interfaces"/>
 	<classpathentry kind="src" path="src/testsuites"/>
 	<classpathentry kind="src" path="src/config"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="libs/testng-6.9.10.jar"/>
-	<classpathentry kind="lib" path="libs/selenium-java-2.48.2.jar"/>
-	<classpathentry kind="lib" path="libs/selenium-server-standalone-2.48.2.jar"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry exported="true" kind="lib" path="libs/testng-6.9.10.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/selenium-java-2.48.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/selenium-server-standalone-2.48.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
