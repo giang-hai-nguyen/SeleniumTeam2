@@ -28,7 +28,7 @@ public class in_AdminstratorPage {
 	public static final String clear_button = "//button/span[@class='icon-remove']";
 	
 	//checkbox
-	public static final String div_checkbox = "//td/div/a[contains(text(),'%s')]/../../../td/input[@type='checkbox']";
+	public static final String div_checkbox = "//td/div/a[contains(text(),'%s')]/../../td/input[@type='checkbox']";
 	public static final String without_div_checkbox = "//td/a[contains(text(),'%s')]/../../td/input[@type='checkbox']";
 	
 }

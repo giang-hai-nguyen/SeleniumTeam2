@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project>
-	<config name="Team 2">
-		<url>http://localhost/Joomla3.4.8/administrator/index.php</url>
-		<username>admin</username>
-		<password>admin</password>
-	</config>
-</project>

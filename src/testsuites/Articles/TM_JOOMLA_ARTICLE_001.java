@@ -9,7 +9,7 @@ import in_pages.*;
 
 public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage 
 {
-	@BeforeClass	
+	@BeforeClass
 	public void Setup() {
 		driver = openBrowser();
 		LoginPage = new ac_LoginPage(driver);

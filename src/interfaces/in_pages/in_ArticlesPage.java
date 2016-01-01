@@ -38,5 +38,4 @@ public class in_ArticlesPage {
 	
 	public static final String arttext_frame_textbox="//iframe[@id='jform_articletext_ifr']";
 	public static final String frame_textbox="//body[@id='tinymce']";
-	
 }
