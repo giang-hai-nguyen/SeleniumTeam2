@@ -15,6 +15,7 @@ import org.testng.Reporter;
 import config.Config;
 import config.Initialize;
 import in_common.in_AdminstratorPage;
+import in_pages.in_ArticlesPage;
 
 import org.testng.Assert;
 
@@ -341,6 +342,42 @@ public abstract class CommonElements extends Initialize {
 				Reporter.log("Element doesn't exist");
 			}
 		}
-	 
+	 /**
+	  * @author: Tuan Nguyen
+	  * @edit by: 
+	  */
+	 public void changeFeatureItem(WebDriver driver, String itemName) {
+		 	driver.findElement(By.xpath("//td/div[a[contains(text(),'"+itemName+"')]]/../preceding-sibling::td[1]/div/a[@data-original-title='Toggle featured status.']")).click();
+			waitForPageLoad(Config.short_wait_time);
+	}
+	 /**
+	  * @author: Tuan Nguyen
+	  * @edit by: 
+	  */
+	
+	public boolean doesItemFeature(WebDriver driver, String itemname, String feature) 
+	{
+		Boolean check=null;
+		if (feature == Config.contact_yes_featured) {
+			check = driver
+					.findElement(
+							By.xpath("//td/div[a[contains(text(),'"
+									+ itemname
+									+ "')]]/../preceding-sibling::td[1]/div/a[@data-original-title='Toggle featured status.']/span[@class='icon-featured']"))
+									.isDisplayed();
+		} else if (feature == Config.contact_no_featured) {
+			check = driver
+					.findElement(
+							By.xpath("//td/div[a[contains(text(),'"
+									+ itemname
+									+ "')]]/../preceding-sibling::td[1]/div/a[@data-original-title='Toggle featured status.']/span[@class='icon-unfeatured']"))
+									.isDisplayed();
+		} else {
+			check = false;
+			System.out.println("The feature value is incorrect.");
+		}
+		return check;
+	}
+
 	 protected WebElement element;
 }
