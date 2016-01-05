@@ -38,5 +38,5 @@ public class in_CategoryPage {
 				
 				
 		//Help page
-		public static final String help_text = "//p[contains (text (), 'The Category Manager is where you can edit existing Categories and create new ones')]";
+		public static final String help_text = "//p[contains (text (), 'The Category Manager is where you can view existing Categories')]";
 	}

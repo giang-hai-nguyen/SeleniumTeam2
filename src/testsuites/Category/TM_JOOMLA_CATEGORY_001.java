@@ -84,34 +84,34 @@ public class TM_JOOMLA_CATEGORY_001 extends ac_CategoryPage {
 		verifyTrue(CategoryPage.doesitemExist(driver, category_title_modified));
 	}
 	
-//	@Test (description = "Verify that user can send a category to trash")
-//	public void TC_JOOMLA_CATEGORY_MANAGER_006()
-//	{
-//		CategoryPage.selectCheckboxItem(driver, category_title_modified);
-//		CategoryPage.click(driver, in_CategoryPage.trash_button);
-//	
-//		verifyTrue(doesTextPresent(driver, message_trash));
-//		clearText(driver, in_CategoryPage.filter_textbox);
-//		selectitems(driver, in_CategoryPage.status_filter_dropdown, "Trashed");
-//		verifyTrue(doesitemExist(driver, category_title_modified));
-//	}
-//	
-//	
-//	@Test (description = "Verify that user can browse category help page")
-//	public void TC_JOOMLA_CATEGORY_MANAGER_007()
-//	{
-//		CategoryPage.navigatemenu(driver, "Content", "Category Manager", null);
-//		CategoryPage.click(driver, in_CategoryPage.help_button);
-//		verifyTrue(CategoryPage.doesHelpPageExist(driver, in_CategoryPage.help_text));
-//	}
-//	
-//	
-//	@AfterClass
-//	public void teardown(){
-//		AdminPage = new ac_AdministratorPage(driver);
-//		AdminPage.Logout();		
-//		closeBrowser();
-//	}
+	@Test (description = "Verify that user can send a category to trash", dependsOnMethods = {"TC_JOOMLA_CATEGORY_MANAGER_005"})
+	public void TC_JOOMLA_CATEGORY_MANAGER_006()
+	{
+		CategoryPage.selectCheckboxItemWithoutDiv(driver, category_title_modified);
+		CategoryPage.clickToolbarButton(driver, "trash");
+	
+		verifyTrue(doesTextPresent(driver, message_trash));
+		clearText(driver, in_CategoryPage.filter_textbox);
+		CategoryPage.filterCategoryByDropdown("Trashed", null, null);
+		verifyTrue(CategoryPage.doesitemExist(driver, category_title_modified));
+	}
+	
+	
+	@Test (description = "Verify that user can browse category help page", dependsOnMethods = {"TC_JOOMLA_CATEGORY_MANAGER_006"})
+	public void TC_JOOMLA_CATEGORY_MANAGER_007()
+	{
+		CategoryPage.navigatemenu(driver, "Content", "Categories", null);
+		CategoryPage.clickToolbarButton(driver, "help");
+		verifyTrue(CategoryPage.doesHelpPageExist(driver, in_CategoryPage.help_text));
+	}
+	
+	
+	@AfterClass
+	public void teardown(){
+		AdminPage = new ac_AdministratorPage(driver);
+		AdminPage.Logout();		
+		closeBrowser();
+	}
 	
 	private WebDriver driver;
 	private ac_LoginPage LoginPage;	

@@ -81,7 +81,7 @@ public abstract class CommonElements extends Initialize {
 	  */
 	public void clickToolbarButton(WebDriver driver, String button) {
 		driver.findElement(By.xpath("//div[@id='toolbar']/div[@id='toolbar-" + button + "']/button")).click();
-		waitForPageLoad(Config.short_wait_time/2);
+		waitForPageLoad(Config.short_wait_time);
 	}
 	/**
 	  * @author: Giang Nguyen 12-07
