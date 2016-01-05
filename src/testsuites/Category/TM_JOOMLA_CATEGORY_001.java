@@ -79,6 +79,7 @@ public class TM_JOOMLA_CATEGORY_001 extends ac_CategoryPage {
 		
 		verifyTrue(doesTextPresent(driver, message_archive));
 		CategoryPage.click(driver, in_CategoryPage.searchtool_button);
+		waitForPageLoad(Config.short_wait_time);
 		CategoryPage.filterCategoryByDropdown("Archived", null, null);
 		verifyTrue(CategoryPage.doesitemExist(driver, category_title_modified));
 	}
