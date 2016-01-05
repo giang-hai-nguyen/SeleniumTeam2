@@ -24,21 +24,21 @@ public class TM_JOOMLA_CATEGORY_005 extends ac_CategoryPage {
 	public void TC_JOOMLA_CATEGORY_MANAGER_013()
 	{
 		CategoryPage = new ac_CategoryPage(driver);
-		CategoryPage.navigatemenu(driver, "Content", "Category Manager", null);
-		CategoryPage.click(driver, in_CategoryPage.new_button);
-		CategoryPage.fillInfoCategory(category_title1, null, null, null, "save");
+		CategoryPage.navigatemenu(driver, "Content", "Categories", null);
+		CategoryPage.clickToolbarButton(driver, "new");
+		CategoryPage.fillInfoCategory(category_title1, null, null, null);
+		CategoryPage.clickToolbarButton(driver, "apply");
 		
-		verifyTrue(doesTextPresent(driver, message_create));
+		verifyTrue(CategoryPage.doesTextPresent(driver, message_create));
 		
 		clearText(driver, in_CategoryPage.title_texbox);
 		enter(driver, in_CategoryPage.title_texbox, category_title2);
-		click(driver, in_CategoryPage.saveascopy_button);
-		
+		CategoryPage.clickToolbarButton(driver, "save-copy");
 		verifyTrue(doesTextPresent(driver, message_create));
-		click(driver, in_CategoryPage.cancel_button);
+		CategoryPage.clickToolbarButton(driver, "cancel");
 		
-		verifyTrue(doesitemExist(driver, category_title1));
-		verifyTrue(doesitemExist(driver, category_title2 + " (2)"));			
+		verifyTrue(CategoryPage.doesitemExist(driver, category_title1));
+		verifyTrue(CategoryPage.doesitemExist(driver, category_title2));			
 	}
 	
 	

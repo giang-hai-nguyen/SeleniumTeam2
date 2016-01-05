@@ -24,20 +24,18 @@ public class TM_JOOMLA_CATEGORY_003 extends ac_CategoryPage {
 	public void TC_JOOMLA_CATEGORY_MANAGER_009()
 	{
 		CategoryPage = new ac_CategoryPage(driver);
-		CategoryPage.navigatemenu(driver, "Content", "Category Manager", null);
-		CategoryPage.click(driver, in_CategoryPage.new_button);
-		CategoryPage.fillInfoCategory(category_title, "Unpublished", "Registered", "English (UK)", "save & close");
+		CategoryPage.navigatemenu(driver, "Content", "Categories", null);
+		CategoryPage.clickToolbarButton(driver, "new");
+		CategoryPage.fillInfoCategory(category_title, "Unpublished", "Registered", "English (UK)");
+		CategoryPage.clickToolbarButton(driver, "save");
+		verifyTrue(CategoryPage.doesitemExist(driver, category_title));
 		
-		verifyTrue(doesitemExist(driver, category_title));
 		clearText(driver, in_CategoryPage.filter_textbox);
 		click(driver, in_CategoryPage.search_button);
-		
-		CategoryPage.selectitems(driver, in_CategoryPage.status_filter_dropdown, "Unpublished");
-		CategoryPage.selectitems(driver, in_CategoryPage.access_filter_dropdown, "Registered");
-		CategoryPage.selectitems(driver, in_CategoryPage.language_filter_dropdown, "English (UK)");
-	
-		verifyTrue(doesitemExist(driver, category_title));
-		
+		CategoryPage.click(driver, in_CategoryPage.searchtool_button);
+		waitForPageLoad(Config.short_wait_time);
+		CategoryPage.filterCategoryByDropdown("Unpublished", "Registered", "English (UK)");
+		verifyTrue(CategoryPage.doesitemExist(driver, category_title));
 	}
 	
 	

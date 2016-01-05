@@ -9,7 +9,7 @@ import ac_common.ac_AdministratorPage;
 import ac_pages.ac_CategoryPage;
 import ac_pages.ac_LoginPage;
 import config.Config;
-import in_pages.in_CategoryPage;
+
 
 public class TM_JOOMLA_CATEGORY_004 extends ac_CategoryPage {
 	
@@ -24,11 +24,12 @@ public class TM_JOOMLA_CATEGORY_004 extends ac_CategoryPage {
 	public void TC_JOOMLA_CATEGORY_MANAGER_012()
 	{
 		CategoryPage = new ac_CategoryPage(driver);
-		CategoryPage.navigatemenu(driver, "Content", "Category Manager", null);
-		CategoryPage.click(driver, in_CategoryPage.new_button);
-		CategoryPage.fillInfoCategory(category_title, null, null, null, "cancel");
+		CategoryPage.navigatemenu(driver, "Content", "Categories", null);
+		CategoryPage.clickToolbarButton(driver, "new");
+		CategoryPage.fillInfoCategory(category_title, null, null, null);
+		CategoryPage.clickToolbarButton(driver, "cancel");
 		
-		verifyTrue(doesitemNotExist(driver, category_title));
+		verifyTrue(CategoryPage.doesitemNotExist(driver, category_title));
 				
 	}
 	

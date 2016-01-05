@@ -61,36 +61,6 @@ public class ac_CategoryPage extends ac_common.CommonElements {
 		}
 	}
 	
-//	 public void checkWeblinksArchived(String message, String title)
-//	{
-//		verifyTrue(doesTextPresent(driver, message));
-//		selectitems(driver, in_CategoryPage.status_filter_dropdown, "Archived");
-//		verifyTrue(doesitemExist(driver, title));
-//	}
-//	/**
-//	 * @author: Giang Nguyen
-//	 * @edit by: 
-//	 */
-//	public void checkWeblinksTrashed(String message, String title)
-//	{
-//		verifyTrue(doesTextPresent(driver, message));
-//		clearText(driver, in_CategoryPage.filter_textbox);
-//		selectitems(driver, in_CategoryPage.status_filter_dropdown, "Trashed");
-//		verifyTrue(doesitemExist(driver, title));
-//	}
-//	
-//	
-//	/**
-//	 * @author: Tuan Nguyen
-//	 * @edit by: 
-//	 */	
-//	public ac_CategoryPage selectToolbarButtons(String itemName, String button){
-//		selectToobarButton(driver, itemName, button);
-//		if (button =="publish"||button =="unpublish"||button =="archive"||button =="checkin"||button =="trash"){
-//			waitForControl(driver, in_CategoryPage.message_header, Config.short_wait_time*10);
-//		}
-//		return this;
-//	}
 	
 	private WebDriver driver;
 }

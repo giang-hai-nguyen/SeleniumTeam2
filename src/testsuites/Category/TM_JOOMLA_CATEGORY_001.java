@@ -45,8 +45,8 @@ public class TM_JOOMLA_CATEGORY_001 extends ac_CategoryPage {
 		CategoryPage.fillInfoCategory(category_title_modified, null, null, null);
 		CategoryPage.clickToolbarButton(driver, "save");
 		
-		verifyTrue(doesTextPresent(driver, message_create));
-		verifyTrue(doesitemExist(driver, category_title_modified));
+		verifyTrue(CategoryPage.doesTextPresent(driver, message_create));
+		verifyTrue(CategoryPage.doesitemExist(driver, category_title_modified));
 	}
 	
 	
@@ -92,6 +92,7 @@ public class TM_JOOMLA_CATEGORY_001 extends ac_CategoryPage {
 	
 		verifyTrue(doesTextPresent(driver, message_trash));
 		clearText(driver, in_CategoryPage.filter_textbox);
+		click(driver, in_CategoryPage.search_button);
 		CategoryPage.filterCategoryByDropdown("Trashed", null, null);
 		verifyTrue(CategoryPage.doesitemExist(driver, category_title_modified));
 	}
