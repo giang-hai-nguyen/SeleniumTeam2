@@ -1,6 +1,8 @@
 package ac_pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import in_pages.in_BannersPage;
 
@@ -84,7 +86,7 @@ public class ac_BannersPage extends ac_common.CommonElements{
 	
 	/**
 	 * @author: Giang Nguyen
-	 * @edit by: 
+	 * @edit by: Tuan Nguyen
 	 */
 	public void createNewBanner(String bannerName, String category, String state, String client, String description, String saveOption){
 		if (bannerName != null)
@@ -123,43 +125,32 @@ public class ac_BannersPage extends ac_common.CommonElements{
 		}
 	}
 	/**
-	 * @author: Giang Nguyen
+	 * @author: Tuan Nguyen
 	 * @edit by: 
 	 */
-//	public void createNewBanner(String name, String category, String state, String client, String description, String saveOption){
-//		navigatemenu(driver, "Components", "Banners", "Banners");
-//		if (name != null)
-//			clearText(driver, in_BannersPage.name_textbox);
-//			enter(driver, in_BannersPage.name_textbox, name);
-//		if (category != null){
-//			selectitems(driver, in_BannersPage.category_dropdown, category);
-//		}
-//		if (state != null){
-//			selectitems(driver, in_BannersPage.state_dropdown, state);
-//		}
-//		if (client != null){
-//			selectitems(driver, in_BannersPage.client_dropdown, client);
-//		}
-//		if (description != null)
-//		{
-//			enter(driver, in_BannersPage.description_textarea, description);
-//		}
-//		if (saveOption == "save")
-//		{
-//			clickToolbarButton(driver, "apply");
-//		}
-//		else if (saveOption == "save & close")
-//		{
-//			clickToolbarButton(driver, "save");
-//		}
-//		else if (saveOption == "save & new")
-//		{
-//			clickToolbarButton(driver, "save-new");
-//		}
-//		else if (saveOption == "cancel")
-//		{
-//			clickToolbarButton(driver, "cancel");
-//		}
-//	}
+	public boolean verifyDataOfBanner(String name, String category, String status,
+			String client) {
+		
+		String getName = driver.findElement(By.xpath(in_BannersPage.name_textbox)).getAttribute("value");
+		WebElement droplistCategory = driver.findElement(By.xpath(in_BannersPage.category_dropdown));
+		Select categoryItem = new Select(droplistCategory);
+		String getCategory = categoryItem.getFirstSelectedOption().getText().substring(2);
+	
+		WebElement droplistStatus = driver.findElement(By.xpath(in_BannersPage.state_dropdown));
+		Select statusItem = new Select(droplistStatus);
+		String getStatus = statusItem.getFirstSelectedOption().getText();
+		
+		WebElement droplistClient = driver.findElement(By.xpath(in_BannersPage.client_dropdown));
+		Select clientItem = new Select(droplistClient);
+		String getClient = clientItem.getFirstSelectedOption().getText();
+	
+		Boolean check = null;
+		if (getName.equals(name) && getCategory.equals(category) && getStatus.equals(status) && getClient.equals(client)) {
+			check = true;
+		} else {
+			check = false;
+		}
+		return check;
+	}
 	private WebDriver driver;
 }

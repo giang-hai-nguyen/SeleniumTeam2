@@ -27,12 +27,12 @@ public class in_BannersPage
 	//Information option
 	public static final String name_textbox = "//input[@id='jform_name']";
 	public static final String alias_textbox = "//input[@id='jform_alias']";
-	public static final String category_dropdown = "//select[@id='jform_catid']";
+	public static final String category_dropdown = "//div[@id='jform_catid_chzn']";
 	public static final String fillter_category_dropdown_value = "//div[@id='jform_catid_chzn']/div/ul/li[text()='%s']";
-	public static final String state_dropdown = "//select[@id='jform_state']";
+	public static final String state_dropdown = "//div[@id='jform_state_chzn']";
 	public static final String fillter_state_dropdown_value = "//div[@id='jform_state_chzn']/div/ul/li[text()='%s']";
 	public static final String description_textarea = "//textarea[@id='jform_description']";
-	public static final String client_dropdown = "//textarea[@id='jform_cid']";
+	public static final String client_dropdown = "//div[@id='jform_cid_chzn']";
 	public static final String fillter_client_dropdown_value = "//div[@id='jform_cid_chzn']/div/ul/li[text()='%s']";
 	
 	

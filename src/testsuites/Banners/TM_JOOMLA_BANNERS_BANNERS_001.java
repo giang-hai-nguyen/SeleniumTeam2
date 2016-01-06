@@ -17,7 +17,7 @@ public class TM_JOOMLA_BANNERS_BANNERS_001 extends ac_BannersPage {
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 
-	@Test (description = "Verify that user can create new banner")
+	@Test (description = "Verify that user can create new banner", groups={"regression"})
 	public void TC_JOOMLA_BANNERS_BANNERS_001()
 	{
 		BannerPage = new ac_BannersPage(driver);
@@ -35,27 +35,34 @@ public class TM_JOOMLA_BANNERS_BANNERS_001 extends ac_BannersPage {
 		
 		BannerPage.navigatemenu(driver, "Components", "Banners", "Banners");
 		BannerPage.clickToolbarButton(driver, "new");
-		BannerPage.createNewBanner(banner_name, category_title, null, client_name, null, "save & close");
-		BannerPage.clickToolbarButton(driver, "save");
+		BannerPage.createNewBanner(banner_name,"- "+ category_title, null, client_name, null, "save & close");
 		verifyTrue(BannerPage.doesTextPresent(driver, message_banner_create));
 		verifyTrue(BannerPage.doesitemExist(driver, banner_name));
 	}
-//	
-//	@Test (description = "Verify that user can edit a banner")
-//	public void TC_JOOMLA_BANNERS_BANNERS_002()
-//	{
-//		
-//	}
 	
-//	@Test (description = "Verify that user can unpublish a banner")
-//	public void TC_JOOMLA_BANNERS_BANNERS_004()
-//	{
-//		BannerPage.selectCheckboxItem(driver, name_modified);
-//		BannerPage.clickToolbarButton(driver, "unpublish");
-//		verifyTrue(BannerPage.doesTextPresent(driver, message_unpublish));
-//		verifyTrue(getitemStatus(driver, in_ContactsPage.publish_status_icon, name_modified).equals("state unpublish"));
-//	}
-//	
+	@Test (description = "Verify that user can edit a banner", dependsOnMethods = "TC_JOOMLA_BANNERS_BANNERS_001", groups={"regression"})
+	public void TC_JOOMLA_BANNERS_BANNERS_002()
+	{
+		BannerPage.selectCheckboxItem(driver, banner_name);
+		BannerPage.clickToolbarButton(driver, "edit");
+		BannerPage.createNewBanner(banner_name_edit, null, null, null, null, "save & close");
+		verifyTrue(BannerPage.doesTextPresent(driver, message_banner_create));
+		BannerPage.clickToolbarButton(driver, "edit");
+		verifyTrue(BannerPage.verifyDataOfBanner(banner_name_edit, category_name_edit, state_publish, client_name_edit));
+		BannerPage.clickToolbarButton(driver, "cancel");
+	}
+	
+	@Test (description = "Verify that user can create a new banner with 'unpublished' status", dependsOnMethods = "TC_JOOMLA_BANNERS_BANNERS_002", groups={"regression"})
+	public void TC_JOOMLA_BANNERS_BANNERS_003()
+	{
+		BannerPage.selectCheckboxItem(driver, banner_name_edit);
+		BannerPage.clickToolbarButton(driver, "edit");
+		BannerPage.createNewBanner(banner_name_edit, null, state_unpublish, null, null, "save & close");
+		verifyTrue(BannerPage.doesTextPresent(driver, message_banner_create));
+		verifyTrue(BannerPage.verifyDataOfBanner(banner_name_edit, category_name_edit, state_unpublish, client_name_edit));
+		BannerPage.clickToolbarButton(driver, "cancel");
+	}
+	
 //	@Test (description = "Verify that user can archive a banner")
 //	public void TC_JOOMLA_BANNERS_BANNERS_005()
 //	{
@@ -89,10 +96,13 @@ public class TM_JOOMLA_BANNERS_BANNERS_001 extends ac_BannersPage {
 	private ac_BannersPage BannerPage;
 	
 	private String client_name = randUniqueString("Client Test");
+	private String client_name_edit ="update " + client_name;
 	private String contact_name = "Mr John";
 	private String contact_email = "John@gmail.com";
 	private String category_title = randUniqueString("Category Test");
+	private String category_name_edit ="update " + category_title;
 	private String banner_name = randUniqueString("Banner Test");
+	private String banner_name_edit ="update " + banner_name;
 	private String message_client_create = "Client successfully saved";
 	private String message_category_create = "Category successfully saved";
 	private String message_banner_create = "Banner successfully saved";
