@@ -26,20 +26,21 @@ public class TM_JOOMLA_BANNERS_CLIENTS_003 extends ac_BannerClientPage {
 	{
 		BannerClientPage = new ac_BannerClientPage(driver);
 		BannerClientPage.navigatemenu(driver, "Components", "Banners", "Clients");
-		BannerClientPage.click(driver, in_BannerClientPage.new_button);
-		BannerClientPage.fillInfoBannerClient(bannerclient_title1, "Mr John", "John@gmail.com", null, "save");
+		BannerClientPage.clickToolbarButton(driver, "new");
+		BannerClientPage.fillInfoBannerClient(bannerclient_title1, "Mr John", "John@gmail.com", null);
+		BannerClientPage.clickToolbarButton(driver, "apply");
 		
-		verifyTrue(doesTextPresent(driver, message_create));
+		verifyTrue(BannerClientPage.doesTextPresent(driver, message_create));
 		
 		clearText(driver, in_BannerClientPage.clientname_texbox);
 		enter(driver, in_BannerClientPage.clientname_texbox, bannerclient_title2);
-		click(driver, in_BannerClientPage.saveascopy_button);
+		BannerClientPage.clickToolbarButton(driver, "save-copy");
 		
-		verifyTrue(doesTextPresent(driver, message_create));
-		click(driver, in_BannerClientPage.cancel_button);
+		verifyTrue(BannerClientPage.doesTextPresent(driver, message_create));
+		BannerClientPage.clickToolbarButton(driver, "cancel");
 		
-		verifyTrue(doesitemExist(driver, bannerclient_title1));
-		verifyTrue(doesitemExist(driver, bannerclient_title2));			
+		verifyTrue(BannerClientPage.doesitemExist(driver, bannerclient_title1));
+		verifyTrue(BannerClientPage.doesitemExist(driver, bannerclient_title2));			
 	}
 	
 	

@@ -55,6 +55,7 @@ public abstract class CommonElements extends Initialize {
 	public void selectitems(WebDriver driver, String xpath1, String xpath2, String item) 
 	{
 		driver.findElement(By.xpath(xpath1)).click();
+		waitForPageLoad(Config.short_wait_time);
 		driver.findElement(By.xpath(String.format(xpath2, item))).click();
 	}
 	

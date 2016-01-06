@@ -9,8 +9,6 @@ import ac_common.ac_AdministratorPage;
 import ac_pages.ac_CategoryPage;
 import ac_pages.ac_LoginPage;
 import config.Config;
-import in_common.in_AdminstratorPage;
-import in_pages.in_BannerClientPage;
 import in_pages.in_CategoryPage;
 
 
@@ -32,8 +30,8 @@ public class TM_JOOMLA_CATEGORY_001 extends ac_CategoryPage {
 		CategoryPage.fillInfoCategory(category_title, null, null, null);
 		CategoryPage.clickToolbarButton(driver, "save");
 				
-		verifyTrue(doesTextPresent(driver, message_create));
-		verifyTrue(doesitemExist(driver, category_title));
+		verifyTrue(CategoryPage.doesTextPresent(driver, message_create));
+		verifyTrue(CategoryPage.doesitemExist(driver, category_title));
 	}
 	
 	

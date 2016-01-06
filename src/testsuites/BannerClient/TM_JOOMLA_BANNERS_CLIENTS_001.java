@@ -9,8 +9,8 @@ import ac_common.ac_AdministratorPage;
 import ac_pages.ac_BannerClientPage;
 import ac_pages.ac_LoginPage;
 import config.Config;
-import in_common.in_AdminstratorPage;
-import in_pages.in_BannerClientPage;;
+import in_pages.in_BannerClientPage;
+import in_pages.in_CategoryPage;
 
 
 public class TM_JOOMLA_BANNERS_CLIENTS_001 extends ac_BannerClientPage {
@@ -26,56 +26,60 @@ public class TM_JOOMLA_BANNERS_CLIENTS_001 extends ac_BannerClientPage {
 	{
 		BannerClientPage = new ac_BannerClientPage(driver);
 		BannerClientPage.navigatemenu(driver, "Components", "Banners", "Clients");
-		BannerClientPage.click(driver, in_BannerClientPage.new_button);
-		BannerClientPage.fillInfoBannerClient(bannerclient_title, "Mr John", "John@gmail.com", null, "save & close");
+		BannerClientPage.clickToolbarButton(driver, "new");
+		BannerClientPage.fillInfoBannerClient(bannerclient_title, "Mr John", "John@gmail.com", null);
+		BannerClientPage.clickToolbarButton(driver, "save");
 		
-		verifyTrue(doesTextPresent(driver, message_create));
-		verifyTrue(doesitemExist(driver, bannerclient_title));
+		verifyTrue(BannerClientPage.doesTextPresent(driver, message_create));
+		verifyTrue(BannerClientPage.doesitemExist(driver, bannerclient_title));
 	}
 	
 	
-	@Test (description= "Verify that user can edit a client")
+	@Test (description= "Verify that user can edit a client", dependsOnMethods = {"TC_JOOMLA_BANNERS_CLIENTS_001"})
 	public void TC_JOOMLA_BANNERS_CLIENTS_002()
 	{
 		BannerClientPage.selectCheckboxItem(driver, bannerclient_title);
-		BannerClientPage.click(driver, in_BannerClientPage.edit_button);
-		BannerClientPage.fillInfoBannerClient(bannerclient_title_modified, null, null, null, "save & close");
+		BannerClientPage.clickToolbarButton(driver, "edit");
+		BannerClientPage.fillInfoBannerClient(bannerclient_title_modified, null, null, null);
+		BannerClientPage.clickToolbarButton(driver, "save");
 		
-		verifyTrue(doesTextPresent(driver, message_create));
-		verifyTrue(doesitemExist(driver, bannerclient_title_modified));
+		verifyTrue(BannerClientPage.doesTextPresent(driver, message_create));
+		verifyTrue(BannerClientPage.doesitemExist(driver, bannerclient_title_modified));
 	}
 	
 	
-	@Test (description = "Verify that user can unpublish a client")
+	@Test (description = "Verify that user can unpublish a client", dependsOnMethods = {"TC_JOOMLA_BANNERS_CLIENTS_002"})
 	public void TC_JOOMLA_BANNERS_CLIENTS_003()
 	{
 		BannerClientPage.selectCheckboxItem(driver, bannerclient_title_modified);
-		BannerClientPage.clickToolbarButton(driver, in_AdminstratorPage.toolbar_unpublish);
+		BannerClientPage.clickToolbarButton(driver, "unpublish");
 			
 		verifyTrue(doesTextPresent(driver, message_unpublish));
-		verifyTrue(getitemStatus(driver, in_BannerClientPage.publish_status_icon, bannerclient_title_modified).equals("state unpublish"));
+		verifyTrue(getitemStatus(driver, in_BannerClientPage.publish_status_icon, bannerclient_title_modified).equals("icon-unpublish"));
 		
 	}
 
-	@Test (description = "Verify that user can publish a client")
-	public void TC_JOOMLA_CATEGORY_MANAGER_004()
+	@Test (description = "Verify that user can publish a client", dependsOnMethods = {"TC_JOOMLA_BANNERS_CLIENTS_003"})
+	public void TC_JOOMLA_BANNERS_CLIENTS_004()
 	{
 		BannerClientPage.selectCheckboxItem(driver, bannerclient_title_modified);
-		BannerClientPage.clickToolbarButton(driver, in_AdminstratorPage.toolbar_publish);
+		BannerClientPage.clickToolbarButton(driver, "publish");
 		
 		verifyTrue(doesTextPresent(driver, message_publish));
-		verifyTrue(getitemStatus(driver, in_BannerClientPage.publish_status_icon, bannerclient_title_modified).equals("state publish"));
+		verifyTrue(getitemStatus(driver, in_BannerClientPage.publish_status_icon, bannerclient_title_modified).equals("icon-publish"));
 	}
 	
-	@Test (description = "Verify that user can archive a client")
-	public void TC_JOOMLA_CATEGORY_MANAGER_005()
+	@Test (description = "Verify that user can archive a client", dependsOnMethods = {"TC_JOOMLA_BANNERS_CLIENTS_004"})
+	public void TC_JOOMLA_BANNERS_CLIENTS_005()
 	{
 		BannerClientPage.selectCheckboxItem(driver, bannerclient_title_modified);
-		BannerClientPage.click(driver, in_BannerClientPage.archive_button);
+		BannerClientPage.clickToolbarButton(driver, "archive");
 		
-		verifyTrue(doesTextPresent(driver, message_archive));
-		selectitems(driver, in_BannerClientPage.status_filter_dropdown, "Archived");
-		verifyTrue(doesitemExist(driver, bannerclient_title_modified));
+		verifyTrue(BannerClientPage.doesTextPresent(driver, message_archive));
+		BannerClientPage.click(driver, in_CategoryPage.searchtool_button);
+		waitForPageLoad(Config.short_wait_time);
+		BannerClientPage.filterBannerClientByDropdown("Archived");
+		verifyTrue(BannerClientPage.doesitemExist(driver, bannerclient_title_modified));
 	}
 	
 
