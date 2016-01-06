@@ -28,19 +28,16 @@ public class in_WeblinksPage {
 	public static final String access_status = "//a[contains(text(),'%s')]/../following-sibling::td[5]";
 	
 	
+	
+	
 	//Fill info
 	
 	public static final String title_texbox ="//input[@id='jform_title']";
 	public static final String url_texbox ="//input[@id='jform_url']";
 	public static final String status_dropdown ="//select[@id='jform_state']";
+	public static final String status_dropdown_value = "//select[@id='jform_state']/option[text()='%s']";
 	
 	
-	//Save, Save & close, Save & New, Cancel buttons 
-	
-	public static final String save_button ="//li[@id='toolbar-apply']/a/span";
-	public static final String saveclose_button="//li[@id='toolbar-save']/a/span";
-	public static final String savenew_button="//li[@id='toolbar-save-new']/a/span";
-	public static final String cancel_button="[@id='toolbar-cancel']/a/span";
 	
 	//Help page
 	public static final String help_text= "//p[contains (text (), 'The Web Links Manager allows you to manage links to other web sites and organize them into categories')]";
