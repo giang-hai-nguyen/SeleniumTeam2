@@ -388,7 +388,7 @@ public abstract class CommonElements extends Initialize {
 	
 	public boolean doesSortingIDAscend(WebDriver driver) {
 
-		Boolean check = null;
+		Boolean check = false;
 		WebElement webTableElement = driver.findElement(By.xpath(in_ArticlesPage.table_admin));
 		int tableRows = webTableElement.findElements(By.tagName("tr")).size();
 		int tableColumns = driver.findElements(
@@ -417,7 +417,7 @@ public abstract class CommonElements extends Initialize {
 	}
 	
 	public boolean doesSortingIDDescend(WebDriver driver) {
-		Boolean check = null;
+		Boolean check = false;
 		WebElement webTableElement = driver.findElement(By.xpath(in_ArticlesPage.table_admin));
 		int tableRows = webTableElement.findElements(By.tagName("tr")).size();
 		int tableColumns = driver.findElements(
@@ -447,7 +447,7 @@ public abstract class CommonElements extends Initialize {
 
 	public boolean doesPagingAll(WebDriver driver) {
 		driver.findElement(By.xpath(in_ArticlesPage.clear_btn)).click();
-		Boolean check = null;
+		Boolean check = false;
 		((JavascriptExecutor)driver).executeScript("document.getElementById('list_limit').style.display='block';");		
 		selectdropDownListItem(driver, in_ArticlesPage.dropdownlist_paginate, "All");
 		waitForPageLoad(Config.timeout);
@@ -461,7 +461,7 @@ public abstract class CommonElements extends Initialize {
 	
 	public boolean doesPagingNumber(WebDriver driver, int rowlimit) {
 		driver.findElement(By.xpath(in_ArticlesPage.clear_btn)).click();
-		Boolean check = null;
+		Boolean check = false;
 		((JavascriptExecutor)driver).executeScript("document.getElementById('list_limit').style.display='block';");	
 		selectdropDownListItem(driver, in_ArticlesPage.dropdownlist_paginate,
 				Integer.toString(rowlimit));
@@ -475,6 +475,27 @@ public abstract class CommonElements extends Initialize {
 		WebElement dropDownListBox = driver.findElement(dropdownlist);
 		Select clickItem = new Select(dropDownListBox);
 		clickItem.selectByVisibleText(item);
+	}
+	
+	public void clickHeaderOrdering(WebDriver driver){
+		driver.findElement(By.xpath(in_ArticlesPage.header_ordering)).click();
+		if (doesControlExist(driver, in_ArticlesPage.order_arrow_up) == true) {
+			driver.findElement(By.xpath(in_ArticlesPage.order_arrow_up)).click();
+		} else {
+			driver.findElement(By.xpath(in_ArticlesPage.order_arrow_down)).click();			
+		}
+	}
+	
+	public boolean doesOrderTwoItems(WebDriver driver, String beforeitem, String afteritem) {
+		Boolean check = null;
+		int orderItem1 = driver.findElements(
+				By.xpath("//div[a[contains(text(),'" + beforeitem
+						+ "')]]/../../preceding-sibling::tr")).size();
+		int orderItem2 = driver.findElements(
+				By.xpath("//div[a[contains(text(),'" + afteritem
+						+ "')]]/../../preceding-sibling::tr")).size();
+		check = orderItem1<orderItem2;
+		return check;
 	}
 	protected WebElement element;
 }

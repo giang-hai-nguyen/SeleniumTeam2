@@ -44,7 +44,9 @@ public class in_ArticlesPage {
 	public static final String table_admin = "//*[@id='adminForm']//table/tbody";
 	public static By dropdownlist_paginate = By.xpath("//select[@id='list_limit']");
 	public static final String clear_btn = "//form[@id='adminForm']//button[contains(.,'Clear')]";
-
+	public static final String header_ordering ="//table[@id='articleList']//tr/th/a/span";
+	public static final String order_arrow_up = "//table[@id='articleList']//tr/th/a/span[@class='icon-arrow-up-3']";
+	public static final String order_arrow_down = "//table[@id='articleList']//tr/th/a/span[@class='icon-arrow-down-3']";
 	
 	
 }

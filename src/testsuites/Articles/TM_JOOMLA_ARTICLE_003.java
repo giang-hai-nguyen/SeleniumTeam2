@@ -27,7 +27,7 @@ public class TM_JOOMLA_ARTICLE_003 extends ac_ArticlesPage
 	}
 	
 	@Test(description = "Verify user can search for articles using the filter text field", groups = "regression")
-	public void TC_JOOMLA_ARTICLE_09() 
+	public void TC_JOOMLA_ARTICLE_009() 
 	{
 		ArticlePage = new ac_ArticlesPage(driver);
 		ArticlePage.navigatemenu(driver, "Content", "Articles", null);
@@ -38,7 +38,7 @@ public class TM_JOOMLA_ARTICLE_003 extends ac_ArticlesPage
 		verifyTrue(ArticlePage.doesitemExist(driver, title));
 	}
 	
-	@Test(description = "Verify user can change the feature property of articles using the Featured column", dependsOnMethods = "TC_JOOMLA_ARTICLE_09", groups = "regression")
+	@Test(description = "Verify user can change the feature property of articles using the Featured column", dependsOnMethods = "TC_JOOMLA_ARTICLE_009", groups = "regression")
 	public void TC_JOOMLA_ARTICLE_016() {
 
 		ArticlePage.changeFeatureArticle(title);
@@ -54,7 +54,7 @@ public class TM_JOOMLA_ARTICLE_003 extends ac_ArticlesPage
 		ArticlePage.filterArticleByDropdown(access_public, category.substring(2), null, null);		
 		verifyTrue(ArticlePage.doesitemExist(driver, title));
 	}
-		
+	
 	private WebDriver driver;
 	private ac_LoginPage LoginPage;
 	private ac_AdministratorPage AdminPage;

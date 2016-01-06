@@ -117,7 +117,6 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 	private String message_archive = "1 article archived.";
 	private String message_trash = "1 article trashed.";
 	private String state_unpublish = "Unpublished";
-	private String state_publish = "Published";
 	private String message_publish = "1 article published.";
 	private String message_unpublish = "1 article unpublished.";
 }

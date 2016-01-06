@@ -21,27 +21,31 @@ public class TM_JOOMLA_BANNERS_BANNERS_001 extends ac_BannersPage {
 	public void TC_JOOMLA_BANNERS_BANNERS_001()
 	{
 		BannerPage = new ac_BannersPage(driver);
+		navigatemenu(driver, "Components", "Banners", "Clients");
+		BannerPage.clickToolbarButton(driver, "new");
 		BannerPage.createNewClient(client_name, contact_name, contact_email, "save & close");
 		verifyTrue(BannerPage.doesTextPresent(driver, message_client_create));
 		verifyTrue(BannerPage.doesitemExist(driver, client_name));
 		
+		navigatemenu(driver, "Components", "Banners", "Categories");
+		BannerPage.clickToolbarButton(driver, "new");
 		BannerPage.createNewCategory(category_title, "save & close");
-		verifyTrue(BannerPage.doesTextPresent(driver, message_client_create));
-		verifyTrue(BannerPage.doesitemExist(driver, client_name));
+		verifyTrue(BannerPage.doesTextPresent(driver, message_category_create));
+		verifyTrue(BannerPage.doesitemExist(driver, category_title));
 		
 		BannerPage.navigatemenu(driver, "Components", "Banners", "Banners");
 		BannerPage.clickToolbarButton(driver, "new");
-		BannerPage.fillBannerInfo(banner_name, category_title, null,client_name, null);
+		BannerPage.createNewBanner(banner_name, category_title, null, client_name, null, "save & close");
 		BannerPage.clickToolbarButton(driver, "save");
 		verifyTrue(BannerPage.doesTextPresent(driver, message_banner_create));
 		verifyTrue(BannerPage.doesitemExist(driver, banner_name));
 	}
-	
-	@Test (description = "Verify that user can edit a banner")
-	public void TC_JOOMLA_BANNERS_BANNERS_002()
-	{
-		
-	}
+//	
+//	@Test (description = "Verify that user can edit a banner")
+//	public void TC_JOOMLA_BANNERS_BANNERS_002()
+//	{
+//		
+//	}
 	
 //	@Test (description = "Verify that user can unpublish a banner")
 //	public void TC_JOOMLA_BANNERS_BANNERS_004()

@@ -105,5 +105,15 @@ public class ac_ArticlesPage extends ac_common.CommonElements {
 	public boolean doesPagingAll() {
 		return doesPagingAll(driver);
 	} 
+	
+	public ac_ArticlesPage clickHeaderOrderButton(){
+		clickHeaderOrdering(driver);
+		return this;
+	}
+	
+	public boolean doesOrderTwoArticles(String beforecontact, String aftercontact) {
+
+		return doesOrderTwoItems(driver,beforecontact,aftercontact);
+	}
 	private WebDriver driver;
 }

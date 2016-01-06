@@ -27,8 +27,8 @@ public class TM_JOOMLA_ARTICLE_004 extends ac_ArticlesPage
 		driver.close();
 	}
 	
-	@Test (description = "Verify user can sort the article table by ID column", groups = "regression")
-	public void TC_JOOMLA_ARTICLE_011() {
+	@Test (description = "Verify user can change the order of articles using the Ordering column", groups = "regression")
+	public void TC_JOOMLA_ARTICLE_014() {
 
 		ArticlePage = new ac_ArticlesPage(driver);		
 		ArticlePage.navigatemenu(driver, "Content", "Articles", null);
@@ -41,7 +41,17 @@ public class TM_JOOMLA_ARTICLE_004 extends ac_ArticlesPage
 		ArticlePage.fillArticleInfo(title2, category2, access_public, null, arttext);
 		ArticlePage.clickToolbarButton(driver, "save");
 		
-		searchItem(driver, "Article");
+		searchItem(driver, "Article order");
+		verifyTrue(ArticlePage.doesOrderTwoArticles(title2, title1));
+
+		ArticlePage.clickHeaderOrderButton();
+		verifyTrue(ArticlePage.doesOrderTwoArticles(title1, title2));
+
+	}
+	
+	@Test (description = "Verify user can sort the article table by ID column", dependsOnMethods = "TC_JOOMLA_ARTICLE_014", groups = "regression")
+	public void TC_JOOMLA_ARTICLE_011() {
+
 		ArticlePage.clickArticleHeaderID();
 		verifyTrue(ArticlePage.doesSortingIDAscending());
 		ArticlePage.clickArticleHeaderID();
@@ -51,8 +61,8 @@ public class TM_JOOMLA_ARTICLE_004 extends ac_ArticlesPage
 	@Test (description = "Verify user can paging the articles using the paging control", dependsOnMethods = "TC_JOOMLA_ARTICLE_011", groups = "regression")
 	public void TC_JOOMLA_ARTICLE_012() {
 		
-		verifyTrue(ArticlePage.doesPagingAll());
 		verifyTrue(ArticlePage.doesPagingNumber(displaypagenumber));
+		verifyTrue(ArticlePage.doesPagingAll());
 
 	}
 	
