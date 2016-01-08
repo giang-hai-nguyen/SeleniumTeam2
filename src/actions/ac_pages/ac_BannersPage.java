@@ -1,5 +1,6 @@
 package ac_pages;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -132,15 +133,20 @@ public class ac_BannersPage extends ac_common.CommonElements{
 			String client) {
 		
 		String getName = driver.findElement(By.xpath(in_BannersPage.name_textbox)).getAttribute("value");
-		WebElement droplistCategory = driver.findElement(By.xpath(in_BannersPage.category_dropdown));
+		((JavascriptExecutor)driver).executeScript("document.getElementById('jform_catid').style.display='block';");
+		WebElement droplistCategory = driver.findElement(By.xpath(in_BannersPage.category_dropdown_by_js));
 		Select categoryItem = new Select(droplistCategory);
+
 		String getCategory = categoryItem.getFirstSelectedOption().getText().substring(2);
-	
-		WebElement droplistStatus = driver.findElement(By.xpath(in_BannersPage.state_dropdown));
+		
+		((JavascriptExecutor)driver).executeScript("document.getElementById('jform_state').style.display='block';");
+		WebElement droplistStatus = driver.findElement(By.xpath(in_BannersPage.state_dropdown_by_js));
 		Select statusItem = new Select(droplistStatus);
 		String getStatus = statusItem.getFirstSelectedOption().getText();
 		
-		WebElement droplistClient = driver.findElement(By.xpath(in_BannersPage.client_dropdown));
+		driver.findElement(By.xpath("//ul[@id='myTabTabs']//a[.='Banner Details']")).click();
+		((JavascriptExecutor)driver).executeScript("document.getElementById('jform_cid').style.display='block';");
+		WebElement droplistClient = driver.findElement(By.xpath(in_BannersPage.client_dropdown_by_js));
 		Select clientItem = new Select(droplistClient);
 		String getClient = clientItem.getFirstSelectedOption().getText();
 	
