@@ -49,7 +49,7 @@ public class TM_JOOMLA_BANNERS_BANNERS_001 extends ac_BannersPage {
 		verifyTrue(BannerPage.doesTextPresent(driver, message_banner_create));
 		BannerPage.selectCheckboxItem(driver, banner_name_edit);
 		BannerPage.clickToolbarButton(driver, "edit");
-		verifyTrue(BannerPage.verifyDataOfBanner(banner_name_edit, category_name_edit, state_publish, client_name));
+		verifyTrue(BannerPage.verifyDataOfBanner(banner_name_edit, category_title, state_publish, client_name));
 		BannerPage.clickToolbarButton(driver, "cancel");
 	}
 	
