@@ -49,7 +49,7 @@ public class TM_JOOMLA_BANNERS_BANNERS_001 extends ac_BannersPage {
 		verifyTrue(BannerPage.doesTextPresent(driver, message_banner_create));
 		BannerPage.selectCheckboxItem(driver, banner_name_edit);
 		BannerPage.clickToolbarButton(driver, "edit");
-		verifyTrue(BannerPage.verifyDataOfBanner(banner_name_edit, category_name_edit, state_publish, client_name));
+		verifyTrue(BannerPage.verifyDataOfBanner(banner_name_edit, category_title, state_publish, client_name));
 		BannerPage.clickToolbarButton(driver, "cancel");
 	}
 	
@@ -60,7 +60,9 @@ public class TM_JOOMLA_BANNERS_BANNERS_001 extends ac_BannersPage {
 		BannerPage.clickToolbarButton(driver, "edit");
 		BannerPage.createNewBanner(banner_name_edit, null, state_unpublish, null, null, "save & close");
 		verifyTrue(BannerPage.doesTextPresent(driver, message_banner_create));
-		verifyTrue(BannerPage.verifyDataOfBanner(banner_name_edit, category_name_edit, state_unpublish, client_name_edit));
+		BannerPage.selectCheckboxItem(driver, banner_name_edit);
+		BannerPage.clickToolbarButton(driver, "edit");
+		verifyTrue(BannerPage.verifyDataOfBanner(banner_name_edit, category_title, state_unpublish, client_name));
 		BannerPage.clickToolbarButton(driver, "cancel");
 	}
 	
@@ -101,7 +103,7 @@ public class TM_JOOMLA_BANNERS_BANNERS_001 extends ac_BannersPage {
 	private String contact_name = "Mr John";
 	private String contact_email = "John@gmail.com";
 	private String category_title = randUniqueString("Category Test");
-	private String category_name_edit ="update " + category_title;
+	private String category_title_edit ="Update " + category_title;
 	private String banner_name = randUniqueString("Banner Test");
 	private String banner_name_edit ="update " + banner_name;
 	private String message_client_create = "Client successfully saved";

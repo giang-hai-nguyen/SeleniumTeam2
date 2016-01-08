@@ -143,13 +143,13 @@ public class ac_BannersPage extends ac_common.CommonElements{
 		WebElement droplistStatus = driver.findElement(By.xpath(in_BannersPage.state_dropdown_by_js));
 		Select statusItem = new Select(droplistStatus);
 		String getStatus = statusItem.getFirstSelectedOption().getText();
-		
+	
 		driver.findElement(By.xpath("//ul[@id='myTabTabs']//a[.='Banner Details']")).click();
 		((JavascriptExecutor)driver).executeScript("document.getElementById('jform_cid').style.display='block';");
 		WebElement droplistClient = driver.findElement(By.xpath(in_BannersPage.client_dropdown_by_js));
 		Select clientItem = new Select(droplistClient);
 		String getClient = clientItem.getFirstSelectedOption().getText();
-	
+		
 		Boolean check = null;
 		if (getName.equals(name) && getCategory.equals(category) && getStatus.equals(status) && getClient.equals(client)) {
 			check = true;
