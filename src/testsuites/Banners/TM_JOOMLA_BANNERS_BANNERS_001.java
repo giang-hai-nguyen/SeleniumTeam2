@@ -23,13 +23,13 @@ public class TM_JOOMLA_BANNERS_BANNERS_001 extends ac_BannersPage {
 	public void TC_JOOMLA_BANNERS_BANNERS_001()
 	{
 		BannerPage = new ac_BannersPage(driver);
-		navigatemenu(driver, "Components", "Banners", "Clients");
+		BannerPage.navigatemenu(driver, "Components", "Banners", "Clients");
 		BannerPage.clickToolbarButton(driver, "new");
 		BannerPage.createNewClient(client_name, contact_name, contact_email, "save & close");
 		verifyTrue(BannerPage.doesTextPresent(driver, message_client_create));
 		verifyTrue(BannerPage.doesitemExist(driver, client_name));
 		
-		navigatemenu(driver, "Components", "Banners", "Categories");
+		BannerPage.navigatemenu(driver, "Components", "Banners", "Categories");
 		BannerPage.clickToolbarButton(driver, "new");
 		BannerPage.createNewCategory(category_title, "save & close");
 		verifyTrue(BannerPage.doesTextPresent(driver, message_category_create));
