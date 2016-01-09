@@ -534,5 +534,20 @@ public abstract class CommonElements extends Initialize {
 		driver.switchTo().window(parentHandle);
 		return check;
 	}
+	public boolean verifyCheckInState(WebDriver driver, String itemname, String state) {
+		Boolean check = null;
+		searchItem(driver, itemname);
+		Boolean lockicon_state = driver.findElements(
+				By.xpath("//div[a[contains(text(),'" + itemname
+						+ "')]]/a/span[@class='icon-checkedout']"))
+						.size() != 0;
+		if (state == "locked") {
+			check = lockicon_state.equals(true);
+		} else {
+			check = lockicon_state.equals(false);
+		}
+		return check;
+	}
+	
 	protected WebElement element;
 }

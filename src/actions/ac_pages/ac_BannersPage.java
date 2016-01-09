@@ -3,7 +3,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
 
 import config.Config;
 
@@ -94,11 +97,13 @@ public class ac_BannersPage extends ac_common.CommonElements{
 	public void createNewBanner(String bannerName, String category, String state, String client, String description, String saveOption){
 		if (bannerName != null)
 			clearText(driver, in_BannersPage.name_textbox);
-			enter(driver, in_BannersPage.name_textbox, bannerName);
+			enter(driver, in_BannersPage.name_textbox, bannerName);			
 		if (category != null){
+			driver.findElement(By.xpath("//ul[@id='myTabTabs']//a[.='Details']")).click();
 			selectitems(driver, in_BannersPage.category_dropdown, in_BannersPage.fillter_category_dropdown_value, category);
 		}
 		if (state != null){
+			driver.findElement(By.xpath("//ul[@id='myTabTabs']//a[.='Details']")).click();
 			selectitems(driver, in_BannersPage.state_dropdown, in_BannersPage.fillter_state_dropdown_value, state);
 		}
 		if (client != null){
@@ -197,6 +202,25 @@ public class ac_BannersPage extends ac_common.CommonElements{
 	
 	public boolean doesHelpWindowsDisplay() {
 		return doesHelpWindowsDisplay(driver);
+	}
+	
+	public boolean verifyCheckInStateBanner(String bannername, String state){
+		return verifyCheckInState(driver, bannername, state);
+	}
+	
+	public void checkinBanner(String banner) {
+		selectToobarButton(driver, banner, "checkin");
+		waitForControl(By.xpath(".//*[@id='system-message']/dd/ul/li"), Config.long_wait_time);
+	}
+	
+	public void waitForControl(By control, long timeout)
+	{
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, timeout);
+			wait.until(ExpectedConditions.elementToBeClickable((By) driver.findElement(control)));
+		} catch (Exception e) {
+			Reporter.log("Element doesn't exist");
+		}
 	}
 	private WebDriver driver;
 }
