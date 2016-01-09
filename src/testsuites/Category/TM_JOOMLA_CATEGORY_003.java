@@ -3,8 +3,11 @@ package Category;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import ac_common.BrowserExecution;
 import ac_common.ac_AdministratorPage;
 import ac_pages.ac_CategoryPage;
 import ac_pages.ac_LoginPage;
@@ -14,8 +17,9 @@ import in_pages.in_CategoryPage;
 
 public class TM_JOOMLA_CATEGORY_003 extends ac_CategoryPage {
 	@BeforeClass
-	public void Setup() {
-		driver = openBrowser();
+	@Parameters({ "browser" })
+	public void Setup(@Optional("firefox") String browser) {
+		driver = BrowserExecution.navigateJoomla(browser);
 		LoginPage = new ac_LoginPage(driver);
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
@@ -43,7 +47,7 @@ public class TM_JOOMLA_CATEGORY_003 extends ac_CategoryPage {
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
 		AdminPage.Logout();		
-		closeBrowser();
+		BrowserExecution.closeJoomla();
 	}
 	
 	private WebDriver driver;
@@ -51,8 +55,8 @@ public class TM_JOOMLA_CATEGORY_003 extends ac_CategoryPage {
 	private ac_AdministratorPage AdminPage;
 	private ac_CategoryPage CategoryPage;
 	
-	public String category_title = randUniqueString("Test Category");
-	public String category_title_modified = randUniqueString("Test Category modified");
+	private String category_title = randUniqueString("Test Category");
+	private String category_title_modified = randUniqueString("Test Category modified");
 }
 
 

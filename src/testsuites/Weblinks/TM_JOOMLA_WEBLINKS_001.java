@@ -113,12 +113,12 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 //		
 //	}
 //	
-//	@AfterClass
-//	public void teardown(){
-//		AdminPage = new ac_AdministratorPage(driver);
-//		AdminPage.Logout();		
-//		driver.close();
-//	}
+	@AfterClass
+	public void teardown(){
+		AdminPage = new ac_AdministratorPage(driver);
+		AdminPage.Logout();		
+		BrowserExecution.closeJoomla();
+	}
 	
 	private WebDriver driver;
 	private ac_LoginPage LoginPage;	

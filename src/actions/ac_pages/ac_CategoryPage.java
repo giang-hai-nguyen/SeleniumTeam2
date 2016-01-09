@@ -28,15 +28,16 @@ public class ac_CategoryPage extends ac_common.CommonElements {
 	 */
 	public void fillInfoCategory(String name, String status, String access, String language){
 		
-		if (name != null)
+		{if (name != null)
 			clearText(driver, in_CategoryPage.title_texbox);
 			enter(driver, in_CategoryPage.title_texbox, name);
-		if (status != null)
-			selectitems(driver, in_CategoryPage.status_dropdown, in_CategoryPage.status_dropdown_values, status);
-		if (access != null)
-			selectitems(driver, in_CategoryPage.access_dropdown, in_CategoryPage.access_dropdown_values, access);
-		if (language !=null)
-			selectitems(driver, in_CategoryPage.language_dropdown, in_CategoryPage.language_dropdown_values, language);
+			waitForPageLoad(Config.short_wait_time);}
+		{if (status != null)
+			selectitems(driver, in_CategoryPage.status_dropdown, in_CategoryPage.status_dropdown_values, status);}
+		{if (access != null)
+			selectitems(driver, in_CategoryPage.access_dropdown, in_CategoryPage.access_dropdown_values, access);}
+		{if (language !=null)
+			selectitems(driver, in_CategoryPage.language_dropdown, in_CategoryPage.language_dropdown_values, language);}
 		//wait to enter info
 		waitForPageLoad(Config.short_wait_time);
 	}

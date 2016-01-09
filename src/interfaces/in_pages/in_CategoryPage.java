@@ -7,6 +7,7 @@ public class in_CategoryPage {
 		public static final String filter_textbox = "//input[@id='filter_search']";
 		public static final String search_button = "//button[@type='submit']";
 		public static final String searchtool_button = "//div [@class='btn-wrapper hidden-phone']";
+		public static final String clear_button = "//div[@class='btn-wrapper']/button[contains(text(), 'Clear')]";
 		public static final String status_filter_dropdown = "//select[@name='filter_published']";
 		public static final String access_filter_dropdown = "//select[@name='filter_access']";
 		public static final String language_filter_dropdown = "//select[@name='filter_language']";
