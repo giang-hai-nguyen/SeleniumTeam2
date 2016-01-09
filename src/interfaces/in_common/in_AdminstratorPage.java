@@ -1,6 +1,7 @@
 package in_common;
 
-public class in_AdminstratorPage {	
+public class in_AdminstratorPage {
+	public static final String admin_icon = "//a[@class='admin-logo']";
 	public static final String drop_open = "//div/ul[@class='nav nav-user pull-right']/li";
 	public static final String logout_icon = "//li[@class='dropdown open']/ul/li/a[text()='Logout']";
 	public static final String mainmenu="//ul[@id='menu']";

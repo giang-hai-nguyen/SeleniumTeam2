@@ -2,6 +2,7 @@ package Articles;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
+
 import ac_common.*;
 import ac_pages.*;
 import config.Config;
@@ -10,8 +11,9 @@ import in_pages.*;
 public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage 
 {
 	@BeforeClass	
-	public void Setup() {
-		driver = openBrowser();
+	@Parameters({ "browser" })
+	public void Setup(@Optional("firefox") String browser) {
+		driver = BrowserExecution.navigateJoomla(browser);
 		LoginPage = new ac_LoginPage(driver);
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
@@ -99,8 +101,8 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 	@AfterClass
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
-		AdminPage.Logout();		
-		closeBrowser();
+		AdminPage.Logout();
+		BrowserExecution.closeJoomla();
 	}
 	
 	private WebDriver driver;

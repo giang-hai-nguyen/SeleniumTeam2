@@ -10,10 +10,20 @@ public class in_BannersPage
 	public static final String clear_button ="//button[text()='Clear']";
 	
 	//filter dropdown
-	public static final String filter_state_dropdown = "//select[@name='filter_state']";
-	public static final String filter_client_dropdown = "//select[@name='filter_client_id']";
-	public static final String filter_category_dropdown = "//select[@name='filter_category_id']";
-	public static final String filter_language_dropdown = "//select[@name='filter_language']";
+	//public static final String filter_state_dropdown = "//select[@name='filter_state']";
+	//public static final String filter_client_dropdown = "//select[@name='filter_client_id']";
+	//public static final String filter_category_dropdown = "//select[@name='filter_category_id']";
+	//public static final String filter_language_dropdown = "//select[@name='filter_language']";
+	
+	public static final String filter_list_dropdown = "//div/button[@data-original-title='Filter the list items.']";
+	public static final String filter_state_dropdown = "//div[@id='filter_state_chzn']";
+	public static final String filter_state_dropdown_values = "//div[@id='filter_state_chzn']/div/ul/li[text()='%s']";
+	public static final String filter_category_dropdown = "//div[@id='filter_category_id_chzn']";
+	public static final String filter_category_dropdown_values = "//div[@id='filter_category_id_chzn']/div/ul/li[text()='%s']";
+	public static final String filter_language_dropdown = "//div[@id='filter_language_chzn']";
+	public static final String filter_language_dropdown_values = "//div[@id='filter_language_chzn']/div/ul/li[text()='%s']";
+	public static final String filter_client_dropdown = "//div[@id='filter_client_chzn']";
+	public static final String filter_client_dropdown_values = "//div[@id='filter_client_chzn']/div/ul/li[text()='%s']";
 	
 	//paging option
 	public static final String paging_dropdown = "//select[@id='limit']";
@@ -46,4 +56,6 @@ public class in_BannersPage
 	
 	/***************New/Edit Category Page***************/
 	public static final String category_title_textbox = "//input[@id='jform_title']";
+	public static final String toolbar_archive = "archive";
+	public static final String lbl_message = "//div[@id='system-message-container']/div/p";
 }

@@ -255,27 +255,43 @@ public abstract class CommonElements extends Initialize {
 	{
 		String menuitem1_path = "//a[contains(text(),'" + menuitem1 + "')]"; 
 		String menuitem2_path = menuitem1_path + "/../ul/li/a[text()='" + menuitem2 + "']";
-		String menuitem3_path = menuitem2_path + "/../ul/li/a[text()='" + menuitem3 + "']";
-		String temp = null;
-		Actions action = new Actions(driver);
-		if (menuitem1 != null)
-		{
-			WebElement temp2 = driver.findElement(By.xpath(menuitem1_path));
-			temp2.click();
-			//action.click(driver.findElement(By.xpath(menuitem1_path)));
+		//String menuitem3_path = menuitem2_path + "/../ul/li/a[text()='" + menuitem3 + "']";
+//		String temp = null;
+//		Actions action = new Actions(driver);
+//		if (menuitem1 != null)
+//		{
+//			WebElement temp2 = driver.findElement(By.xpath(menuitem1_path));
+//			temp2.click();
+//		}
+//		if (menuitem2 != null)
+//		{
+//			action.moveToElement(driver.findElement(By.xpath(menuitem2_path)));
+//			temp = menuitem2_path; 
+//		}
+//		if (menuitem3 != null)
+//		{
+//			action.moveToElement(driver.findElement(By.xpath(menuitem3_path)));
+//			temp = menuitem3_path; 
+//		}
+//		action.build().perform();
+//		click(driver, temp);	
+		/* new */
+		driver.findElement(By.xpath(menuitem1_path)).click();
+		
+		if (menuitem3 != null){
+			Actions actions = new Actions(driver);
+			WebElement mainMenu2 = driver.findElement(By.linkText(menuitem2));
+			actions.moveToElement(mainMenu2).build().perform();
+			if (menuitem2 != null) {
+				actions.moveToElement(driver.findElement(By.xpath(menuitem2_path))).build().perform();
+			}			
+			waitForControl(driver, menuitem2_path, Config.short_wait_time);			
+			driver.findElement(By.linkText(menuitem3)).click();
+		} 
+		else {
+			driver.findElement(By.xpath(menuitem2_path)).click();
 		}
-		if (menuitem2 != null)
-		{
-			action.moveToElement(driver.findElement(By.xpath(menuitem2_path)));
-			temp = menuitem2_path; 
-		}
-		if (menuitem3 != null)
-		{
-			action.moveToElement(driver.findElement(By.xpath(menuitem3_path)));
-			temp = menuitem3_path; 
-		}
-		action.build().perform();
-		click(driver, temp);					
+		
 	}
 	
 	/****************** Method for getting ********************/
@@ -495,6 +511,27 @@ public abstract class CommonElements extends Initialize {
 				By.xpath("//div[a[contains(text(),'" + afteritem
 						+ "')]]/../../preceding-sibling::tr")).size();
 		check = orderItem1<orderItem2;
+		return check;
+	}
+	
+	public boolean doesTextDisplay(WebDriver driver, String text) {
+		String result = driver.findElement(By.tagName("body")).getText();
+		Boolean check = result.contains(text);
+		return check;
+	}
+	
+	public boolean doesHelpWindowsDisplay(WebDriver driver) {
+		Boolean check = null;
+		String parentHandle = driver.getWindowHandle();
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+			if (driver.getTitle().equals("Joomla! Help")) {
+				check = true;
+			}
+			else check = false;
+		}
+		driver.close(); 
+		driver.switchTo().window(parentHandle);
 		return check;
 	}
 	protected WebElement element;

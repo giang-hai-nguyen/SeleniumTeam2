@@ -7,15 +7,13 @@ import config.Config;
 public class ac_LoginPage extends ac_common.CommonElements{
 		
 	public ac_LoginPage(WebDriver driver) {
-		// TODO Auto-generated constructor stub
-		//driver = this.driver;
-		this.driver = driver;
-	}
+        this.driver = driver;
+    }
 	
-	public ac_LoginPage getLoginPage(WebDriver driver)
-	{
-		return new ac_LoginPage(driver);
-	}
+//	public ac_LoginPage getLoginPage(WebDriver driver)
+//	{
+//		return new ac_LoginPage(driver);
+//	}
 	
 	public void Login (String Username, String Password){
 		enter(driver, in_pages.in_LoginPage.username_textbox, Username);

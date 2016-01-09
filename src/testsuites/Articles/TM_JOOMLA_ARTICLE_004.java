@@ -3,9 +3,12 @@ package Articles;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import config.Config;
+import ac_common.BrowserExecution;
 import ac_common.ac_AdministratorPage;
 import ac_pages.ac_ArticlesPage;
 import ac_pages.ac_LoginPage;
@@ -14,8 +17,9 @@ public class TM_JOOMLA_ARTICLE_004 extends ac_ArticlesPage
 {
 	
 	@BeforeClass
-	public void Setup() {
-		driver = openBrowser();
+	@Parameters({ "browser" })
+	public void Setup(@Optional("firefox") String browser) {
+		driver = BrowserExecution.navigateJoomla(browser);
 		LoginPage = new ac_LoginPage(driver);
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
@@ -23,8 +27,8 @@ public class TM_JOOMLA_ARTICLE_004 extends ac_ArticlesPage
 	@AfterClass
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
-		AdminPage.Logout();		
-		driver.close();
+		AdminPage.Logout();
+		BrowserExecution.closeJoomla();
 	}
 	
 	@Test (description = "Verify user can change the order of articles using the Ordering column", groups = "regression")

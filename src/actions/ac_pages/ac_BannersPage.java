@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import config.Config;
+
 import in_pages.in_BannersPage;
 
 public class ac_BannersPage extends ac_common.CommonElements{
@@ -157,6 +159,44 @@ public class ac_BannersPage extends ac_common.CommonElements{
 			check = false;
 		}
 		return check;
+	}
+	
+	public boolean doesMessageDisplay(String message) {
+		return doesTextDisplay(driver, message);
+	}
+	
+	public void filterArticleByDropdown(String status, String category, String language, String client)
+	{
+		if(doesControlExist(driver, in_BannersPage.filter_state_dropdown) == false)
+		{
+			click(driver, in_BannersPage.filter_list_dropdown);
+			waitForPageLoad(Config.short_wait_time/2);
+		}
+		
+		if (status != null)
+		{
+			selectitems(driver, in_BannersPage.filter_state_dropdown, in_BannersPage.filter_state_dropdown_values, status);
+			waitForPageLoad(Config.short_wait_time);
+		}
+		if (category != null)
+		{
+			selectitems(driver, in_BannersPage.filter_category_dropdown,in_BannersPage.filter_category_dropdown_values, category);
+			waitForPageLoad(Config.short_wait_time);
+		}	
+		if (client != null)
+		{
+			selectitems(driver, in_BannersPage.filter_client_dropdown, in_BannersPage.filter_client_dropdown_values, client);
+			waitForPageLoad(Config.short_wait_time);
+		}
+		if (language != null)
+		{
+			selectitems(driver, in_BannersPage.filter_language_dropdown,in_BannersPage.filter_language_dropdown_values, language);
+			waitForPageLoad(Config.short_wait_time);
+		}
+	}
+	
+	public boolean doesHelpWindowsDisplay() {
+		return doesHelpWindowsDisplay(driver);
 	}
 	private WebDriver driver;
 }
