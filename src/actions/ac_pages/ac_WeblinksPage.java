@@ -3,6 +3,7 @@ package ac_pages;
 import org.openqa.selenium.WebDriver;
 import config.Config;
 import in_pages.in_CategoryPage;
+import in_pages.in_ContactsPage;
 import in_pages.in_WeblinksPage;
 
 public class ac_WeblinksPage extends ac_common.CommonElements {
@@ -25,7 +26,7 @@ public class ac_WeblinksPage extends ac_common.CommonElements {
 	 * @author: Hang Tran
 	 * @edit by: 
 	 */
-	public void fillInfoWeblinks(String name, String url, String status){
+	public void fillInfoWeblinks(String name, String url, String status, String image){
 		if (name != null)
 			clearText(driver, in_WeblinksPage.title_texbox);
 			enter(driver, in_WeblinksPage.title_texbox, name);
@@ -36,7 +37,19 @@ public class ac_WeblinksPage extends ac_common.CommonElements {
 			waitForPageLoad(Config.short_wait_time);
 		if (status != null)
 			selectitems(driver, in_WeblinksPage.status_dropdown, in_WeblinksPage.status_dropdown_value, status);
-			waitForPageLoad(Config.short_wait_time);						
+			waitForPageLoad(Config.short_wait_time);
+		if (image != null)
+			{
+				selecttabs(driver, in_WeblinksPage.otherInfo_tabs, "Images");
+				click(driver, in_WeblinksPage.select_button);
+				waitForPageLoad(Config.short_wait_time/2);
+				switchToFrame(driver, in_WeblinksPage.image_frame);
+				enter(driver, in_WeblinksPage.image_frame_url_textbox, "images/"+ image);
+				waitForPageLoad(Config.short_wait_time);
+				click(driver, in_WeblinksPage.image_frame_insert_button);
+				waitForPageLoad(Config.short_wait_time);
+				switchBackDefaultframe(driver);
+			}
 	}
 	
 	public void filterWeblinksByDropdown(String status, String category, String access)

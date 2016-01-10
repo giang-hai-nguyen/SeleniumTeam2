@@ -11,7 +11,7 @@ import ac_common.*;
 import ac_pages.*;
 import config.*;
 
-public class TM_JOOMLA_WEBLINKS_003 extends ac_WeblinksPage{
+public class TM_JOOMLA_WEBLINKS_004 extends ac_WeblinksPage{
 	
 	@BeforeClass
 	@Parameters({ "browser" })
@@ -21,34 +21,19 @@ public class TM_JOOMLA_WEBLINKS_003 extends ac_WeblinksPage{
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 
-	@Test(description = "Verify user can check-in a weblink")
-	public void TC_JOOMLA_WEBLINKS_010()
+	@Test(description = "Verify user can add image to weblink's description")
+	public void TC_JOOMLA_WEBLINKS_013()
 	{
 		WeblinksPage = new ac_WeblinksPage(driver);
 		WeblinksPage.navigatemenu(driver, "Components", "Weblinks", null);
 		WeblinksPage.clickToolbarButton(driver, "new");
-		WeblinksPage.fillInfoWeblinks (weblinks_title, weblinks_url, null,null);
+		WeblinksPage.fillInfoWeblinks (weblinks_title, weblinks_url, null, "powered_by.png");
 		WeblinksPage.clickToolbarButton(driver, "save");
 		
 		verifyTrue(WeblinksPage.doesTextPresent(driver, message_create));
 		verifyTrue(WeblinksPage.doesitemExist(driver, weblinks_title));
 		
-		WeblinksPage.selectCheckboxItemWithoutDiv(driver, weblinks_title);
-		WeblinksPage.clickToolbarButton(driver, "checkin");
-		
-		verifyTrue(doesTextPresent(driver, message_checkin));
-		
-		BrowserExecution.closeJoomla();
-		
-		driver = openBrowser();
-		LoginPage = new ac_LoginPage(driver);
-		LoginPage.Login(Config.default_username, Config.default_password);
-		WeblinksPage.navigatemenu(driver, "Components", "Weblinks", null);
-		
-		WeblinksPage.searchItem(driver, weblinks_title);
-		verifyTrue(WeblinksPage.verifyCheckInStateBanner(weblinks_title, "locked"));
-	}
-	
+	}	
 	
 	@AfterClass
 	public void teardown(){

@@ -40,6 +40,19 @@ public class in_WeblinksPage {
 	public static final String status_dropdown ="//select[@id='jform_state']";
 	public static final String status_dropdown_value = "//select[@id='jform_state']/option[text()='%s']";
 	
+	public static final String otherInfo_tabs = "//ul[@id='myTabTabs']/li/a[text()='%s']";
+	
+	// iframe for text
+	public static final String otherinfo_iframe = "//iframe[@id='jform_misc_ifr']";
+	public static final String frame_textbox ="//body[@id='tinymce']";
+	
+	// iframe for image
+	public static final String image_frame = "//iframe[contains(@src,'option=com_media&view=images')]";
+	//public static final String image_frame_image_button = "//div/a[@title='Image']";
+	public static final String image_frame_insert_button = "//div/button[text()='Insert']";
+	public static final String image_frame_url_textbox = "//input[@id='f_url']";
+	public static final String select_button = "//div[@class='input-prepend input-append']/a[@title='Select']";
+	
 	
 	
 	//Help page
