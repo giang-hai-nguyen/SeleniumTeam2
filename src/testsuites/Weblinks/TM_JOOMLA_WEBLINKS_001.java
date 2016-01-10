@@ -80,19 +80,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 		verifyTrue(WeblinksPage.doesitemExist(driver, weblinks_title_modified));	
 	}
 	
-//	@Test (description = "Verify user can check-in a weblink")
-//	public void TC_JOOMLA_WEBLINKS_006()
-//	{
-//		WeblinksPage.selectCheckboxItem(driver, weblinks_title_modified);
-//		WeblinksPage.click(driver, in_WeblinksPage.checkin_button);
-//		
-//		verifyTrue(doesTextPresent(driver, message_checkin));
-//		clearText(driver, in_WeblinksPage.filter_textbox);
-//		
-//		
-//	}
-//	
-//	
+	
 	@Test (description = "Verify user can move a web link to trash section")
 	public void TC_JOOMLA_WEBLINKS_007()
 	{
@@ -131,7 +119,6 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	private String weblinks_url_modified = "http://www.google.com";
 	private String message_create = "Web link successfully saved";
 	private String message_archive = "1 web link successfully archived";
-	private String message_checkin = "1 web link successfully checked in";
 	private String message_trash = "1 web link successfully trashed";
 	private String message_publish = "1 web link successfully published";
 	private String message_unpublish = "1 web link successfully unpublished";

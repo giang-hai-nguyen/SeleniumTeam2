@@ -58,6 +58,10 @@ public class ac_WeblinksPage extends ac_common.CommonElements {
 		}
 	}
 	
+	public boolean verifyCheckInStateBanner(String weblinks, String state){
+		return verifyCheckInState(driver, weblinks, state);
+	}
+	
 	
 	private WebDriver driver;
 }
