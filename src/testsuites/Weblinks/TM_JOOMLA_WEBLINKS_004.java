@@ -50,6 +50,5 @@ public class TM_JOOMLA_WEBLINKS_004 extends ac_WeblinksPage{
 	private String weblinks_title = randUniqueString("Test Weblink");
 	private String weblinks_url = "http://www.joomla.org";
 	private String message_create = "Web link successfully saved";
-	private String message_checkin = "1 web link successfully checked in";
 	
 }
