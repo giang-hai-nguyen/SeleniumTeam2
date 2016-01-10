@@ -25,8 +25,9 @@ public class TM_JOOMLA_WEBLINKS_002 extends ac_WeblinksPage {
 	{
 		WeblinksPage = new ac_WeblinksPage(driver);
 		WeblinksPage.navigatemenu(driver, "Components", "Weblinks", null);
-		WeblinksPage.click(driver, in_WeblinksPage.new_button);
-		WeblinksPage.fillInfoWeblinks(weblinks_title, weblinks_url, null, "save & close");
+		WeblinksPage.clickToolbarButton(driver, "new");
+		WeblinksPage.fillInfoWeblinks(weblinks_title, weblinks_url, null);
+		WeblinksPage.clickToolbarButton(driver, "save");
 		WeblinksPage.searchItem(driver, weblinks_title);
 		
 		verifyTrue(doesTextPresent(driver, message_create));
@@ -42,8 +43,8 @@ public class TM_JOOMLA_WEBLINKS_002 extends ac_WeblinksPage {
 	@Test (description = "Verify user can search for weblinks using the filter dropdown lists")
 	public void TC_JOOMLA_WEBLINKS_010()
 	{
-		WeblinksPage.selectitems(driver, in_WeblinksPage.status_filter_dropdown, "Published");
-		WeblinksPage.selectitems(driver, in_WeblinksPage.category_filter_dropdown, "Sample Data-Weblinks");
+//		WeblinksPage.selectitems(driver, in_WeblinksPage.status_filter_dropdown, "Published");
+//		WeblinksPage.selectitems(driver, in_WeblinksPage.category_filter_dropdown, "Sample Data-Weblinks");
 	
 		verifyTrue(doesitemExist(driver, weblinks_title));
 		

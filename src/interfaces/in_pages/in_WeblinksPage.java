@@ -17,14 +17,17 @@ public class in_WeblinksPage {
 	
 	public static final String filter_textbox = "//input[@id='filter_search']";
 	public static final String search_button = "//button[@type='submit']";
-	public static final String status_filter_dropdown = "//select[@name='filter_published']";
-	public static final String category_filter_dropdown = "//select[@name='filter_category_id']";
-	public static final String access_filter_dropdown = "//select[@name='filter_access']";
+	public static final String status_filter_dropdown = "//div[@id='filter_state_chzn']/a/span";
+	public static final String status_filter_dropdown_value = "//div[@id='filter_state_chzn']/div/ul/li[(text()='%s')]";
+	public static final String category_filter_dropdown = "//div[@id='filter_category_id_chzn']/a/span";
+	public static final String category_filter_dropdown_value = "//div[@id='filter_category_id_chzn']/div/ul/li[(text()='%s')]";
+	public static final String access_filter_dropdown = "//div[@id='filter_access_chzn']/a/span";
+	public static final String access_filter_dropdown_value = "//div[@id='filter_access_chzn']/div/ul/li[(text()='%s')]";
 	
 	public static final String row_checkbox = "//a[contains(text(),'%s')]/../preceding-sibling::td/input";
 	public static final String article_link = "//a[contains(text(),'%s')]";
 	public static final String message_header = "//dl[@id='system-message']";
-	public static final String publish_status_icon = "//a[contains(text(),'%s')]/../following-sibling::td[1]/a/span";
+	public static final String publish_status_icon = "//td/a[contains(text(),'%s')]/../../td/a/span";
 	public static final String access_status = "//a[contains(text(),'%s')]/../following-sibling::td[5]";
 	
 	
@@ -40,7 +43,7 @@ public class in_WeblinksPage {
 	
 	
 	//Help page
-	public static final String help_text= "//p[contains (text (), 'The Web Links Manager allows you to manage links to other web sites and organize them into categories')]";
+	public static final String help_text= "//p[contains(text (),'The Weblinks Manager allows you to manage links to other web sites and organize them into categories')]";
 	
 	
 }
