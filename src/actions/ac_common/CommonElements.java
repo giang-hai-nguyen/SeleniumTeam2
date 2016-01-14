@@ -321,6 +321,8 @@ public abstract class CommonElements extends Initialize {
 		 return element.getText();
 	 }
 	 
+	 
+	 
 	 /****************** Method for system ********************/
 	 public static String randUniqueString(String basestring) 
 		{

@@ -26,7 +26,7 @@ public class TM_JOOMLA_WEBLINKS_002 extends ac_WeblinksPage {
 		WeblinksPage = new ac_WeblinksPage(driver);
 		WeblinksPage.navigatemenu(driver, "Components", "Weblinks", null);
 		WeblinksPage.clickToolbarButton(driver, "new");
-		WeblinksPage.fillInfoWeblinks(weblinks_title, weblinks_url, null, null);
+		WeblinksPage.fillInfoWeblinks(weblinks_title, weblinks_url, null, null, null);
 		WeblinksPage.clickToolbarButton(driver, "save");
 		WeblinksPage.searchItem(driver, weblinks_title);
 		
@@ -46,7 +46,7 @@ public class TM_JOOMLA_WEBLINKS_002 extends ac_WeblinksPage {
 		WeblinksPage = new ac_WeblinksPage(driver);
 		WeblinksPage.navigatemenu(driver, "Components", "Weblinks", null);
 		WeblinksPage.clickToolbarButton(driver, "new");
-		WeblinksPage.fillInfoWeblinks(weblinks_title, weblinks_url, "Unpublished", null);
+		WeblinksPage.fillInfoWeblinks(weblinks_title, weblinks_url, "Unpublished", null, null);
 		WeblinksPage.clickToolbarButton(driver, "save");
 		WeblinksPage.searchItem(driver, weblinks_title);
 		verifyTrue(doesTextPresent(driver, message_create));

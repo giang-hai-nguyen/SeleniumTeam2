@@ -1,6 +1,9 @@
 package ac_pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
 import config.Config;
 import in_pages.in_CategoryPage;
 import in_pages.in_ContactsPage;
@@ -26,7 +29,7 @@ public class ac_WeblinksPage extends ac_common.CommonElements {
 	 * @author: Hang Tran
 	 * @edit by: 
 	 */
-	public void fillInfoWeblinks(String name, String url, String status, String image){
+	public void fillInfoWeblinks(String name, String url, String status, String image, String publish_date){
 		if (name != null)
 			clearText(driver, in_WeblinksPage.title_texbox);
 			enter(driver, in_WeblinksPage.title_texbox, name);
@@ -50,7 +53,23 @@ public class ac_WeblinksPage extends ac_common.CommonElements {
 				waitForPageLoad(Config.short_wait_time);
 				switchBackDefaultframe(driver);
 			}
+		if (publish_date != null)
+		{
+			selecttabs(driver, in_WeblinksPage.otherInfo_tabs, "Publishing");
+			click(driver, in_WeblinksPage.publish_date_textbox);
+			driver.findElement(By.xpath("//div/input[@id='jform_publish_up']")).clear(); 
+			enter(driver, in_WeblinksPage.publish_date_textbox, publish_date);
+			
+		}
+	
 	}
+	
+	public String getPublishDate(WebDriver driver, String control)
+	 {
+		WebElement element  = driver.findElement(By.xpath("//div/input[@id='jform_publish_up']"));
+		String elementval = element .getAttribute("value");
+		 return elementval;
+	 }
 	
 	public void filterWeblinksByDropdown(String status, String category, String access)
 	{

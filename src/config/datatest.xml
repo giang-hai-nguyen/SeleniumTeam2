@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
 	<config name="Team 2">
-		<url>http://localhost/Joomla3.4.8/administrator/index.php</url>
-		<username>admin</username>
-		<password>admin</password>
+		<url>http://192.168.190.135:8888/Joomla_final/administrator/index.php</url>
+		<username>hangtran</username>
+		<password>123abc</password>
 	</config>
 </project>

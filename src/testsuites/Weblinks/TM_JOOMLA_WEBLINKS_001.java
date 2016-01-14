@@ -28,7 +28,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 		WeblinksPage = new ac_WeblinksPage(driver);
 		WeblinksPage.navigatemenu(driver, "Components", "Weblinks", null);
 		WeblinksPage.clickToolbarButton(driver, "new");
-		WeblinksPage.fillInfoWeblinks (weblinks_title, weblinks_url, null, null);
+		WeblinksPage.fillInfoWeblinks (weblinks_title, weblinks_url, null, null, null);
 		WeblinksPage.clickToolbarButton(driver, "save");
 		
 		verifyTrue(WeblinksPage.doesTextPresent(driver, message_create));
@@ -41,7 +41,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	{
 		WeblinksPage.selectCheckboxItemWithoutDiv(driver, weblinks_title);
 		WeblinksPage.clickToolbarButton(driver, "edit");
-		WeblinksPage.fillInfoWeblinks (weblinks_title_modified, weblinks_url_modified, null, null);
+		WeblinksPage.fillInfoWeblinks (weblinks_title_modified, weblinks_url_modified, null, null, null);
 		WeblinksPage.clickToolbarButton(driver, "save");
 		
 		verifyTrue(doesTextPresent(driver, message_create));

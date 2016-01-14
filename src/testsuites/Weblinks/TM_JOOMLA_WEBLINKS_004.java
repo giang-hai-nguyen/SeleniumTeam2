@@ -27,7 +27,7 @@ public class TM_JOOMLA_WEBLINKS_004 extends ac_WeblinksPage{
 		WeblinksPage = new ac_WeblinksPage(driver);
 		WeblinksPage.navigatemenu(driver, "Components", "Weblinks", null);
 		WeblinksPage.clickToolbarButton(driver, "new");
-		WeblinksPage.fillInfoWeblinks (weblinks_title, weblinks_url, null, "powered_by.png");
+		WeblinksPage.fillInfoWeblinks (weblinks_title, weblinks_url, null, "powered_by.png", null);
 		WeblinksPage.clickToolbarButton(driver, "save");
 		
 		verifyTrue(WeblinksPage.doesTextPresent(driver, message_create));

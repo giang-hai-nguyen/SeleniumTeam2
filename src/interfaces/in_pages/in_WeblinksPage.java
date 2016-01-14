@@ -53,6 +53,9 @@ public class in_WeblinksPage {
 	public static final String image_frame_url_textbox = "//input[@id='f_url']";
 	public static final String select_button = "//div[@class='input-prepend input-append']/a[@title='Select']";
 	
+	//Publishing date
+	public static final String publish_date_textbox = "//div/input[@id='jform_publish_up']";
+	
 	
 	
 	//Help page
