@@ -7,7 +7,6 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.thoughtworks.selenium.webdriven.commands.GetValue;
 
 import ac_common.*;
 import ac_pages.*;
@@ -46,8 +45,8 @@ public class TM_JOOMLA_WEBLINKS_006 extends ac_WeblinksPage{
 		WeblinksPage.clickToolbarButton(driver, "edit");
 		selecttabs(driver, in_WeblinksPage.otherInfo_tabs, "Publishing");
 		
-		verifyTrue(getTextitem(driver, in_WeblinksPage.publish_date_textbox, weblinks_title2).equals("2016-01-14" + " 00:00:00"));	
-		
+		verifyTrue(getValueitem(driver, in_WeblinksPage.publish_date_textbox).equals("2016-01-14" + " 00:00:00"));	
+		WeblinksPage.clickToolbarButton(driver, "cancel");
 	}	
 		
 		@AfterClass

@@ -321,7 +321,11 @@ public abstract class CommonElements extends Initialize {
 		 return element.getText();
 	 }
 	 
-	 
+	 public String getValueitem(WebDriver driver, String control)
+	 {
+		 element = driver.findElement(By.xpath(control));
+		 return element.getAttribute("value");
+	 }
 	 
 	 /****************** Method for system ********************/
 	 public static String randUniqueString(String basestring) 
