@@ -127,6 +127,10 @@ public class ac_BannersPage extends ac_common.CommonElements{
 		{
 			clickToolbarButton(driver, "save-new");
 		}
+		else if (saveOption == "save & copy")
+		{
+			clickToolbarButton(driver, "save-copy");
+		}
 		else if (saveOption == "cancel")
 		{
 			clickToolbarButton(driver, "cancel");
@@ -221,6 +225,30 @@ public class ac_BannersPage extends ac_common.CommonElements{
 		} catch (Exception e) {
 			Reporter.log("Element doesn't exist");
 		}
+	}
+	
+	public void clickBannerHeaderID(){
+		clickHeaderID(driver);
+	}
+	
+	public void clicksubmenulink(){
+		clicksubmenu(driver);
+	}
+	public boolean doesSortingIDAscend() {
+
+		return doesSortingIDAscend(driver);
+	}
+	public boolean doesSortingIDDescend() {
+
+		return doesSortingIDDescend(driver);
+	}
+	
+	public boolean doesPagingNumber(int rowlimit) {
+		return doesPagingNumber(driver, rowlimit);
+	}
+	
+	public boolean isPageTitle(String pagetitle){
+		return isPageTitle(driver, pagetitle);
 	}
 	private WebDriver driver;
 }
