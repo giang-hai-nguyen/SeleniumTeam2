@@ -4,8 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import ac_common.BrowserExecution;
 import ac_common.ac_AdministratorPage;
 import ac_pages.ac_ContactsPage;
 import ac_pages.ac_LoginPage;
@@ -14,8 +17,9 @@ import config.Config;
 public class TM_JOOMLA_CONTACT_004 extends ac_ContactsPage {
 	
 	@BeforeClass
-	public void Setup() {
-		driver = openBrowser();
+	@Parameters({ "browser" })
+	public void Setup(@Optional("firefox") String browser) {
+		driver = BrowserExecution.navigateJoomla(browser);
 		LoginPage = new ac_LoginPage(driver);
 		LoginPage.Login(Config.default_username, Config.default_password);
 		ContactPage = new ac_ContactsPage(driver);
@@ -43,8 +47,8 @@ public class TM_JOOMLA_CONTACT_004 extends ac_ContactsPage {
 	@AfterClass
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
-		AdminPage.Logout();		
-		closeBrowser();
+		AdminPage.Logout();
+		BrowserExecution.closeJoomla();
 	}
 		
 	@AfterMethod

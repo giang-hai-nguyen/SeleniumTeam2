@@ -3,6 +3,8 @@ package Contacts;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import ac_common.*;
 import ac_pages.*;
@@ -12,14 +14,16 @@ import config.Config;
 public class TM_JOOMLA_CONTACT_002 extends ac_ContactsPage
 {
 	@BeforeClass
-	public void Setup() {
-		driver = openBrowser();
+	@Parameters({ "browser" })
+	public void Setup(@Optional("firefox") String browser) {
+		driver = BrowserExecution.navigateJoomla(browser);
 		LoginPage = new ac_LoginPage(driver);
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 	
 	@Test (description = "Verify user can check in a contact")
-	public void TC_JOOMLA_CONTACTS_006()
+	@Parameters({ "browser" })
+	public void TC_JOOMLA_CONTACTS_006(@Optional("firefox") String browser)
 	{
 		ContactPage = new ac_ContactsPage(driver);
 		ContactPage.navigatemenu(driver, "Components", "Contacts", "Contacts");
@@ -27,20 +31,24 @@ public class TM_JOOMLA_CONTACT_002 extends ac_ContactsPage
 		ContactPage.fillContactInfo(name, null, null, null, null);
 		ContactPage.clickToolbarButton(driver, "apply");
 		verifyTrue(ContactPage.doesTextPresent(driver, message_create));
-		ContactPage.clickToolbarButton(driver, "cancel");
-		verifyTrue(ContactPage.doesitemExist(driver, name));
+		
+		driver.close();
+		driver = BrowserExecution.navigateJoomla(browser);
+		LoginPage = new ac_LoginPage(driver);
+		LoginPage.Login(Config.default_username, Config.default_password);
 		
 		ContactPage.selectCheckboxItem(driver, name);
+		verifyTrue(ContactPage.getitemStatus(driver, in_ContactsPage.checkin_status_icon, name).equals(state_checkin));
 		ContactPage.clickToolbarButton(driver, "checkin");
 		verifyTrue(ContactPage.doesTextPresent(driver, message_checkin));
-		verifyTrue(ContactPage.getitemStatus(driver, in_ContactsPage.checkin_status_icon, name).equals(state_checkin));
+		verifyFalse(ContactPage.getitemStatus(driver, in_ContactsPage.checkin_status_icon, name).equals(state_checkin));
 	}
 	
 	@AfterClass
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
-		AdminPage.Logout();		
-		closeBrowser();
+		AdminPage.Logout();
+		BrowserExecution.closeJoomla();
 	}
 
 	private WebDriver driver;
@@ -51,6 +59,6 @@ public class TM_JOOMLA_CONTACT_002 extends ac_ContactsPage
 	private String name = randUniqueString("Test Contact");
 	private String message_create = "Contact successfully saved";
 	private String message_checkin = "1 contact successfully checked in";
-	private String state_checkin = "state checkedout";
+	private String state_checkin = "icon-checkedout";
 	
 }

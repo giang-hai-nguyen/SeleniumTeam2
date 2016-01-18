@@ -22,6 +22,7 @@ public class in_ArticlesPage {
 	public static final String message_header = "//dl[@id='system-message']";
 	public static final String publish_status_icon = "//td/div[a[contains(text(),'%s')]]/../../td/div/a/span";
 	public static final String access_status = "//a[contains(text(),'%s')]/../following-sibling::td[5]";
+	public static final String checkin_status_icon = "//a[contains(text(),'%s')]/preceding-sibling::a/span";
 	
 	
 	/***************New/Edit Article Page***************/
