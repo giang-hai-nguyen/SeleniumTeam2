@@ -17,6 +17,7 @@ import config.Config;
 import config.Initialize;
 import in_common.in_AdminstratorPage;
 import in_pages.in_ArticlesPage;
+import in_pages.in_BannersPage;
 
 import org.testng.Assert;
 
@@ -408,6 +409,11 @@ public abstract class CommonElements extends Initialize {
 		waitForPageLoad(Config.short_wait_time);
 	}
 	
+	public void clicksubmenu(WebDriver driver){
+		driver.findElement(By.xpath(in_BannersPage.submenu_link)).click();
+		waitForPageLoad(Config.short_wait_time);
+	}
+	
 	public boolean doesSortingIDAscend(WebDriver driver) {
 
 		Boolean check = false;
@@ -552,6 +558,14 @@ public abstract class CommonElements extends Initialize {
 		} else {
 			check = lockicon_state.equals(false);
 		}
+		return check;
+	}
+	
+	public boolean isPageTitle(WebDriver driver, String pagetitle){
+		Boolean check = null;
+		String getPageTitle=driver.findElement(By.xpath(in_AdminstratorPage.page_title)).getText().toString();
+		System.out.println(getPageTitle);
+		check = getPageTitle.equals(pagetitle);
 		return check;
 	}
 	

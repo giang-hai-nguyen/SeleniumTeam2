@@ -31,5 +31,6 @@ public class in_AdminstratorPage {
 	//checkbox
 	public static final String div_checkbox = "//td/div/a[contains(text(),'%s')]/../../../td/input[@type='checkbox']";
 	public static final String without_div_checkbox = "//td/a[contains(text(),'%s')]/../../td/input[@type='checkbox']";
+	public static final String page_title ="//div[@class='container-title']/h1";
 	
 }
