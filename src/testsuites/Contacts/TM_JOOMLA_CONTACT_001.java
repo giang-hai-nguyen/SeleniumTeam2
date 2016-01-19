@@ -22,7 +22,7 @@ public class TM_JOOMLA_CONTACT_001 extends ac_ContactsPage
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 	
-	@Test (description = "Verify user can create new contact with valid information")
+	@Test (description = "Verify user can create new contact with valid information", groups = "regression")
 	public void TC_JOOMLA_CONTACTS_001()
 	{
 		ContactPage = new ac_ContactsPage(driver);
@@ -34,7 +34,7 @@ public class TM_JOOMLA_CONTACT_001 extends ac_ContactsPage
 		verifyTrue(ContactPage.doesitemExist(driver, name));
 	}
 	
-	@Test (description = "Verify user can edit a contact", dependsOnMethods = {"TC_JOOMLA_CONTACTS_001"})
+	@Test (description = "Verify user can edit a contact", dependsOnMethods = {"TC_JOOMLA_CONTACTS_001"}, groups = "regression")
 	public void TC_JOOMLA_CONTACTS_002()
 	{
 		ContactPage.selectCheckboxItem(driver, name);
@@ -45,7 +45,7 @@ public class TM_JOOMLA_CONTACT_001 extends ac_ContactsPage
 		verifyTrue(ContactPage.doesitemExist(driver, name_modified));
 	}
 	
-	@Test (description = "Verify user can publish an unpublished contact", dependsOnMethods = {"TC_JOOMLA_CONTACTS_002"})
+	@Test (description = "Verify user can publish an unpublished contact", dependsOnMethods = {"TC_JOOMLA_CONTACTS_002"}, groups = "regression")
 	public void TC_JOOMLA_CONTACTS_003()
 	{
 		ContactPage.selectCheckboxItem(driver, name_modified);
@@ -54,7 +54,7 @@ public class TM_JOOMLA_CONTACT_001 extends ac_ContactsPage
 		verifyTrue(getitemStatus(driver, in_ContactsPage.publish_status_icon, name_modified).equals("icon-publish"));
 	}
 	
-	@Test (description = "Verify user can unpublish a published contact", dependsOnMethods = {"TC_JOOMLA_CONTACTS_003"})
+	@Test (description = "Verify user can unpublish a published contact", dependsOnMethods = {"TC_JOOMLA_CONTACTS_003"}, groups = "regression")
 	public void TC_JOOMLA_CONTACTS_004()
 	{
 		ContactPage.selectCheckboxItem(driver, name_modified);
@@ -63,7 +63,7 @@ public class TM_JOOMLA_CONTACT_001 extends ac_ContactsPage
 		verifyTrue(getitemStatus(driver, in_ContactsPage.publish_status_icon, name_modified).equals("icon-unpublish"));
 	}
 	
-	@Test (description = "Verify user can change the status of contacts using the Status column", dependsOnMethods = {"TC_JOOMLA_CONTACTS_004"})
+	@Test (description = "Verify user can change the status of contacts using the Status column", dependsOnMethods = {"TC_JOOMLA_CONTACTS_004"}, groups = "regression")
 	public void TC_JOOMLA_CONTACTS_015()
 	{
 		ContactPage.selectCheckboxItem(driver, name_modified);
@@ -77,7 +77,7 @@ public class TM_JOOMLA_CONTACT_001 extends ac_ContactsPage
 		verifyTrue(getitemStatus(driver, in_ContactsPage.publish_status_icon, name_modified).equals("icon-unpublish"));
 	}
 	
-	@Test (description = "Verify user can change the feature property of contacts using the Featured column", dependsOnMethods = {"TC_JOOMLA_CONTACTS_001"})
+	@Test (description = "Verify user can change the feature property of contacts using the Featured column", dependsOnMethods = {"TC_JOOMLA_CONTACTS_001"}, groups = "regression")
 	public void TC_JOOMLA_CONTACTS_016()
 	{
 		ContactPage.selectCheckboxItem(driver, name_modified);
@@ -89,7 +89,7 @@ public class TM_JOOMLA_CONTACT_001 extends ac_ContactsPage
 		verifyTrue(getitemStatus(driver, in_ContactsPage.featured_status_icon, name_modified).equals("icon-featured"));
 	}
 	
-	@Test (description = "Verify user can move a contact to the archive", dependsOnMethods = {"TC_JOOMLA_CONTACTS_002"})
+	@Test (description = "Verify user can move a contact to the archive", dependsOnMethods = {"TC_JOOMLA_CONTACTS_002"}, groups = "regression")
 	public void TC_JOOMLA_CONTACTS_005()
 	{
 		ContactPage.selectCheckboxItem(driver, name_modified);
@@ -99,7 +99,7 @@ public class TM_JOOMLA_CONTACT_001 extends ac_ContactsPage
 		verifyTrue(ContactPage.doesitemExist(driver, name_modified));
 	}
 	
-	@Test (description ="Verify user can move a contact to trash section", dependsOnMethods = {"TC_JOOMLA_CONTACTS_002"})
+	@Test (description ="Verify user can move a contact to trash section", dependsOnMethods = {"TC_JOOMLA_CONTACTS_002"}, groups = "regression")
 	public void TC_JOOMLA_CONTACTS_007()
 	{
 		ContactPage.selectCheckboxItem(driver, name_modified);

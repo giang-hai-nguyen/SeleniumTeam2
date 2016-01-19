@@ -24,7 +24,7 @@ public class TM_JOOMLA_ARTICLE_002 extends ac_ArticlesPage
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 	
-	@Test (description = "Verify user can create a new article with 'Public' Access Level property")
+	@Test (description = "Verify user can create a new article with 'Public' Access Level property", groups = "regression")
 	public void TC_JOOMLA_ARTICLE_017()
 	{
 		ArticlePage = new ac_ArticlesPage(driver);

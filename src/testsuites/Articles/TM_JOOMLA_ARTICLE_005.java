@@ -24,7 +24,7 @@ public class TM_JOOMLA_ARTICLE_005 extends ac_ArticlesPage {
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 	
-	@Test (description = "Verify user can check-in an article")
+	@Test (description = "Verify user can check-in an article", groups = "regression")
 	@Parameters({ "browser" })
 	public void TC_JOOMLA_ARTICLE_006(@Optional("firefox") String browser)
 	{

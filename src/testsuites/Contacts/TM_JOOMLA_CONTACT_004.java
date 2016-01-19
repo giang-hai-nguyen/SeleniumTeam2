@@ -28,7 +28,7 @@ public class TM_JOOMLA_CONTACT_004 extends ac_ContactsPage {
 		verifyTrue(ContactPage.doesitemExist(driver, name));
 	}
 	
-	@Test (description = "Verify user can search for contacts using the filter text field")
+	@Test (description = "Verify user can search for contacts using the filter text field", groups = "regression")
 	public void TC_JOOMLA_CONTACTS_009()
 	{
 		
@@ -36,7 +36,7 @@ public class TM_JOOMLA_CONTACT_004 extends ac_ContactsPage {
 		verifyTrue(ContactPage.doesContactExist(name));
 	}
 	
-	@Test (description = "User can search for contacts using the filter dropdown lists")
+	@Test (description = "User can search for contacts using the filter dropdown lists", groups = "regression")
 	public void TC_JOOMLA_CONTACTS_010()
 	{	
 		ContactPage.filterContactByDropdown(status, filter_category, null, null);

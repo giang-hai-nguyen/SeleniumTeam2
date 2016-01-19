@@ -21,7 +21,7 @@ public class TM_JOOMLA_CONTACT_002 extends ac_ContactsPage
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 	
-	@Test (description = "Verify user can check in a contact")
+	@Test (description = "Verify user can check in a contact", groups = "regression")
 	@Parameters({ "browser" })
 	public void TC_JOOMLA_CONTACTS_006(@Optional("firefox") String browser)
 	{

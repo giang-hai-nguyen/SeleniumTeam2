@@ -24,7 +24,7 @@ public class TM_JOOMLA_CONTACT_003 extends ac_ContactsPage {
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 	
-	@Test (description = "Verify user can access contact's help section")
+	@Test (description = "Verify user can access contact's help section", groups = "regression")
 	public void TC_JOOMLA_CONTACTS_008()
 	{
 		ContactPage = new ac_ContactsPage(driver);
@@ -33,7 +33,7 @@ public class TM_JOOMLA_CONTACT_003 extends ac_ContactsPage {
 		verifyTrue(ContactPage.doesHelpPageExist(driver, in_ContactsPage.help_text));
 	}
 	
-	@Test (description = "Verify user can add image to contact's information")
+	@Test (description = "Verify user can add image to contact's information", groups = "regression")
 	public void TC_JOOMLA_CONTACTS_013()
 	{
 		//ContactPage = new ac_ContactsPage(driver);
