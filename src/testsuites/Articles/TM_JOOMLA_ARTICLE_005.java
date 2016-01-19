@@ -66,4 +66,5 @@ public class TM_JOOMLA_ARTICLE_005 extends ac_ArticlesPage {
 	private String message_checkin = "1 article successfully checked in";
 	private String state_publish = "Published";
 	private String state_checkin = "icon-checkedout";
+	
 }

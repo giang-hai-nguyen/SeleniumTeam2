@@ -161,6 +161,36 @@ public class ac_ContactsPage extends ac_common.CommonElements {
 		return doesElementExistByType(driver,"link" , item);
 	}
 	
+	public boolean doesOrderTwoContacts(String beforecontact, String aftercontact) {
+
+		return doesOrderTwoItems(driver, beforecontact, aftercontact);
+	}
+	
+	public ac_ContactsPage clickHeaderOrderButton(){
+		clickHeaderOrdering(driver);
+		return this;
+	}
+	
+	public void clickContactHeaderID(){
+		clickHeaderID(driver);
+	}
+	
+	public boolean doesSortingIDAscending() {
+		return doesSortingIDAscend(driver);
+	}
+	
+	public boolean doesSortingIDDescending() {
+		return doesSortingIDDescend(driver);
+	}
+	
+	public boolean doesPagingNumber(int rowlimit) {
+		return doesPagingNumber(driver, rowlimit);
+	}
+	
+	public boolean doesPagingAll() {
+		return doesPagingAll(driver);
+	}
+	
 	public void cleanSearch()
 	{
 		click(driver, in_AdminstratorPage.clear_button);
