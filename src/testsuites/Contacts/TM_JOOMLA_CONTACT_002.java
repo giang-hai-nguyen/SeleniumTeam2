@@ -28,7 +28,7 @@ public class TM_JOOMLA_CONTACT_002 extends ac_ContactsPage
 		ContactPage = new ac_ContactsPage(driver);
 		ContactPage.navigatemenu(driver, "Components", "Contacts", "Contacts");
 		ContactPage.clickToolbarButton(driver, "new");
-		ContactPage.fillContactInfo(name, null, null, null, null);
+		ContactPage.fillContactInfo(name, null, null, null, null, null);
 		ContactPage.clickToolbarButton(driver, "apply");
 		verifyTrue(ContactPage.doesTextPresent(driver, message_create));
 		

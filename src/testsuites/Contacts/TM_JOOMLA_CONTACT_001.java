@@ -28,7 +28,7 @@ public class TM_JOOMLA_CONTACT_001 extends ac_ContactsPage
 		ContactPage = new ac_ContactsPage(driver);
 		ContactPage.navigatemenu(driver, "Components", "Contacts", "Contacts");
 		ContactPage.clickToolbarButton(driver, "new");
-		ContactPage.fillContactInfo(name, category, state_unpublish, null, null);
+		ContactPage.fillContactInfo(name, category, state_unpublish, featured, null, null);
 		ContactPage.clickToolbarButton(driver, "save");
 		verifyTrue(ContactPage.doesTextPresent(driver, message_create));
 		verifyTrue(ContactPage.doesitemExist(driver, name));
@@ -39,7 +39,7 @@ public class TM_JOOMLA_CONTACT_001 extends ac_ContactsPage
 	{
 		ContactPage.selectCheckboxItem(driver, name);
 		ContactPage.clickToolbarButton(driver,"edit");
-		ContactPage.fillContactInfo(name_modified, category_modified, null, null, null);
+		ContactPage.fillContactInfo(name_modified, category_modified, null, null, null, null);
 		ContactPage.clickToolbarButton(driver, "save");
 		verifyTrue(ContactPage.doesTextPresent(driver, message_create));
 		verifyTrue(ContactPage.doesitemExist(driver, name_modified));
@@ -54,13 +54,39 @@ public class TM_JOOMLA_CONTACT_001 extends ac_ContactsPage
 		verifyTrue(getitemStatus(driver, in_ContactsPage.publish_status_icon, name_modified).equals("icon-publish"));
 	}
 	
-	@Test (description = "Verify user can unpublish a published contact", dependsOnMethods = {"TC_JOOMLA_CONTACTS_002"})
+	@Test (description = "Verify user can unpublish a published contact", dependsOnMethods = {"TC_JOOMLA_CONTACTS_003"})
 	public void TC_JOOMLA_CONTACTS_004()
 	{
 		ContactPage.selectCheckboxItem(driver, name_modified);
 		ContactPage.clickToolbarButton(driver, "unpublish");
 		verifyTrue(ContactPage.doesTextPresent(driver, message_unpublish));
 		verifyTrue(getitemStatus(driver, in_ContactsPage.publish_status_icon, name_modified).equals("icon-unpublish"));
+	}
+	
+	@Test (description = "Verify user can change the status of contacts using the Status column", dependsOnMethods = {"TC_JOOMLA_CONTACTS_004"})
+	public void TC_JOOMLA_CONTACTS_015()
+	{
+		ContactPage.selectCheckboxItem(driver, name_modified);
+		ContactPage.clickStatusIconInTheList(driver, name_modified, in_ContactsPage.publish_status_icon);
+		verifyTrue(ContactPage.doesTextPresent(driver, message_publish));
+		verifyTrue(getitemStatus(driver, in_ContactsPage.publish_status_icon, name_modified).equals("icon-publish"));
+		
+		ContactPage.selectCheckboxItem(driver, name_modified);
+		ContactPage.clickStatusIconInTheList(driver, name_modified, in_ContactsPage.publish_status_icon);
+		verifyTrue(ContactPage.doesTextPresent(driver, message_unpublish));
+		verifyTrue(getitemStatus(driver, in_ContactsPage.publish_status_icon, name_modified).equals("icon-unpublish"));
+	}
+	
+	@Test (description = "Verify user can change the feature property of contacts using the Featured column", dependsOnMethods = {"TC_JOOMLA_CONTACTS_001"})
+	public void TC_JOOMLA_CONTACTS_016()
+	{
+		ContactPage.selectCheckboxItem(driver, name_modified);
+		ContactPage.clickStatusIconInTheList(driver, name_modified, in_ContactsPage.featured_status_icon);
+		verifyTrue(getitemStatus(driver, in_ContactsPage.featured_status_icon, name_modified).equals("icon-unfeatured"));
+		
+		ContactPage.selectCheckboxItem(driver, name_modified);
+		ContactPage.clickStatusIconInTheList(driver, name_modified, in_ContactsPage.featured_status_icon);
+		verifyTrue(getitemStatus(driver, in_ContactsPage.featured_status_icon, name_modified).equals("icon-featured"));
 	}
 	
 	@Test (description = "Verify user can move a contact to the archive", dependsOnMethods = {"TC_JOOMLA_CONTACTS_002"})
@@ -100,6 +126,7 @@ public class TM_JOOMLA_CONTACT_001 extends ac_ContactsPage
 	private String message_create = "Contact successfully saved";
 	private String category = "- Sample Data-Contact";
 	private String category_modified = "- - Park Site";
+	private String featured = "Yes";
 	private String state_unpublish = "Unpublished";
 	private String message_publish = "1 contact successfully published";
 	private String message_unpublish = "1 contact successfully unpublished";

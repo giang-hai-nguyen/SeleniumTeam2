@@ -26,7 +26,7 @@ public class ac_ContactsPage extends ac_common.CommonElements {
 	 * @author: GiangNguyen
 	 * @edit by:
 	 */
-	public void fillContactInfo(String name, String category, String state, String access, String otherInfo)
+	public void fillContactInfo(String name, String category, String state, String featured, String access, String otherInfo)
 	{
 		if (name != null)
 			clearText(driver, in_ContactsPage.name_textbox);
@@ -36,7 +36,15 @@ public class ac_ContactsPage extends ac_common.CommonElements {
 		}
 		if (state != null){
 			selectitems(driver, in_ContactsPage.state_dropdown,in_ContactsPage.state_dropdown_values, state);
-		}			
+		}
+		if (featured != null){
+			if (featured == "Yes"){
+				driver.findElement(By.xpath(String.format(in_ContactsPage.featured, "Yes"))).click();
+			}
+			else if (featured == "No"){
+				driver.findElement(By.xpath(String.format(in_ContactsPage.featured, "No"))).click();
+			}
+		}
 		if (access != null){
 			selectitems(driver, in_ContactsPage.access_dropdown,in_ContactsPage.access_dropdown_values, access);
 		}
@@ -53,7 +61,7 @@ public class ac_ContactsPage extends ac_common.CommonElements {
 	 * @author: GiangNguyen
 	 * @edit by:
 	 */
-	public void fillContactInfo(String name, String category, String state, String access, String otherInfo, String image)
+	public void fillContactInfo(String name, String category, String state, String featured, String access, String otherInfo, String image)
 	{
 		if (name != null)
 			clearText(driver, in_ContactsPage.name_textbox);
@@ -63,7 +71,15 @@ public class ac_ContactsPage extends ac_common.CommonElements {
 		}
 		if (state != null){
 			selectitems(driver, in_ContactsPage.state_dropdown,in_ContactsPage.state_dropdown_values, state);
-		}			
+		}
+		if (featured != null){
+			if (featured == "Yes"){
+				driver.findElement(By.xpath(String.format(in_ContactsPage.featured, "Yes"))).click();
+			}
+			else if (featured == "No"){
+				driver.findElement(By.xpath(String.format(in_ContactsPage.featured, "No"))).click();
+			}
+		}
 		if (access != null){
 			selectitems(driver, in_ContactsPage.access_dropdown,in_ContactsPage.access_dropdown_values, access);
 		}
@@ -88,7 +104,7 @@ public class ac_ContactsPage extends ac_common.CommonElements {
 		}
 	}
 	
-	public void createNewContact(String name, String category, String state, String access, String otherInfo, String saveOption)
+	public void createNewContact(String name, String category, String state, String featured, String access, String otherInfo, String saveOption)
 	{
 		navigatemenu(driver, "Components", "Contacts", "Contacts");
 		clickToolbarButton(driver, "new");
@@ -100,7 +116,15 @@ public class ac_ContactsPage extends ac_common.CommonElements {
 		}
 		if (state != null){
 			selectitems(driver, in_ContactsPage.state_dropdown,in_ContactsPage.state_dropdown_values, state);
-		}			
+		}
+		if (featured != null){
+			if (featured == "Yes"){
+				driver.findElement(By.xpath(String.format(in_ContactsPage.featured, "Yes"))).click();
+			}
+			else if (featured == "No"){
+				driver.findElement(By.xpath(String.format(in_ContactsPage.featured, "No"))).click();
+			}
+		}
 		if (access != null){
 			selectitems(driver, in_ContactsPage.access_dropdown,in_ContactsPage.access_dropdown_values, access);
 		}

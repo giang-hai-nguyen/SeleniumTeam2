@@ -34,11 +34,11 @@ public class TM_JOOMLA_CONTACT_005 extends ac_ContactsPage {
 	public void TC_JOOMLA_CONTACT_014() {
 
 		ContactPage = new ac_ContactsPage(driver);		
-		ContactPage.createNewContact(title1, category, null, null, null, "save & close");
+		ContactPage.createNewContact(title1, category, null, null, null, null, "save & close");
 		verifyTrue(ContactPage.doesTextPresent(driver, message_create));
 		verifyTrue(ContactPage.doesitemExist(driver, title1));
 		
-		ContactPage.createNewContact(title2, category, null, null, null, "save & close");
+		ContactPage.createNewContact(title2, category, null, null, null, null, "save & close");
 		verifyTrue(ContactPage.doesTextPresent(driver, message_create));
 		verifyTrue(ContactPage.doesitemExist(driver, title2));
 		

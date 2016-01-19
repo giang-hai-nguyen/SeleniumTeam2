@@ -20,6 +20,7 @@ public class in_ContactsPage {
 	//table adminlist
 	public static final String publish_status_icon = "//td/div[a[contains(text(),'%s')]]/../../td/div/a/span";
 	public static final String checkin_status_icon = "//a[contains(text(),'%s')]/preceding-sibling::a/span";
+	public static final String featured_status_icon = "//td/div[a[contains(text(),'%s')]]/../../td/a/span";
 	
 	/***************New/Edit Contact Page***************/
 		

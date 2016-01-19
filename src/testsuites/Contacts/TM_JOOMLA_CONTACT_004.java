@@ -23,7 +23,7 @@ public class TM_JOOMLA_CONTACT_004 extends ac_ContactsPage {
 		LoginPage = new ac_LoginPage(driver);
 		LoginPage.Login(Config.default_username, Config.default_password);
 		ContactPage = new ac_ContactsPage(driver);
-		ContactPage.createNewContact(name, category, status, null, null, "save & close");
+		ContactPage.createNewContact(name, category, status, null, null, null, "save & close");
 		verifyTrue(ContactPage.doesTextPresent(driver, message_create));
 		verifyTrue(ContactPage.doesitemExist(driver, name));
 	}
