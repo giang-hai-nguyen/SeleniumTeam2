@@ -42,5 +42,8 @@ public class in_ArticlesPage {
 	public static final String frame_textbox= "//body[@id='tinymce']";	
 	public static final String image_button = "//a[@title='Image']";
 	public static final String image_name = "//a[@title='%s']/..";
+	public static final String image_frame = "//iframe[contains(@src,'option=com_media&view=images')]";
+	public static final String image_frame_url_textbox = "//input[@id='f_url']";
+	public static final String image_frame_insert_button = "//div/button[text()='Insert']";
 		
 }

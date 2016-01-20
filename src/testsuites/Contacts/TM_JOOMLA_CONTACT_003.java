@@ -36,10 +36,9 @@ public class TM_JOOMLA_CONTACT_003 extends ac_ContactsPage {
 	@Test (description = "Verify user can add image to contact's information", groups = "regression")
 	public void TC_JOOMLA_CONTACTS_013()
 	{
-		//ContactPage = new ac_ContactsPage(driver);
 		ContactPage.navigatemenu(driver, "Components", "Contacts", "Contacts");
 		ContactPage.clickToolbarButton(driver, "new");
-		ContactPage.fillContactInfo(name, category, null, null, null, "powered_by.png");
+		ContactPage.fillContactInfo(name, category, null, null, null, null, "powered_by.png");
 		ContactPage.clickToolbarButton(driver, "save");
 		verifyTrue(ContactPage.doesTextPresent(driver, message_create));
 		verifyTrue(ContactPage.doesitemExist(driver, name));

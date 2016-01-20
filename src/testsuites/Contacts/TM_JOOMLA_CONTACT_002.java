@@ -8,7 +8,6 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import ac_common.*;
 import ac_pages.*;
-import in_pages.*;
 import config.Config;
 
 public class TM_JOOMLA_CONTACT_002 extends ac_ContactsPage
@@ -60,6 +59,5 @@ public class TM_JOOMLA_CONTACT_002 extends ac_ContactsPage
 	private String name = randUniqueString("Test Contact");
 	private String message_create = "Contact successfully saved";
 	private String message_checkin = "1 contact successfully checked in";
-	private String state_checkin = "icon-checkedout";
 	
 }

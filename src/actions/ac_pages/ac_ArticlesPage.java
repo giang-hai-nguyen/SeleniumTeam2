@@ -49,8 +49,15 @@ public class ac_ArticlesPage extends ac_common.CommonElements {
 		}
 	}
 	public void insert_image(String image_name){
-		findAnElement(driver, in_ArticlesPage.image_button).click();
-		driver.findElement(By.xpath(String.format(in_ArticlesPage.image_name, image_name))).click();
+//		findAnElement(driver, in_ArticlesPage.image_button).click();
+//		driver.findElement(By.xpath(String.format(in_ArticlesPage.image_name, image_name))).click();
+		click(driver, in_ArticlesPage.image_button);
+		waitForPageLoad(Config.short_wait_time/2);
+		switchToFrame(driver, in_ArticlesPage.image_frame);
+		enter(driver, in_ArticlesPage.image_frame_url_textbox, "images/"+ image_name);
+		click(driver, in_ArticlesPage.image_frame_insert_button);
+		waitForPageLoad(Config.short_wait_time/2);
+		switchBackDefaultframe(driver);
 	}
 	public void filterArticleByDropdown(String status, String category, String access, String language)
 	{
