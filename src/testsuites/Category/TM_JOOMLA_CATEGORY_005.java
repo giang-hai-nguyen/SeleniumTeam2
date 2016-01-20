@@ -24,7 +24,7 @@ public class TM_JOOMLA_CATEGORY_005 extends ac_CategoryPage {
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 	
-	@Test (description = "Verify that user can creat a new category by using 'Save as Copy' button")
+	@Test (description = "Verify that user can creat a new category by using 'Save as Copy' button", groups = "regression")
 	public void TC_JOOMLA_CATEGORY_MANAGER_013()
 	{
 		CategoryPage = new ac_CategoryPage(driver);
@@ -45,6 +45,17 @@ public class TM_JOOMLA_CATEGORY_005 extends ac_CategoryPage {
 		verifyTrue(CategoryPage.doesitemExist(driver, category_title2));			
 	}
 	
+	@Test (description = "Verify that user cannot create a new Category without entering the title of the category", groups = "regression")
+	public void TC_JOOMLA_CATEGORY_MANAGER_017()
+	{
+		CategoryPage.clickToolbarButton(driver, "new");
+		CategoryPage.fillInfoCategory("", null, null, null);
+		CategoryPage.clickToolbarButton(driver, "apply");
+		
+		verifyTrue(CategoryPage.doesTextPresent(driver, message_category_invalid));
+		CategoryPage.clickToolbarButton(driver, "cancel");
+		
+	}
 	
 	@AfterClass
 	public void teardown(){
@@ -61,6 +72,7 @@ public class TM_JOOMLA_CATEGORY_005 extends ac_CategoryPage {
 	private String category_title1 = randUniqueString("Test Category1");
 	private String category_title2 = randUniqueString("Test Category2");
 	private String message_create = "Category successfully saved";
+	private String message_category_invalid = "Title";
 
 }
 

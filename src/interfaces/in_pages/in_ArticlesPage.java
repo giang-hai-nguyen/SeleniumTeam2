@@ -38,7 +38,9 @@ public class in_ArticlesPage {
 	public static final String featured = "//fieldset[@id='jform_featured']/label[text()='%s']";
 	
 	
-	public static final String arttext_frame_textbox="//iframe[@id='jform_articletext_ifr']";
-	public static final String frame_textbox="//body[@id='tinymce']";	
+	public static final String arttext_frame_textbox= "//iframe[@id='jform_articletext_ifr']";
+	public static final String frame_textbox= "//body[@id='tinymce']";	
+	public static final String image_button = "//a[@title='Image']";
+	public static final String image_name = "//a[@title='%s']/..";
 		
 }

@@ -12,6 +12,7 @@ import ac_common.ac_AdministratorPage;
 import ac_pages.ac_CategoryPage;
 import ac_pages.ac_LoginPage;
 import config.Config;
+import in_pages.in_CategoryPage;
 
 
 public class TM_JOOMLA_CATEGORY_004 extends ac_CategoryPage {
@@ -24,7 +25,7 @@ public class TM_JOOMLA_CATEGORY_004 extends ac_CategoryPage {
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 	
-	@Test (description = "Verify that user can cancel adding action while adding a new create")
+	@Test (description = "Verify that user can cancel adding action while adding a new create", groups = "regression")
 	public void TC_JOOMLA_CATEGORY_MANAGER_012()
 	{
 		CategoryPage = new ac_CategoryPage(driver);
@@ -37,6 +38,34 @@ public class TM_JOOMLA_CATEGORY_004 extends ac_CategoryPage {
 				
 	}
 	
+	@Test (description = "Verify that user can search a category by using filter dropdown lists", dependsOnMethods = "TC_JOOMLA_CATEGORY_MANAGER_012", groups = "regression")
+	public void TC_JOOMLA_CATEGORY_MANAGER_010()
+	{
+		CategoryPage = new ac_CategoryPage(driver);
+		CategoryPage.navigatemenu(driver, "Content", "Categories", null);
+		CategoryPage.clickToolbarButton(driver, "new");
+		CategoryPage.fillInfoCategory(category_title, "Unpublished", "Registered", "English (UK)");
+		CategoryPage.clickToolbarButton(driver, "save-new");
+		
+		verifyTrue(CategoryPage.doesTextPresent(driver, message_create));
+				
+		CategoryPage.fillInfoCategory(category_title_save_new, "Unpublished", "Registered", "English (UK)");
+		CategoryPage.clickToolbarButton(driver, "save");
+				
+		verifyTrue(CategoryPage.doesTextPresent(driver, message_create));
+		
+		verifyTrue(CategoryPage.doesitemExist(driver, category_title));
+		verifyTrue(CategoryPage.doesitemExist(driver, category_title_save_new));
+	}
+	
+	@Test (description = "Verify that user can search a category by using filter dropdown lists", dependsOnMethods = "TC_JOOMLA_CATEGORY_MANAGER_010", groups = "regression")
+	public void TC_JOOMLA_CATEGORY_MANAGER_011()
+	{
+		CategoryPage.clickToolbarButton(driver, "new");
+		CategoryPage.clickToolbarButton(driver, "help");
+		verifyTrue(CategoryPage.doesHelpWindowsDisplay());
+		CategoryPage.clickToolbarButton(driver, "cancel");
+	}
 	
 	@AfterClass
 	public void teardown(){
@@ -51,6 +80,9 @@ public class TM_JOOMLA_CATEGORY_004 extends ac_CategoryPage {
 	private ac_CategoryPage CategoryPage;
 	
 	private String category_title = randUniqueString("Test Category");
+	private String category_title_save_new = "Save new " + category_title;
+	private String message_create = "Category successfully saved";
+	private String page_title_editbannerclient ="Category Manager: Add A New Articles Category";
 
 }
 

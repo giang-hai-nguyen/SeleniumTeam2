@@ -62,6 +62,9 @@ public class ac_CategoryPage extends ac_common.CommonElements {
 		}
 	}
 	
+	public boolean doesHelpWindowsDisplay() {
+		return doesHelpWindowsDisplay(driver);
+	}
 	
 	private WebDriver driver;
 }
