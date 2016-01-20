@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Regression">
+<suite name="Regression Final Firefox" verbose="1">
+<parameter name="browser" value="firefox" />
   <test name="Regression suite" >
  <groups>
     <run>
@@ -8,9 +9,12 @@
      </run>
    </groups>
    <packages>
-      <package name="Contacts" />
       <package name="Articles" />
       <package name="BannerClient" />
+      <package name="Banners" />
+      <package name="Category" />
+      <package name="Contacts" />
+      <package name="Weblinks" />
     </packages>
  </test>
 </suite>
