@@ -94,6 +94,36 @@ public class ac_WeblinksPage extends ac_common.CommonElements {
 		return verifyCheckInState(driver, weblinks, state);
 	}
 	
+	public void clickWeblinksHeaderID(){
+		clickHeaderID(driver);
+	}
+	
+	public boolean doesSortingIDAscending() {
+		return doesSortingIDAscend(driver);
+	}
+	
+	public boolean doesSortingIDDescending() {
+		return doesSortingIDDescend(driver);
+	}
+	
+	public boolean doesPagingNumber(int rowlimit) {
+		return doesPagingNumber(driver, rowlimit);
+	}
+	
+	public boolean doesPagingAll() {
+		return doesPagingAll(driver);
+	} 
+	
+	public ac_WeblinksPage clickHeaderOrderButton(){
+		clickHeaderOrdering(driver);
+		return this;
+	}
+	
+	public boolean doesOrderTwoWeblinks(String beforecontact, String aftercontact) {
+
+		return doesOrderTwoItems(driver,beforecontact,aftercontact);
+	}
+	
 	
 	private WebDriver driver;
 }

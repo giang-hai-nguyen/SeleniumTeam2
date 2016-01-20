@@ -21,7 +21,7 @@ public class TM_JOOMLA_WEBLINKS_003 extends ac_WeblinksPage{
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 
-	@Test(description = "Verify user can check-in a weblink")
+	@Test(description = "Verify user can check-in a weblink", groups={"regression"})
 	public void TC_JOOMLA_WEBLINKS_010()
 	{
 		WeblinksPage = new ac_WeblinksPage(driver);
