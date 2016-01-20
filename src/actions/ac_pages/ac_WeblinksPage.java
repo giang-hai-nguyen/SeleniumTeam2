@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import config.Config;
-import in_pages.in_CategoryPage;
-import in_pages.in_ContactsPage;
 import in_pages.in_WeblinksPage;
 
 public class ac_WeblinksPage extends ac_common.CommonElements {

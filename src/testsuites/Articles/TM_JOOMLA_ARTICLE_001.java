@@ -115,7 +115,7 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 	private String message_create = "Article successfully saved";
 	private String arttext = "this is article content";
 	private String arttext_modified = "this is article content modified";
-	private String category = "- Sample Data-Articles";
+	private String category = "- - Sample Data-Articles";
 	private String message_archive = "1 article archived.";
 	private String message_trash = "1 article trashed.";
 	private String state_unpublish = "Unpublished";

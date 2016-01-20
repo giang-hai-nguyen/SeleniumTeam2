@@ -62,7 +62,7 @@ public class TM_JOOMLA_ARTICLE_005 extends ac_ArticlesPage {
 	private String title = randUniqueString("Test Article");
 	private String message_create = "Article successfully saved";
 	private String arttext = "this is article content";
-	private String category = "- Sample Data-Articles";
+	private String category = "- - Sample Data-Articles";
 	private String message_checkin = "1 article successfully checked in";
 	private String state_publish = "Published";
 	private String state_checkin = "icon-checkedout";
