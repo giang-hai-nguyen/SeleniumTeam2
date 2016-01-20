@@ -5,6 +5,9 @@
     <classes>
       	<class name="BannerClient.TM_JOOMLA_BANNERS_CLIENTS_001"/>
       	<class name="BannerClient.TM_JOOMLA_BANNERS_CLIENTS_002"/>
+      	<class name="BannerClient.TM_JOOMLA_BANNERS_CLIENTS_003"/>
+      	<class name="BannerClient.TM_JOOMLA_BANNERS_CLIENTS_004"/>
+      	<class name="BannerClient.TM_JOOMLA_BANNERS_CLIENTS_005"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

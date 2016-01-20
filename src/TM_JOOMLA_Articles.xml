@@ -5,6 +5,9 @@
     <classes>
     	<class name="Articles.TM_JOOMLA_ARTICLE_001"/>
     	<class name="Articles.TM_JOOMLA_ARTICLE_002"/>
+    	<class name="Articles.TM_JOOMLA_ARTICLE_003"/>
+    	<class name="Articles.TM_JOOMLA_ARTICLE_004"/>
+    	<class name="Articles.TM_JOOMLA_ARTICLE_005"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

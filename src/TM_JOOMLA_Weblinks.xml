@@ -5,6 +5,10 @@
     <classes>
       	<class name="Weblinks.TM_JOOMLA_WEBLINKS_001"/>
       	<class name="Weblinks.TM_JOOMLA_WEBLINKS_002"/>
+      	<class name="Weblinks.TM_JOOMLA_WEBLINKS_003"/>
+      	<class name="Weblinks.TM_JOOMLA_WEBLINKS_004"/>
+      	<class name="Weblinks.TM_JOOMLA_WEBLINKS_005"/>
+      	<class name="Weblinks.TM_JOOMLA_WEBLINKS_006"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

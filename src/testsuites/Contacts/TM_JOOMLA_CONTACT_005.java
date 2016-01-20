@@ -32,7 +32,7 @@ public class TM_JOOMLA_CONTACT_005 extends ac_ContactsPage {
 	
 	@Test (description = "Verify user can change the order of contacts using the Ordering column", groups = "regression")
 	public void TC_JOOMLA_CONTACT_014() {
-
+		
 		ContactPage = new ac_ContactsPage(driver);		
 		ContactPage.createNewContact(title1, category, null, null, null, null, "save & close");
 		verifyTrue(ContactPage.doesTextPresent(driver, message_create));

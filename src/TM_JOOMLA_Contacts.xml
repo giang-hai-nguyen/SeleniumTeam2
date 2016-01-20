@@ -5,6 +5,9 @@
     <classes>
       	<class name="Contacts.TM_JOOMLA_CONTACT_001"/>
       	<class name="Contacts.TM_JOOMLA_CONTACT_002"/>
+      	<class name="Contacts.TM_JOOMLA_CONTACT_003"/>
+      	<class name="Contacts.TM_JOOMLA_CONTACT_004"/>
+      	<class name="Contacts.TM_JOOMLA_CONTACT_005"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
