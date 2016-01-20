@@ -119,5 +119,10 @@ public class ac_ArticlesPage extends ac_common.CommonElements {
 
 		return doesOrderTwoItems(driver,beforecontact,aftercontact);
 	}
+	
+	public boolean verifyCheckInStateArticle(String articlename, String state){
+		return verifyCheckInState(driver, articlename, state);
+	}
+	
 	private WebDriver driver;
 }

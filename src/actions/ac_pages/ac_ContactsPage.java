@@ -215,6 +215,10 @@ public class ac_ContactsPage extends ac_common.CommonElements {
 		return doesPagingAll(driver);
 	}
 	
+	public boolean verifyCheckInStateContact(String contactname, String state){
+		return verifyCheckInState(driver, contactname, state);
+	}
+	
 	public void cleanSearch()
 	{
 		click(driver, in_AdminstratorPage.clear_button);
