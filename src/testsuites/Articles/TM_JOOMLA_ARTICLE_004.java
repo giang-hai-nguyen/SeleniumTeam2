@@ -78,7 +78,7 @@ public class TM_JOOMLA_ARTICLE_004 extends ac_ArticlesPage
 	private String title1 = randUniqueString("Article order1");
 	private String title2 = randUniqueString("Article order2");
 	private String arttext = "this is article content";
-	private String category1 = "- Sample Data-Articles";
+	private String category1 = "- - Sample Data-Articles";
 	private String category2 = "- - Joomla!";
 	private String access_public = "Published";
 	private int displaypagenumber = 5;

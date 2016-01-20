@@ -16,7 +16,6 @@ import org.testng.Reporter;
 import config.Config;
 import config.Initialize;
 import in_common.in_AdminstratorPage;
-import in_pages.in_ArticlesPage;
 import in_pages.in_BannersPage;
 
 import org.testng.Assert;
@@ -405,7 +404,7 @@ public abstract class CommonElements extends Initialize {
 	}
 
 	public void clickHeaderID(WebDriver driver){
-		driver.findElement(By.xpath(in_ArticlesPage.header_ID)).click();
+		driver.findElement(By.xpath(in_AdminstratorPage.header_ID)).click();
 		waitForPageLoad(Config.short_wait_time);
 	}
 	
@@ -417,7 +416,7 @@ public abstract class CommonElements extends Initialize {
 	public boolean doesSortingIDAscend(WebDriver driver) {
 
 		Boolean check = false;
-		WebElement webTableElement = driver.findElement(By.xpath(in_ArticlesPage.table_admin));
+		WebElement webTableElement = driver.findElement(By.xpath(in_AdminstratorPage.table_admin));
 		int tableRows = webTableElement.findElements(By.tagName("tr")).size();
 		int tableColumns = driver.findElements(
 				By.xpath(".//*[@id='adminForm']//table/tbody/tr[1]/td")).size();
@@ -446,7 +445,7 @@ public abstract class CommonElements extends Initialize {
 	
 	public boolean doesSortingIDDescend(WebDriver driver) {
 		Boolean check = false;
-		WebElement webTableElement = driver.findElement(By.xpath(in_ArticlesPage.table_admin));
+		WebElement webTableElement = driver.findElement(By.xpath(in_AdminstratorPage.table_admin));
 		int tableRows = webTableElement.findElements(By.tagName("tr")).size();
 		int tableColumns = driver.findElements(
 				By.xpath(".//*[@id='adminForm']//table/tbody/tr[1]/td")).size();
@@ -474,12 +473,12 @@ public abstract class CommonElements extends Initialize {
 	}
 
 	public boolean doesPagingAll(WebDriver driver) {
-		driver.findElement(By.xpath(in_ArticlesPage.clear_btn)).click();
+		driver.findElement(By.xpath(in_AdminstratorPage.clear_btn)).click();
 		Boolean check = false;
 		((JavascriptExecutor)driver).executeScript("document.getElementById('list_limit').style.display='block';");		
-		selectdropDownListItem(driver, in_ArticlesPage.dropdownlist_paginate, "All");
+		selectdropDownListItem(driver, in_AdminstratorPage.dropdownlist_paginate, "All");
 		waitForPageLoad(Config.timeout);
-		WebElement baseTable = driver.findElement(By.xpath(in_ArticlesPage.table_admin));
+		WebElement baseTable = driver.findElement(By.xpath(in_AdminstratorPage.table_admin));
 		int tableRows = baseTable.findElements(By.xpath("//*[@id='adminForm']//table/tbody/tr")).size();
 		if (tableRows > 100) {
 			check = true;
@@ -488,12 +487,12 @@ public abstract class CommonElements extends Initialize {
 	}
 	
 	public boolean doesPagingNumber(WebDriver driver, int rowlimit) {
-		driver.findElement(By.xpath(in_ArticlesPage.clear_btn)).click();
+		driver.findElement(By.xpath(in_AdminstratorPage.clear_btn)).click();
 		Boolean check = false;
 		((JavascriptExecutor)driver).executeScript("document.getElementById('list_limit').style.display='block';");	
-		selectdropDownListItem(driver, in_ArticlesPage.dropdownlist_paginate,
+		selectdropDownListItem(driver, in_AdminstratorPage.dropdownlist_paginate,
 				Integer.toString(rowlimit));
-		WebElement baseTable = driver.findElement(By.xpath(in_ArticlesPage.table_admin));
+		WebElement baseTable = driver.findElement(By.xpath(in_AdminstratorPage.table_admin));
 		int tableRows = baseTable.findElements(By.xpath("//*[@id='adminForm']//table/tbody/tr")).size();
 		check = (tableRows == rowlimit);
 		return check;
@@ -506,11 +505,11 @@ public abstract class CommonElements extends Initialize {
 	}
 	
 	public void clickHeaderOrdering(WebDriver driver){
-		driver.findElement(By.xpath(in_ArticlesPage.header_ordering)).click();
-		if (doesControlExist(driver, in_ArticlesPage.order_arrow_up) == true) {
-			driver.findElement(By.xpath(in_ArticlesPage.order_arrow_up)).click();
+		driver.findElement(By.xpath(in_AdminstratorPage.header_ordering)).click();
+		if (doesControlExist(driver, in_AdminstratorPage.order_arrow_up) == true) {
+			driver.findElement(By.xpath(in_AdminstratorPage.order_arrow_up)).click();
 		} else {
-			driver.findElement(By.xpath(in_ArticlesPage.order_arrow_down)).click();			
+			driver.findElement(By.xpath(in_AdminstratorPage.order_arrow_down)).click();			
 		}
 	}
 	

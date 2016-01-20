@@ -48,6 +48,10 @@ public class ac_ArticlesPage extends ac_common.CommonElements {
 			switchBackDefaultframe(driver);
 		}
 	}
+	public void insert_image(String image_name){
+		findAnElement(driver, in_ArticlesPage.image_button).click();
+		driver.findElement(By.xpath(String.format(in_ArticlesPage.image_name, image_name))).click();
+	}
 	public void filterArticleByDropdown(String status, String category, String access, String language)
 	{
 		if(doesControlExist(driver, in_ArticlesPage.filter_state_dropdown) == false)

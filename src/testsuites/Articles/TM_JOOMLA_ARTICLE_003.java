@@ -67,7 +67,7 @@ public class TM_JOOMLA_ARTICLE_003 extends ac_ArticlesPage
 	private String title = randUniqueString("Article");
 	private String message_create = "Article successfully saved";
 	private String arttext = "this is article content";
-	private String category = "- Sample Data-Articles";
+	private String category = "- - Sample Data-Articles";
 	private String access_public = "Published";
 
 }

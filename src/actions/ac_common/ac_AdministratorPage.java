@@ -1,10 +1,7 @@
 package ac_common;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import ac_common.CommonElements;
 import ac_pages.ac_LoginPage;
-import config.Config;
 
 public class ac_AdministratorPage extends ac_common.CommonElements{
 	

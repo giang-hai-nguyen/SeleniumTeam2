@@ -1,5 +1,7 @@
 package in_common;
 
+import org.openqa.selenium.By;
+
 public class in_AdminstratorPage {
 	public static final String admin_icon = "//a[@class='admin-logo']";
 	public static final String drop_open = "//div/ul[@class='nav nav-user pull-right']/li";
@@ -32,5 +34,14 @@ public class in_AdminstratorPage {
 	public static final String div_checkbox = "//td/div/a[contains(text(),'%s')]/../../../td/input[@type='checkbox']";
 	public static final String without_div_checkbox = "//td/a[contains(text(),'%s')]/../../td/input[@type='checkbox']";
 	public static final String page_title ="//div[@class='container-title']/h1";
+	
+	//table
+	public static final String table_admin = "//form[@id='adminForm']//table/tbody";
+	public static final String header_ID = "//form[@id='adminForm']//table/thead/tr//a[contains(text(),'ID')]";
+	public static final String clear_btn = "//form[@id='adminForm']//button[contains(.,'Clear')]";
+	public static final String header_ordering ="//table[@id='articleList']//tr/th/a/span";
+	public static final String order_arrow_up = "//table[@id='articleList']//tr/th/a/span[@class='icon-arrow-up-3']";
+	public static final String order_arrow_down = "//table[@id='articleList']//tr/th/a/span[@class='icon-arrow-down-3']";
+	public static By dropdownlist_paginate = By.xpath("//select[@id='list_limit']");
 	
 }
