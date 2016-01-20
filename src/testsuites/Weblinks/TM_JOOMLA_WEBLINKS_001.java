@@ -22,7 +22,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 
-	@Test(description = "Verify user can create new web link with valid information")
+	@Test(description = "Verify user can create new web link with valid information", groups={"regression"})
 	public void TC_JOOMLA_WEBLINKS_001()
 	{
 		WeblinksPage = new ac_WeblinksPage(driver);
@@ -36,7 +36,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	}
 	
 	
-	@Test (description= "Verify user can edit a web link")
+	@Test (description= "Verify user can edit a web link", groups={"regression"})
 	public void TC_JOOMLA_WEBLINKS_002()
 	{
 		WeblinksPage.selectCheckboxItemWithoutDiv(driver, weblinks_title);
@@ -49,7 +49,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	}
 	
 	
-	@Test (description = "Verify user can unpublish a published web link")
+	@Test (description = "Verify user can unpublish a published web link", groups={"regression"})
 	public void TC_JOOMLA_WEBLINKS_003()
 	{
 		WeblinksPage.selectCheckboxItemWithoutDiv(driver, weblinks_title_modified);
@@ -69,7 +69,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 		verifyTrue(getitemStatus(driver, in_WeblinksPage.publish_status_icon, weblinks_title_modified).equals("icon-publish"));
 	}
 	
-	@Test (description = "Verify user can move a web link to the archive")
+	@Test (description = "Verify user can move a web link to the archive", groups={"regression"})
 	public void TC_JOOMLA_WEBLINKS_005()
 	{
 		WeblinksPage.selectCheckboxItemWithoutDiv(driver, weblinks_title_modified);
@@ -81,7 +81,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	}
 	
 	
-	@Test (description = "Verify user can move a web link to trash section")
+	@Test (description = "Verify user can move a web link to trash section", groups={"regression"})
 	public void TC_JOOMLA_WEBLINKS_007()
 	{
 		WeblinksPage.selectCheckboxItemWithoutDiv(driver, weblinks_title_modified);
@@ -93,7 +93,7 @@ public class TM_JOOMLA_WEBLINKS_001 extends ac_WeblinksPage{
 	}
 	
 	
-	@Test (description = "Verify user can access weblink's help section")
+	@Test (description = "Verify user can access weblink's help section", groups={"regression"})
 	public void TC_JOOMLA_WEBLINKS_008()
 	{
 		WeblinksPage.navigatemenu(driver, "Components", "Weblinks", null);
