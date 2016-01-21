@@ -56,6 +56,53 @@ public class TM_JOOMLA_CATEGORY_005 extends ac_CategoryPage {
 		CategoryPage.clickToolbarButton(driver, "cancel");
 		
 	}
+	@Test (description = "Verify that user can move many articles to another category", dependsOnMethods = "TC_JOOMLA_CATEGORY_MANAGER_013", groups = "regression")
+	public void TC_JOOMLA_CATEGORY_MANAGER_014()
+	{
+		selectCheckboxItemWithoutDiv(driver, category_title1);		
+		CategoryPage.clickToolbarButton(driver, "batch");
+		CategoryPage.selectCategoryProcess(move_copy_category, "Move");
+		
+		verifyTrue(CategoryPage.doesTextPresent(driver, bath_message));
+		
+		selectCheckboxItemWithoutDiv(driver, category_title1);	
+		CategoryPage.clickToolbarButton(driver, "edit");
+		
+		verifyTrue(CategoryPage.verifyParentOfCategory(move_copy_category));
+		CategoryPage.clickToolbarButton(driver, "cancel");
+	}
+	
+	@Test (description = "Verify that user can copy many articles to another category", dependsOnMethods = "TC_JOOMLA_CATEGORY_MANAGER_014", groups = "regression")
+	public void TC_JOOMLA_CATEGORY_MANAGER_015()
+	{
+		selectCheckboxItemWithoutDiv(driver, category_title2);		
+		CategoryPage.clickToolbarButton(driver, "batch");
+		CategoryPage.selectCategoryProcess(move_copy_category, "Copy");
+		
+		verifyTrue(CategoryPage.doesTextPresent(driver, bath_message));
+		
+		selectCheckboxItemWithoutDiv(driver, category_title2);	
+		CategoryPage.clickToolbarButton(driver, "edit");
+		
+		verifyTrue(CategoryPage.verifyParentOfCategory(move_copy_category));
+		CategoryPage.clickToolbarButton(driver, "cancel");
+	}
+	
+	@Test (description = "Verify that user can change access level to may articles", dependsOnMethods = "TC_JOOMLA_CATEGORY_MANAGER_014", groups = "regression")
+	public void TC_JOOMLA_CATEGORY_MANAGER_016()
+	{
+		selectCheckboxItemWithoutDiv(driver, category_title1);		
+		CategoryPage.clickToolbarButton(driver, "batch");
+		CategoryPage.selectAccessLevel(access);
+		
+		verifyTrue(CategoryPage.doesTextPresent(driver, bath_message));
+		
+		selectCheckboxItemWithoutDiv(driver, category_title1);	
+		CategoryPage.clickToolbarButton(driver, "edit");
+		
+		verifyTrue(CategoryPage.verifyAccessOfCategory(access));
+		CategoryPage.clickToolbarButton(driver, "cancel");
+	}
 	
 	@AfterClass
 	public void teardown(){
@@ -73,6 +120,9 @@ public class TM_JOOMLA_CATEGORY_005 extends ac_CategoryPage {
 	private String category_title2 = randUniqueString("Test Category2");
 	private String message_create = "Category successfully saved";
 	private String message_category_invalid = "Title";
+	private String move_copy_category = "Uncategorised";
+	private String access = "Special";
+	private String bath_message = "Batch process completed successfully.";
 
 }
 

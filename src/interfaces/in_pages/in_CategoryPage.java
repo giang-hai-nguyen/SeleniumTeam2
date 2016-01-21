@@ -18,6 +18,8 @@ public class in_CategoryPage {
 		public static final String publish_status_icon = "//td/a[contains(text(),'%s')]/../../td/a/span";
 		
 
+		public static final String parent_dropdown_by_js = "//select[@id='jform_parent_id']";
+		public static final String access_dropdown_by_js = "//select[@id='jform_access']";
 		public static final String filter_status_dropdown = "//div[@id='filter_published_chzn']";
 		public static final String filter_status_dropdown_values = "//div[@id='filter_published_chzn']/div/ul/li[text()='%s']";
 		public static final String filter_access_dropdown = "//div[@id='filter_access_chzn']";
@@ -35,7 +37,10 @@ public class in_CategoryPage {
 		public static final String access_dropdown_values = "//div[@id='jform_access_chzn']/div/ul/li[text()='%s']";
 		public static final String language_dropdown = "//div[@id='jform_language_chzn']";
 		public static final String language_dropdown_values = "//div[@id='jform_language_chzn']/div/ul/li[text()='%s']";
-		
+		public static final String move_copy_dropdown = "//div[@id='batch_category_id_chzn']";
+		public static final String move_copy_dropdown_value = "//div[@id='batch_category_id_chzn']/div/ul/li[text()='%s']";
+		public static final String access_level_dropdown = "//div[@id='batch_access_chzn']";
+		public static final String access_level_dropdown_value = "//div[@id='batch_access_chzn']/div/ul/li[text()='%s']";
 				
 				
 		//Help page
