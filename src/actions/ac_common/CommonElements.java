@@ -567,6 +567,29 @@ public abstract class CommonElements extends Initialize {
 		check = getPageTitle.equals(pagetitle);
 		return check;
 	}
-	
+	public void deleteItem(WebDriver driver, String item_name, String special_div){
+		driver.findElement(By.xpath("//form[@id='adminForm']//button[contains(.,'Clear')]")).click();
+		searchItem(driver, item_name);
+		if (special_div == "Yes") {
+			selectCheckboxItem(driver, item_name);
+		} 
+		else if (special_div == "No")
+		{
+			selectCheckboxItemWithoutDiv(driver, item_name);			
+		}
+		
+		clickToolbarButton(driver, "trash");
+		click(driver, "//div/button[@data-original-title='Filter the list items.']");
+		waitForPageLoad(Config.short_wait_time/2);
+		selectitems(driver, "//div[@id='filter_published_chzn']", "//div[@id='filter_published_chzn']/div/ul/li[text()='%s']", "Trashed");
+		if (special_div == "Yes") {
+			selectCheckboxItem(driver, item_name);
+		} 
+		else if (special_div == "No")
+		{
+			selectCheckboxItemWithoutDiv(driver, item_name);			
+		}
+		clickToolbarButton(driver, "delete");
+	}
 	protected WebElement element;
 }
