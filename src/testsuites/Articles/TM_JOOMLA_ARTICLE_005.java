@@ -12,7 +12,6 @@ import ac_common.ac_AdministratorPage;
 import ac_pages.ac_ArticlesPage;
 import ac_pages.ac_LoginPage;
 import config.Config;
-import in_pages.in_ArticlesPage;
 
 public class TM_JOOMLA_ARTICLE_005 extends ac_ArticlesPage {
 
@@ -66,6 +65,5 @@ public class TM_JOOMLA_ARTICLE_005 extends ac_ArticlesPage {
 	private String category = "- - Sample Data-Articles";
 	private String message_checkin = "1 article successfully checked in";
 	private String state_publish = "Published";
-	private String state_checkin = "icon-checkedout";
 	
 }
