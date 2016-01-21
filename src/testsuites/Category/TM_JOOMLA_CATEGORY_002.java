@@ -24,7 +24,7 @@ public class TM_JOOMLA_CATEGORY_002 extends ac_CategoryPage {
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 	
-	@Test (description = "Verify that user can search a category by using filter textbox")
+	@Test (description = "Verify that user can search a category by using filter textbox", groups = "regression")
 	public void TC_JOOMLA_CATEGORY_MANAGER_008()
 	{
 		CategoryPage = new ac_CategoryPage(driver);

@@ -29,7 +29,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_005 extends ac_BannerClientPage{
 		BrowserExecution.closeJoomla();
 	}
 	
-	@Test(description = "Verify that user can create many clients by using 'Save & New' button", groups={"regression"})
+	@Test(description = "Verify that user can create many clients by using 'Save & New' button", groups = "regression")
 	public void TC_JOOMLA_BANNERS_CLIENTS_011(){
 		
 		BannerClientPage = new ac_BannerClientPage(driver);
@@ -46,7 +46,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_005 extends ac_BannerClientPage{
 		
 		verifyTrue(BannerClientPage.doesTextPresent(driver, message_create));
 	}
-	@Test(description = "Verify that user can not create a new client after entering invalid email address", dependsOnMethods = "TC_JOOMLA_BANNERS_CLIENTS_011", groups={"regression"})
+	@Test(description = "Verify that user can not create a new client after entering invalid email address", dependsOnMethods = "TC_JOOMLA_BANNERS_CLIENTS_011", groups = "regression")
 	public void TC_JOOMLA_BANNERS_CLIENTS_015(){
 		
 		BannerClientPage.clickToolbarButton(driver, "new");

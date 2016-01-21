@@ -25,7 +25,7 @@ public class TM_JOOMLA_CATEGORY_001 extends ac_CategoryPage {
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 	
-	@Test(description = "Verify that user can create a new category")
+	@Test(description = "Verify that user can create a new category", groups = "regression")
 	public void TC_JOOMLA_CATEGORY_MANAGER_001()
 	{
 		CategoryPage = new ac_CategoryPage(driver);
@@ -39,7 +39,7 @@ public class TM_JOOMLA_CATEGORY_001 extends ac_CategoryPage {
 	}
 	
 	
-	@Test (description= "Verify that user can edit a category", dependsOnMethods = {"TC_JOOMLA_CATEGORY_MANAGER_001"})
+	@Test (description= "Verify that user can edit a category", dependsOnMethods = {"TC_JOOMLA_CATEGORY_MANAGER_001"}, groups = "regression")
 	public void TC_JOOMLA_CATEGORY_MANAGER_002()
 	{
 		CategoryPage.selectCheckboxItemWithoutDiv(driver, category_title);
@@ -52,7 +52,7 @@ public class TM_JOOMLA_CATEGORY_001 extends ac_CategoryPage {
 	}
 	
 	
-	@Test (description = "Verify that user can unpublish a category", dependsOnMethods = {"TC_JOOMLA_CATEGORY_MANAGER_002"})
+	@Test (description = "Verify that user can unpublish a category", dependsOnMethods = {"TC_JOOMLA_CATEGORY_MANAGER_002"}, groups = "regression")
 	public void TC_JOOMLA_CATEGORY_MANAGER_003()
 	{
 		CategoryPage.selectCheckboxItemWithoutDiv(driver, category_title_modified);
@@ -63,7 +63,7 @@ public class TM_JOOMLA_CATEGORY_001 extends ac_CategoryPage {
 		
 	}
 
-	@Test (description = "Verify that user can publish a category", dependsOnMethods = {"TC_JOOMLA_CATEGORY_MANAGER_003"})
+	@Test (description = "Verify that user can publish a category", dependsOnMethods = {"TC_JOOMLA_CATEGORY_MANAGER_003"}, groups = "regression")
 	public void TC_JOOMLA_CATEGORY_MANAGER_004()
 	{
 		CategoryPage.selectCheckboxItemWithoutDiv(driver, category_title_modified);
@@ -73,7 +73,7 @@ public class TM_JOOMLA_CATEGORY_001 extends ac_CategoryPage {
 		verifyTrue(getitemStatus(driver, in_CategoryPage.publish_status_icon, category_title_modified).equals("icon-publish"));
 	}
 	
-	@Test (description = "Verify that user can archive a category", dependsOnMethods = {"TC_JOOMLA_CATEGORY_MANAGER_004"})
+	@Test (description = "Verify that user can archive a category", dependsOnMethods = {"TC_JOOMLA_CATEGORY_MANAGER_004"}, groups = "regression")
 	public void TC_JOOMLA_CATEGORY_MANAGER_005()
 	{
 		CategoryPage.selectCheckboxItemWithoutDiv(driver, category_title_modified);
@@ -87,7 +87,7 @@ public class TM_JOOMLA_CATEGORY_001 extends ac_CategoryPage {
 		verifyTrue(CategoryPage.doesitemExist(driver, category_title_modified));
 	}
 	
-	@Test (description = "Verify that user can send a category to trash", dependsOnMethods = {"TC_JOOMLA_CATEGORY_MANAGER_005"})
+	@Test (description = "Verify that user can send a category to trash", dependsOnMethods = {"TC_JOOMLA_CATEGORY_MANAGER_005"}, groups = "regression")
 	public void TC_JOOMLA_CATEGORY_MANAGER_006()
 	{
 		CategoryPage.selectCheckboxItemWithoutDiv(driver, category_title_modified);
@@ -106,7 +106,7 @@ public class TM_JOOMLA_CATEGORY_001 extends ac_CategoryPage {
 	}
 	
 	
-	@Test (description = "Verify that user can browse category help page", dependsOnMethods = {"TC_JOOMLA_CATEGORY_MANAGER_006"})
+	@Test (description = "Verify that user can browse category help page", dependsOnMethods = {"TC_JOOMLA_CATEGORY_MANAGER_006"}, groups = "regression")
 	public void TC_JOOMLA_CATEGORY_MANAGER_007()
 	{
 		CategoryPage.navigatemenu(driver, "Content", "Categories", null);

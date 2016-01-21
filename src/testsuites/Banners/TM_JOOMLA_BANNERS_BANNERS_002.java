@@ -30,8 +30,8 @@ public class TM_JOOMLA_BANNERS_BANNERS_002 extends ac_BannersPage{
 		BrowserExecution.closeJoomla();
 	}
 	
-	@Test(description = "Verify that user can browse Banner help page", groups={"regression"})
-	public void TO_JOOMLA_BANNERS_BANNERS_007() {
+	@Test(description = "Verify that user can browse Banner help page", groups = "regression")
+	public void TC_JOOMLA_BANNERS_BANNERS_007() {
 
 		BannerPage = new ac_BannersPage(driver);
 		navigatemenu(driver, "Components", "Banners", "Banners");
@@ -39,8 +39,8 @@ public class TM_JOOMLA_BANNERS_BANNERS_002 extends ac_BannersPage{
 		verifyTrue(BannerPage.doesHelpWindowsDisplay());
 	}
 	
-	@Test(description = "Verify that user can search a banner by using filter textbox", groups={"regression"})
-	public void TO_JOOMLA_BANNERS_BANNERS_008() {
+	@Test(description = "Verify that user can search a banner by using filter textbox", groups = "regression")
+	public void TC_JOOMLA_BANNERS_BANNERS_008() {
 
 		BannerPage = new ac_BannersPage(driver);
 		navigatemenu(driver, "Components", "Banners", "Clients");
@@ -62,8 +62,8 @@ public class TM_JOOMLA_BANNERS_BANNERS_002 extends ac_BannersPage{
 		verifyTrue(BannerPage.doesitemExist(driver, banner_name));
 	}
 	
-	@Test(description = "Verify that user can search a banner by using filter dropdown lists", dependsOnMethods = "TO_JOOMLA_BANNERS_BANNERS_008", groups={"regression"})
-	public void TO_JOOMLA_BANNERS_BANNERS_009() {
+	@Test(description = "Verify that user can search a banner by using filter dropdown lists", dependsOnMethods = "TC_JOOMLA_BANNERS_BANNERS_008", groups = "regression")
+	public void TC_JOOMLA_BANNERS_BANNERS_009() {
 		BannerPage.filterArticleByDropdown(state_publish, category_title, null, null);		
 		verifyTrue(BannerPage.doesitemExist(driver, banner_name));
 	}

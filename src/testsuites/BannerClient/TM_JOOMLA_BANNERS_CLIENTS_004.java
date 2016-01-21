@@ -30,7 +30,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_004 extends ac_BannerClientPage {
 	}
 	
 	@Parameters({ "browser" })
-	@Test(description = "Verify that user can check in a client", groups={"regression"})
+	@Test(description = "Verify that user can check in a client", groups = "regression")
 	public void TC_JOOMLA_BANNERS_CLIENTS_010(@Optional("firefox") String browser){
 		
 		BannerClientPage = new ac_BannerClientPage(driver);
@@ -53,7 +53,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_004 extends ac_BannerClientPage {
 		verifyTrue(BannerClientPage.verifyCheckInStateBannerClient(bannerclient_title1, "unlocked"));
 	}
 	
-	@Test(description = "Verify that user can browse 'New Client help'", dependsOnMethods = "TC_JOOMLA_BANNERS_CLIENTS_010" , groups={"regression"})
+	@Test(description = "Verify that user can browse 'New Client help'", dependsOnMethods = "TC_JOOMLA_BANNERS_CLIENTS_010" , groups = "regression")
 	public void TC_JOOMLA_BANNERS_CLIENTS_012(){
 		
 		BannerClientPage.clickToolbarButton(driver, "help");
@@ -61,7 +61,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_004 extends ac_BannerClientPage {
 
 	}
 	
-	@Test(description = "Verify that user can not create a new client without entering the name of the client", dependsOnMethods = "TC_JOOMLA_BANNERS_CLIENTS_012" , groups={"regression"})
+	@Test(description = "Verify that user can not create a new client without entering the name of the client", dependsOnMethods = "TC_JOOMLA_BANNERS_CLIENTS_012" , groups = "regression")
 	public void TC_JOOMLA_BANNERS_CLIENTS_014(){
 		
 		BannerClientPage.clickToolbarButton(driver, "new");
@@ -72,7 +72,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_004 extends ac_BannerClientPage {
 		BannerClientPage.clickToolbarButton(driver, "cancel");
 	}
 	
-	@Test(description = "Verify that user can change the quantity of items displayed in client table", dependsOnMethods = "TC_JOOMLA_BANNERS_CLIENTS_014" , groups={"regression"})
+	@Test(description = "Verify that user can change the quantity of items displayed in client table", dependsOnMethods = "TC_JOOMLA_BANNERS_CLIENTS_014", groups = "regression")
 	public void TC_JOOMLA_BANNERS_CLIENTS_016(){
 		
 		verifyTrue(BannerClientPage.doesPagingNumber(displaypagenumber));

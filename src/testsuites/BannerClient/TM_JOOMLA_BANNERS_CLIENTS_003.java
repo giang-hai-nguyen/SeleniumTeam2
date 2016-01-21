@@ -25,7 +25,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_003 extends ac_BannerClientPage {
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 	
-	@Test (description = "Verify that user can creat a new client by using 'Save as Copy' button")
+	@Test (description = "Verify that user can creat a new client by using 'Save as Copy' button", groups = "regression")
 	public void TC_JOOMLA_BANNERS_CLIENTS_013()
 	{
 		BannerClientPage = new ac_BannerClientPage(driver);
