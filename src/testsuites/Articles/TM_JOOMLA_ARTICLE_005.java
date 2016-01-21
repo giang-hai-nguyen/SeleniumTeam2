@@ -39,7 +39,10 @@ public class TM_JOOMLA_ARTICLE_005 extends ac_ArticlesPage {
 		LoginPage = new ac_LoginPage(driver);
 		LoginPage.Login(Config.default_username, Config.default_password);
 		
+<<<<<<< HEAD
 		ArticlePage = new ac_ArticlesPage(driver);
+=======
+>>>>>>> refs/remotes/origin/branch_21-01.01
 		ArticlePage.navigatemenu(driver, "Content", "Articles", null);
 		ArticlePage.selectCheckboxItem(driver, title);
 		verifyTrue(ArticlePage.verifyCheckInStateArticle(title, "locked"));
@@ -52,6 +55,7 @@ public class TM_JOOMLA_ARTICLE_005 extends ac_ArticlesPage {
 	@AfterClass
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
+		AdminPage.deleteItem(driver, title, "Yes");
 		AdminPage.Logout();
 		BrowserExecution.closeJoomla();
 	}
