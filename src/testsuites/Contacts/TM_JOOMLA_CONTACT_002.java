@@ -36,12 +36,14 @@ public class TM_JOOMLA_CONTACT_002 extends ac_ContactsPage
 		LoginPage = new ac_LoginPage(driver);
 		LoginPage.Login(Config.default_username, Config.default_password);
 		
+		ContactPage = new ac_ContactsPage(driver);
+		ContactPage.navigatemenu(driver, "Components", "Contacts", "Contacts");
 		ContactPage.selectCheckboxItem(driver, name);
 		verifyTrue(ContactPage.verifyCheckInStateContact(name, "locked"));
 		
 		ContactPage.clickToolbarButton(driver, "checkin");
 		verifyTrue(ContactPage.doesTextPresent(driver, message_checkin));
-		verifyFalse(ContactPage.verifyCheckInStateContact(name, "unlocked"));
+		verifyTrue(ContactPage.verifyCheckInStateContact(name, "unlocked"));
 	}
 	
 	@AfterClass
