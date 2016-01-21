@@ -21,7 +21,7 @@ public class TM_JOOMLA_WEBLINKS_005 extends ac_WeblinksPage{
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 
-	@Test(description = "Verify user can create a copied version of an existed weblink", groups={"regression"})
+	@Test(description = "Verify user can create a copied version of an existed weblink", groups = "regression")
 	public void TC_JOOMLA_WEBLINKS_016()
 	{
 		WeblinksPage = new ac_WeblinksPage(driver);

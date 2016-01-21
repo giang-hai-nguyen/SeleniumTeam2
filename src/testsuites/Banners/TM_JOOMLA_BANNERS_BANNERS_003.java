@@ -31,7 +31,7 @@ public class TM_JOOMLA_BANNERS_BANNERS_003 extends ac_BannersPage  {
 	}	
 	
 	@Parameters({ "browser" })
-	@Test(description = "Verify that user can check in a banner", groups={"regression"})
+	@Test(description = "Verify that user can check in a banner", groups = "regression")
 	public void TC_JOOMLA_BANNERS_BANNERS_010(@Optional("firefox") String browser){
 		
 		BannerPage = new ac_BannersPage(driver);
@@ -65,7 +65,7 @@ public class TM_JOOMLA_BANNERS_BANNERS_003 extends ac_BannersPage  {
 
 	}
 
-	@Test(description = "Verify that user can create many banners by using Save & New button", dependsOnMethods = "TC_JOOMLA_BANNERS_BANNERS_010" , groups={"regression"})
+	@Test(description = "Verify that user can create many banners by using Save & New button", dependsOnMethods = "TC_JOOMLA_BANNERS_BANNERS_010", groups = "regression")
 	public void TC_JOOMLA_BANNERS_BANNERS_011() {
 
 		BannerPage = new ac_BannersPage(driver);
@@ -88,7 +88,7 @@ public class TM_JOOMLA_BANNERS_BANNERS_003 extends ac_BannersPage  {
 		BannerPage.clickToolbarButton(driver, "cancel");
 	}
 	
-	@Test(description = "Verify that user can browse New Banner help page in New banner page", dependsOnMethods = "TC_JOOMLA_BANNERS_BANNERS_011" , groups={"regression"})
+	@Test(description = "Verify that user can browse New Banner help page in New banner page", dependsOnMethods = "TC_JOOMLA_BANNERS_BANNERS_011", groups = "regression")
 	public void TC_JOOMLA_BANNERS_BANNERS_012() {
 		
 		//BannerPage = new ac_BannersPage(driver);

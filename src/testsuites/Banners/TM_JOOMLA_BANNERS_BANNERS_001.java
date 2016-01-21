@@ -19,7 +19,7 @@ public class TM_JOOMLA_BANNERS_BANNERS_001 extends ac_BannersPage {
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 
-	@Test (description = "Verify that user can create new banner", groups={"regression"})
+	@Test (description = "Verify that user can create new banner", groups = "regression")
 	public void TC_JOOMLA_BANNERS_BANNERS_001()
 	{
 		BannerPage = new ac_BannersPage(driver);
@@ -42,7 +42,7 @@ public class TM_JOOMLA_BANNERS_BANNERS_001 extends ac_BannersPage {
 		verifyTrue(BannerPage.doesitemExist(driver, banner_name));
 	}
 	
-	@Test (description = "Verify that user can edit a banner", dependsOnMethods = "TC_JOOMLA_BANNERS_BANNERS_001", groups={"regression"})
+	@Test (description = "Verify that user can edit a banner", dependsOnMethods = "TC_JOOMLA_BANNERS_BANNERS_001", groups = "regression")
 	public void TC_JOOMLA_BANNERS_BANNERS_002()
 	{
 		BannerPage.selectCheckboxItem(driver, banner_name);
@@ -55,7 +55,7 @@ public class TM_JOOMLA_BANNERS_BANNERS_001 extends ac_BannersPage {
 		BannerPage.clickToolbarButton(driver, "cancel");
 	}
 	
-	@Test (description = "Verify that user can create a new banner with 'unpublished' status", dependsOnMethods = "TC_JOOMLA_BANNERS_BANNERS_002", groups={"regression"})
+	@Test (description = "Verify that user can create a new banner with 'unpublished' status", dependsOnMethods = "TC_JOOMLA_BANNERS_BANNERS_002", groups = "regression")
 	public void TC_JOOMLA_BANNERS_BANNERS_003()
 	{
 		BannerPage.selectCheckboxItem(driver, banner_name_edit);
@@ -69,8 +69,8 @@ public class TM_JOOMLA_BANNERS_BANNERS_001 extends ac_BannersPage {
 		BannerPage.clickToolbarButton(driver, "cancel");
 	}
 	
-	@Test(description = "Verify that user can archive a banner", dependsOnMethods = "TC_JOOMLA_BANNERS_BANNERS_003", groups={"regression"})
-	public void TO_JOOMLA_BANNERS_BANNERS_005() {
+	@Test(description = "Verify that user can archive a banner", dependsOnMethods = "TC_JOOMLA_BANNERS_BANNERS_003", groups = "regression")
+	public void TC_JOOMLA_BANNERS_BANNERS_005() {
 		
 		BannerPage.selectCheckboxItem(driver, banner_name_edit);
 		BannerPage.clickToolbarButton(driver, "archive");
@@ -79,7 +79,7 @@ public class TM_JOOMLA_BANNERS_BANNERS_001 extends ac_BannersPage {
 		verifyTrue(BannerPage.doesitemExist(driver, banner_name_edit));
 	}
 	
-	@Test (description ="Verify that user can send a banner to trash", dependsOnMethods = "TO_JOOMLA_BANNERS_BANNERS_005", groups={"regression"})
+	@Test (description ="Verify that user can send a banner to trash", dependsOnMethods = "TC_JOOMLA_BANNERS_BANNERS_005", groups = "regression")
 	public void TC_JOOMLA_BANNERS_BANNERS_006()
 	{
 		BannerPage.selectCheckboxItem(driver, banner_name_edit);

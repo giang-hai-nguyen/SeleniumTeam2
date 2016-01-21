@@ -25,7 +25,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_001 extends ac_BannerClientPage {
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 
-	@Test(description = "Verify that user can create a new client")
+	@Test(description = "Verify that user can create a new client", groups = "regression")
 	public void TC_JOOMLA_BANNERS_CLIENTS_001()
 	{
 		BannerClientPage = new ac_BannerClientPage(driver);
@@ -39,7 +39,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_001 extends ac_BannerClientPage {
 	}
 	
 	
-	@Test (description= "Verify that user can edit a client", dependsOnMethods = {"TC_JOOMLA_BANNERS_CLIENTS_001"})
+	@Test (description= "Verify that user can edit a client", dependsOnMethods = {"TC_JOOMLA_BANNERS_CLIENTS_001"}, groups = "regression")
 	public void TC_JOOMLA_BANNERS_CLIENTS_002()
 	{
 		BannerClientPage.selectCheckboxItem(driver, bannerclient_title);
@@ -52,7 +52,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_001 extends ac_BannerClientPage {
 	}
 	
 	
-	@Test (description = "Verify that user can unpublish a client", dependsOnMethods = {"TC_JOOMLA_BANNERS_CLIENTS_002"})
+	@Test (description = "Verify that user can unpublish a client", dependsOnMethods = {"TC_JOOMLA_BANNERS_CLIENTS_002"}, groups = "regression")
 	public void TC_JOOMLA_BANNERS_CLIENTS_003()
 	{
 		BannerClientPage.selectCheckboxItem(driver, bannerclient_title_modified);
@@ -63,7 +63,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_001 extends ac_BannerClientPage {
 		
 	}
 
-	@Test (description = "Verify that user can publish a client", dependsOnMethods = {"TC_JOOMLA_BANNERS_CLIENTS_003"})
+	@Test (description = "Verify that user can publish a client", dependsOnMethods = {"TC_JOOMLA_BANNERS_CLIENTS_003"}, groups = "regression")
 	public void TC_JOOMLA_BANNERS_CLIENTS_004()
 	{
 		BannerClientPage.selectCheckboxItem(driver, bannerclient_title_modified);
@@ -73,7 +73,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_001 extends ac_BannerClientPage {
 		verifyTrue(getitemStatus(driver, in_BannerClientPage.publish_status_icon, bannerclient_title_modified).equals("icon-publish"));
 	}
 	
-	@Test (description = "Verify that user can archive a client", dependsOnMethods = {"TC_JOOMLA_BANNERS_CLIENTS_004"})
+	@Test (description = "Verify that user can archive a client", dependsOnMethods = {"TC_JOOMLA_BANNERS_CLIENTS_004"}, groups = "regression")
 	public void TC_JOOMLA_BANNERS_CLIENTS_005()
 	{
 		BannerClientPage.selectCheckboxItem(driver, bannerclient_title_modified);

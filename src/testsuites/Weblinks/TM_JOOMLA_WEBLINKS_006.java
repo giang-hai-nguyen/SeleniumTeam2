@@ -23,7 +23,7 @@ public class TM_JOOMLA_WEBLINKS_006 extends ac_WeblinksPage{
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 
-	@Test(description = "User can edit the Publish Date of a weblink", groups={"regression"})
+	@Test(description = "User can edit the Publish Date of a weblink", groups = "regression")
 	public void TC_JOOMLA_WEBLINKS_017()
 	{
 		WeblinksPage = new ac_WeblinksPage(driver);

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Regression Final Chrome" verbose="1">
+<suite name="Regression Final Chrome" verbose="1" >
 <parameter name="browser" value="chrome" />
   <test name="Regression suite" >
  <groups>
     <run>
-      <include name="regression"/>
+      <include name="regression" />
      </run>
    </groups>
    <packages>

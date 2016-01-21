@@ -23,7 +23,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_002 extends ac_BannerClientPage {
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 
-	@Test (description = "Verify that user can send a client to trash")
+	@Test (description = "Verify that user can send a client to trash", groups = "regression")
 	public void TC_JOOMLA_BANNERS_CLIENTS_006()
 	{
 		BannerClientPage = new ac_BannerClientPage(driver);
@@ -47,7 +47,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_002 extends ac_BannerClientPage {
 	}
 	
 	
-	@Test (description = "Verify that user can browse client help page")
+	@Test (description = "Verify that user can browse client help page", groups = "regression")
 	public void TC_JOOMLA_BANNERS_CLIENTS_007()
 	{
 		BannerClientPage.navigatemenu(driver, "Components", "Banners", "Clients");
@@ -57,7 +57,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_002 extends ac_BannerClientPage {
 	}
 	
 	
-	@Test (description = "Verify that user can search a client  by using filter textbox")
+	@Test (description = "Verify that user can search a client  by using filter textbox", groups = "regression")
 	public void TC_JOOMLA_BANNERS_CLIENTS_008()
 	{
 		BannerClientPage.clickToolbarButton(driver, "new");
@@ -75,7 +75,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_002 extends ac_BannerClientPage {
 	}
 	
 	
-	@Test (description = "Verify that user can search a client by using filter dropdown list")
+	@Test (description = "Verify that user can search a client by using filter dropdown list", groups = "regression")
 	public void TC_JOOMLA_BANNERS_CLIENTS_009()
 	{
 		BannerClientPage.clickToolbarButton(driver, "new");

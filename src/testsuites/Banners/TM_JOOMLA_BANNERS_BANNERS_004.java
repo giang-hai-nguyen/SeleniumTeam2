@@ -29,8 +29,8 @@ public class TM_JOOMLA_BANNERS_BANNERS_004 extends ac_BannersPage {
 		BrowserExecution.closeJoomla();
 	}
 	
-	@Test(description = "Verify that user can create a new banner by using Save as Copy button",dependsOnMethods = "TO_JOOMLA_BANNERS_BANNERS_016", groups={"regression"})
-	public void TO_JOOMLA_BANNERS_BANNERS_013() {		
+	@Test(description = "Verify that user can create a new banner by using Save as Copy button",dependsOnMethods = "TC_JOOMLA_BANNERS_BANNERS_016", groups = "regression")
+	public void TC_JOOMLA_BANNERS_BANNERS_013() {		
 		
 		BannerPage.navigatemenu(driver, "Components", "Banners", "Clients");
 		BannerPage.clickToolbarButton(driver, "new");
@@ -58,8 +58,8 @@ public class TM_JOOMLA_BANNERS_BANNERS_004 extends ac_BannersPage {
 		verifyTrue(BannerPage.doesitemExist(driver, banner_name_copy));
 	}
 	
-	@Test(description = "Verify that user cannot create a new banner without entering the name of the banner", dependsOnMethods = "TO_JOOMLA_BANNERS_BANNERS_013", groups={"regression"})
-	public void TO_JOOMLA_BANNERS_BANNERS_014() {
+	@Test(description = "Verify that user cannot create a new banner without entering the name of the banner", dependsOnMethods = "TC_JOOMLA_BANNERS_BANNERS_013", groups = "regression")
+	public void TC_JOOMLA_BANNERS_BANNERS_014() {
 
 		BannerPage.clickToolbarButton(driver, "new");
 		BannerPage.createNewBanner("","- "+ category_title, null, client_name, null, "save & close");
@@ -69,7 +69,7 @@ public class TM_JOOMLA_BANNERS_BANNERS_004 extends ac_BannersPage {
 	}
 	
 	@Test(description = "Verify that user can sort items displayed in banner table by ID", groups={"regression"})
-	public void TO_JOOMLA_BANNERS_BANNERS_016() {
+	public void TC_JOOMLA_BANNERS_BANNERS_016() {
 
 		BannerPage = new ac_BannersPage(driver);
 		BannerPage.navigatemenu(driver, "Components", "Banners", "Banners");
@@ -79,15 +79,15 @@ public class TM_JOOMLA_BANNERS_BANNERS_004 extends ac_BannersPage {
 		verifyTrue(BannerPage.doesSortingIDDescend());
 
 	}
-	@Test(description = "Verify that user can change the quantity of items displayed in banner table", dependsOnMethods = "TO_JOOMLA_BANNERS_BANNERS_016", groups={"regression"})
-	public void TO_JOOMLA_BANNERS_BANNERS_015() {
+	@Test(description = "Verify that user can change the quantity of items displayed in banner table", dependsOnMethods = "TC_JOOMLA_BANNERS_BANNERS_016", groups = "regression")
+	public void TC_JOOMLA_BANNERS_BANNERS_015() {
 
 		verifyTrue(BannerPage.doesPagingNumber(displaypagenumber));
 
 	}
 	
-	@Test(description = "Verify that user can access 'Banner clients' page while browsing 'Banner' page", dependsOnMethods = "TO_JOOMLA_BANNERS_BANNERS_015", groups={"regression"})
-	public void TO_JOOMLA_BANNERS_BANNERS_017() {
+	@Test(description = "Verify that user can access 'Banner clients' page while browsing 'Banner' page", dependsOnMethods = "TC_JOOMLA_BANNERS_BANNERS_015", groups = "regression")
+	public void TC_JOOMLA_BANNERS_BANNERS_017() {
 
 		BannerPage.clicksubmenulink();
 		verifyTrue(BannerPage.isPageTitle(page_title_bannerclient));

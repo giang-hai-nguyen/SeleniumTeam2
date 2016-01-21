@@ -23,7 +23,7 @@ public class TM_JOOMLA_WEBLINKS_007 extends ac_WeblinksPage{
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 
-	@Test(description = "Verify user can change the order of weblinks using the Ordering column", groups={"regression"})
+	@Test(description = "Verify user can change the order of weblinks using the Ordering column", groups = "regression")
 	public void TC_JOOMLA_WEBLINKS_014()
 	{
 		WeblinksPage = new ac_WeblinksPage(driver);
@@ -53,7 +53,7 @@ public class TM_JOOMLA_WEBLINKS_007 extends ac_WeblinksPage{
 		verifyTrue(WeblinksPage.doesSortingIDDescending());
 	}
 	
-	@Test (description = "Verify user can paging the weblinks using the paging control", dependsOnMethods = "TC_JOOMLA_ARTICLE_011", groups = "regression")
+	@Test (description = "Verify user can paging the weblinks using the paging control", dependsOnMethods = "TC_JOOMLA_WEBLINKS_014", groups = "regression")
 	public void TC_JOOMLA_WEBLINKS_012() {
 		
 		verifyTrue(WeblinksPage.doesPagingNumber(displaypagenumber));

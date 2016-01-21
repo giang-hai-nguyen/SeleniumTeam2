@@ -20,7 +20,7 @@ public class TM_JOOMLA_WEBLINKS_002 extends ac_WeblinksPage {
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 	
-	@Test (description = "Verify user can search for weblinks using the filter text field", groups={"regression"})
+	@Test (description = "Verify user can search for weblinks using the filter text field", groups = "regression")
 	public void TC_JOOMLA_WEBLINKS_009()
 	{
 		WeblinksPage = new ac_WeblinksPage(driver);
@@ -40,7 +40,7 @@ public class TM_JOOMLA_WEBLINKS_002 extends ac_WeblinksPage {
 		
 	}
 	
-	@Test (description = "Verify user can search for weblinks using the filter dropdown lists", groups={"regression"})
+	@Test (description = "Verify user can search for weblinks using the filter dropdown lists", groups = "regression")
 	public void TC_JOOMLA_WEBLINKS_010()
 	{
 		WeblinksPage = new ac_WeblinksPage(driver);

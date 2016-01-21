@@ -21,7 +21,7 @@ public class TM_JOOMLA_WEBLINKS_004 extends ac_WeblinksPage{
 		LoginPage.Login(Config.default_username, Config.default_password);
 	}
 
-	@Test(description = "Verify user can add image to weblink's description", groups={"regression"})
+	@Test(description = "Verify user can add image to weblink's description", groups = "regression")
 	public void TC_JOOMLA_WEBLINKS_013()
 	{
 		WeblinksPage = new ac_WeblinksPage(driver);
