@@ -40,9 +40,15 @@ public class TM_JOOMLA_ARTICLE_005 extends ac_ArticlesPage {
 		LoginPage.Login(Config.default_username, Config.default_password);
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 		ArticlePage = new ac_ArticlesPage(driver);
 =======
 >>>>>>> refs/remotes/origin/branch_21-01.01
+=======
+=======
+		ArticlePage = new ac_ArticlesPage(driver);
+>>>>>>> refs/remotes/origin/master
+>>>>>>> origin/master
 		ArticlePage.navigatemenu(driver, "Content", "Articles", null);
 		ArticlePage.selectCheckboxItem(driver, title);
 		verifyTrue(ArticlePage.verifyCheckInStateArticle(title, "locked"));
