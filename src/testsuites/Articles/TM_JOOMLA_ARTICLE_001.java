@@ -123,7 +123,7 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 	private ac_ArticlesPage ArticlePage;
 	
 	private String title = randUniqueString("Test Article");
-	private String title_image = randUniqueString("Test Article");
+	private String title_image = randUniqueString("Test Article image");
 	private String title_modified = randUniqueString("Test Article modified");
 	private String message_create = "Article successfully saved";
 	private String arttext = "this is article content";

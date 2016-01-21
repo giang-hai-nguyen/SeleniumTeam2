@@ -98,6 +98,7 @@ public class TM_JOOMLA_BANNERS_CLIENTS_002 extends ac_BannerClientPage {
 	@AfterClass
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
+		AdminPage.deleteItem(driver, bannerclient_title, "Yes");
 		AdminPage.Logout();		
 		BrowserExecution.closeJoomla();
 	}

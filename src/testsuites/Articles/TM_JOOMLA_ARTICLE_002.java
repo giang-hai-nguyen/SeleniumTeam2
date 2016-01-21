@@ -28,7 +28,7 @@ public class TM_JOOMLA_ARTICLE_002 extends ac_ArticlesPage
 	public void TC_JOOMLA_ARTICLE_017()
 	{
 		ArticlePage = new ac_ArticlesPage(driver);
-		ArticlePage.navigatemenu(driver, "Content", "Article Manager", null);
+		ArticlePage.navigatemenu(driver, "Content", "Articles", null);
 		ArticlePage.clickToolbarButton(driver, "new");
 		ArticlePage.fillArticleInfo(title, category, null, access_public, arttext);
 		ArticlePage.clickToolbarButton(driver, "save");
@@ -39,7 +39,7 @@ public class TM_JOOMLA_ARTICLE_002 extends ac_ArticlesPage
 	
 	@AfterClass
 	public void teardown(){
-		AdminPage = new ac_AdministratorPage(driver);
+		AdminPage = new ac_AdministratorPage(driver);		
 		AdminPage.Logout();
 		BrowserExecution.closeJoomla();
 	}

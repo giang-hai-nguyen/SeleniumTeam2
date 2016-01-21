@@ -26,6 +26,7 @@ public class TM_JOOMLA_ARTICLE_003 extends ac_ArticlesPage
 	@AfterClass
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
+		AdminPage.deleteItem(driver, title, "Yes");
 		AdminPage.Logout();
 		BrowserExecution.closeJoomla();
 	}
