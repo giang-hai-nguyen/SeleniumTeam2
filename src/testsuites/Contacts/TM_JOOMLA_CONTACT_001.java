@@ -77,7 +77,7 @@ public class TM_JOOMLA_CONTACT_001 extends ac_ContactsPage
 		verifyTrue(getitemStatus(driver, in_ContactsPage.publish_status_icon, name_modified).equals("icon-unpublish"));
 	}
 	
-	@Test (description = "Verify user can change the feature property of contacts using the Featured column", dependsOnMethods = {"TC_JOOMLA_CONTACTS_001"}, groups = "regression")
+	@Test (description = "Verify user can change the feature property of contacts using the Featured column", dependsOnMethods = {"TC_JOOMLA_CONTACTS_002"}, groups = "regression")
 	public void TC_JOOMLA_CONTACTS_016()
 	{
 		ContactPage.selectCheckboxItem(driver, name_modified);

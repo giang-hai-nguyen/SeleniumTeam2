@@ -39,13 +39,17 @@ public class TM_JOOMLA_ARTICLE_005 extends ac_ArticlesPage {
 		LoginPage = new ac_LoginPage(driver);
 		LoginPage.Login(Config.default_username, Config.default_password);
 		
+<<<<<<< HEAD
+=======
+		ArticlePage = new ac_ArticlesPage(driver);
+>>>>>>> refs/remotes/origin/master
 		ArticlePage.navigatemenu(driver, "Content", "Articles", null);
 		ArticlePage.selectCheckboxItem(driver, title);
 		verifyTrue(ArticlePage.verifyCheckInStateArticle(title, "locked"));
 		
 		ArticlePage.clickToolbarButton(driver, "checkin");
 		verifyTrue(ArticlePage.doesTextPresent(driver, message_checkin));
-		verifyFalse(ArticlePage.verifyCheckInStateArticle(title, "unlocked"));
+		verifyTrue(ArticlePage.verifyCheckInStateArticle(title, "unlocked"));
 	}
 	
 	@AfterClass

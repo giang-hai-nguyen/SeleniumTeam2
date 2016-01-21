@@ -50,7 +50,7 @@ public class TM_JOOMLA_CONTACT_005 extends ac_ContactsPage {
 
 	}
 	
-	@Test (description = "Verify user can sort the contacts table by ID column", dependsOnMethods = "TC_JOOMLA_CONTACT_014", groups = "regression")
+	@Test (description = "Verify user can sort the contacts table by ID column", groups = "regression")
 	public void TC_JOOMLA_CONTACT_011() {
 
 		ContactPage.clickContactHeaderID();
@@ -59,7 +59,7 @@ public class TM_JOOMLA_CONTACT_005 extends ac_ContactsPage {
 		verifyTrue(ContactPage.doesSortingIDDescending());
 	}
 	
-	@Test (description = "Verify user can paging the contacts using the paging control", dependsOnMethods = "TC_JOOMLA_CONTACT_011", groups = "regression")
+	@Test (description = "Verify user can paging the contacts using the paging control", groups = "regression")
 	public void TC_JOOMLA_CONTACT_012() {
 		
 		verifyTrue(ContactPage.doesPagingNumber(displaypagenumber));
