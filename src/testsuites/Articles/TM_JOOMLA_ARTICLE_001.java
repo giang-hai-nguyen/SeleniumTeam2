@@ -65,13 +65,13 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 	{
 		ArticlePage.selectCheckboxItem(driver, title_modified);
 		ArticlePage.clickStatusIconInTheList(driver, title_modified, in_ArticlesPage.unpublish_status_icon);
-		ArticlePage.filterArticleByDropdown("Published", null, null, null);
 		verifyTrue(ArticlePage.doesTextPresent(driver, message_publish));
+		ArticlePage.filterArticleByDropdown("Published", null, null, null);
 		verifyTrue(getitemStatus(driver, in_ArticlesPage.publish_status, title_modified).equals("icon-publish"));
 		
 		ArticlePage.clickStatusIconInTheList(driver, title_modified, in_ArticlesPage.publish_status_icon);
-		ArticlePage.filterArticleByDropdown("Unpublished", null, null, null);
 		verifyTrue(ArticlePage.doesTextPresent(driver, message_unpublish));
+		ArticlePage.filterArticleByDropdown("Unpublished", null, null, null);
 		verifyTrue(getitemStatus(driver, in_ArticlesPage.unpublish_status, title_modified).equals("icon-unpublish"));
 	}
 	
