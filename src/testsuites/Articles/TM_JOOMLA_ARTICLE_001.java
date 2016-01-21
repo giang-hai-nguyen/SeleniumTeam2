@@ -47,7 +47,7 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 		ArticlePage.selectCheckboxItem(driver, title_modified);
 		ArticlePage.clickToolbarButton(driver, "publish");
 		verifyTrue(ArticlePage.doesTextPresent(driver, message_publish));
-		verifyTrue(getitemStatus(driver, in_ArticlesPage.publish_status_icon, title_modified).equals("icon-publish"));
+		verifyTrue(getitemStatus(driver, in_ArticlesPage.publish_status, title_modified).equals("icon-publish"));
 		
 	}
 	
@@ -57,7 +57,22 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 		ArticlePage.selectCheckboxItem(driver, title_modified);
 		ArticlePage.clickToolbarButton(driver, "unpublish");
 		verifyTrue(ArticlePage.doesTextPresent(driver, message_unpublish));
-		verifyTrue(getitemStatus(driver, in_ArticlesPage.publish_status_icon, title_modified).equals("icon-unpublish"));
+		verifyTrue(getitemStatus(driver, in_ArticlesPage.unpublish_status, title_modified).equals("icon-unpublish"));
+	}
+	
+	@Test (description = "Verify user can change the status of articles using the Status column", groups = "regression")
+	public void TC_JOOMLA_ARTICLE_015()
+	{
+		ArticlePage.selectCheckboxItem(driver, title_modified);
+		ArticlePage.clickStatusIconInTheList(driver, title_modified, in_ArticlesPage.unpublish_status_icon);
+		ArticlePage.filterArticleByDropdown("Published", null, null, null);
+		verifyTrue(ArticlePage.doesTextPresent(driver, message_publish));
+		verifyTrue(getitemStatus(driver, in_ArticlesPage.publish_status, title_modified).equals("icon-publish"));
+		
+		ArticlePage.clickStatusIconInTheList(driver, title_modified, in_ArticlesPage.publish_status_icon);
+		ArticlePage.filterArticleByDropdown("Unpublished", null, null, null);
+		verifyTrue(ArticlePage.doesTextPresent(driver, message_unpublish));
+		verifyTrue(getitemStatus(driver, in_ArticlesPage.unpublish_status, title_modified).equals("icon-unpublish"));
 	}
 	
 	@Test (description = "Verify user can move an article to the archive", groups = "regression")
@@ -82,37 +97,11 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 	}
 	
 	
-	@Test (description = "Verify user can change the status of articles using the Status column", groups = "regression")
-	public void TC_JOOMLA_ARTICLE_015()
-	{
-		ArticlePage.selectCheckboxItem(driver, title_modified);
-		ArticlePage.clickStatusIconInTheList(driver, title_modified, in_ArticlesPage.publish_status_icon);
-		ArticlePage.filterArticleByDropdown("Published", null, null, null);
-		verifyTrue(ArticlePage.doesTextPresent(driver, message_publish));
-		verifyTrue(getitemStatus(driver, in_ArticlesPage.publish_status_icon, title_modified).equals("icon-publish"));
-		
-		//ArticlePage.selectCheckboxItem(driver, title_modified);
-		ArticlePage.clickStatusIconInTheList(driver, title_modified, in_ArticlesPage.publish_status_icon);
-		ArticlePage.filterArticleByDropdown("Unpublished", null, null, null);
-		verifyTrue(ArticlePage.doesTextPresent(driver, message_unpublish));
-		verifyTrue(getitemStatus(driver, in_ArticlesPage.publish_status_icon, title_modified).equals("icon-unpublish"));
-	}
-	
-	@Test (description = "Verify user can add image to article's content", groups = "regression")
-	public void TC_JOOMLA_ARTICLE_013()
-	{
-		ArticlePage.navigatemenu(driver, "Content", "Articles", null);
-		ArticlePage.clickToolbarButton(driver, "new");
-		ArticlePage.fillArticleInfo(title_image, category, state_unpublish, null, arttext);
-		ArticlePage.insert_image("joomla_black.png");
-		ArticlePage.clickToolbarButton(driver, "save");
-		verifyTrue(ArticlePage.doesTextPresent(driver, message_create));
-		verifyTrue(ArticlePage.doesitemExist(driver, title));
-	}
 	
 	@AfterClass
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
+		AdminPage.deleteItem(driver, title_modified, "Yes");
 		AdminPage.Logout();
 		BrowserExecution.closeJoomla();
 	}
@@ -123,7 +112,7 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 	private ac_ArticlesPage ArticlePage;
 	
 	private String title = randUniqueString("Test Article");
-	private String title_image = randUniqueString("Test Article image");
+	
 	private String title_modified = randUniqueString("Test Article modified");
 	private String message_create = "Article successfully saved";
 	private String arttext = "this is article content";

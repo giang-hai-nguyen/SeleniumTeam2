@@ -39,16 +39,7 @@ public class TM_JOOMLA_ARTICLE_005 extends ac_ArticlesPage {
 		LoginPage = new ac_LoginPage(driver);
 		LoginPage.Login(Config.default_username, Config.default_password);
 		
-<<<<<<< HEAD
-<<<<<<< HEAD
 		ArticlePage = new ac_ArticlesPage(driver);
-=======
->>>>>>> refs/remotes/origin/branch_21-01.01
-=======
-=======
-		ArticlePage = new ac_ArticlesPage(driver);
->>>>>>> refs/remotes/origin/master
->>>>>>> origin/master
 		ArticlePage.navigatemenu(driver, "Content", "Articles", null);
 		ArticlePage.selectCheckboxItem(driver, title);
 		verifyTrue(ArticlePage.verifyCheckInStateArticle(title, "locked"));
@@ -56,6 +47,18 @@ public class TM_JOOMLA_ARTICLE_005 extends ac_ArticlesPage {
 		ArticlePage.clickToolbarButton(driver, "checkin");
 		verifyTrue(ArticlePage.doesTextPresent(driver, message_checkin));
 		verifyTrue(ArticlePage.verifyCheckInStateArticle(title, "unlocked"));
+	}
+	
+	@Test (description = "Verify user can add image to article's content", groups = "regression")
+	public void TC_JOOMLA_ARTICLE_013()
+	{
+		ArticlePage.navigatemenu(driver, "Content", "Articles", null);
+		ArticlePage.clickToolbarButton(driver, "new");
+		ArticlePage.fillArticleInfo(title_image, category, state_unpublish, null, arttext);
+		ArticlePage.insert_image("joomla_black.png");
+		ArticlePage.clickToolbarButton(driver, "save");
+		verifyTrue(ArticlePage.doesTextPresent(driver, message_create));
+		verifyTrue(ArticlePage.doesitemExist(driver, title_image));
 	}
 	
 	@AfterClass
@@ -77,5 +80,7 @@ public class TM_JOOMLA_ARTICLE_005 extends ac_ArticlesPage {
 	private String category = "- - Sample Data-Articles";
 	private String message_checkin = "1 article successfully checked in";
 	private String state_publish = "Published";
+	private String state_unpublish = "Unpublished";
+	private String title_image = randUniqueString("Test Article image");
 	
 }

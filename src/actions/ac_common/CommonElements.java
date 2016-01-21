@@ -488,7 +488,7 @@ public abstract class CommonElements extends Initialize {
 	
 	public boolean doesPagingNumber(WebDriver driver, int rowlimit) {
 		driver.findElement(By.xpath(in_AdminstratorPage.clear_btn)).click();
-		Boolean check = false;
+		Boolean check = null;
 		((JavascriptExecutor)driver).executeScript("document.getElementById('list_limit').style.display='block';");	
 		selectdropDownListItem(driver, in_AdminstratorPage.dropdownlist_paginate,
 				Integer.toString(rowlimit));
