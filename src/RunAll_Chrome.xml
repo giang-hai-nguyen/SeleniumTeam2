@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Regression Final Firefox" verbose="1">
+
+	<parameter name="browser" value="chrome" />
+	
+ 	<listeners>
+  	<listener class-name="ac_common.TestListener" />
+  	</listeners>
+
+	<test name="Articles">
+		<classes>
+			<class name="Articles.TM_JOOMLA_ARTICLE_001" />
+			<class name="Articles.TM_JOOMLA_ARTICLE_002" />
+			<class name="Articles.TM_JOOMLA_ARTICLE_003" />
+			<class name="Articles.TM_JOOMLA_ARTICLE_004" />
+			<class name="Articles.TM_JOOMLA_ARTICLE_005" />
+		</classes>
+	</test>
+	
+	<test name="BannerClient">
+    	<classes>
+      		<class name="BannerClient.TM_JOOMLA_BANNERS_CLIENTS_001"/>
+      		<class name="BannerClient.TM_JOOMLA_BANNERS_CLIENTS_002"/>
+      		<class name="BannerClient.TM_JOOMLA_BANNERS_CLIENTS_003"/>
+      		<class name="BannerClient.TM_JOOMLA_BANNERS_CLIENTS_004"/>
+      		<class name="BannerClient.TM_JOOMLA_BANNERS_CLIENTS_005"/>
+    	</classes>
+  	</test>
+	
+	<test name="Banners">
+    	<classes>
+      		<class name="Banners.TM_JOOMLA_BANNERS_BANNERS_001"/>
+      		<class name="Banners.TM_JOOMLA_BANNERS_BANNERS_002"/>
+      		<class name="Banners.TM_JOOMLA_BANNERS_BANNERS_003"/>
+      		<class name="Banners.TM_JOOMLA_BANNERS_BANNERS_004"/>
+    	</classes>
+  	</test>
+  	
+  	<test name="Category">
+    	<classes>
+      		<class name="Category.TM_JOOMLA_CATEGORY_001"/>
+      		<class name="Category.TM_JOOMLA_CATEGORY_002"/>
+	      	<class name="Category.TM_JOOMLA_CATEGORY_003"/>
+	      	<class name="Category.TM_JOOMLA_CATEGORY_004"/>
+      		<class name="Category.TM_JOOMLA_CATEGORY_005"/>
+    	</classes>
+  	</test> 
+
+	<test name="Contacts">
+    	<classes>
+      		<class name="Contacts.TM_JOOMLA_CONTACT_001"/>
+      		<class name="Contacts.TM_JOOMLA_CONTACT_002"/>
+      		<class name="Contacts.TM_JOOMLA_CONTACT_003"/>
+      		<class name="Contacts.TM_JOOMLA_CONTACT_004"/>
+      		<class name="Contacts.TM_JOOMLA_CONTACT_005"/>
+    	</classes>
+  	</test> 
+  	
+  	<test name="Weblinks">
+    	<classes>
+      		<class name="Weblinks.TM_JOOMLA_WEBLINKS_001"/>
+      		<class name="Weblinks.TM_JOOMLA_WEBLINKS_002"/>
+      		<class name="Weblinks.TM_JOOMLA_WEBLINKS_003"/>
+      		<class name="Weblinks.TM_JOOMLA_WEBLINKS_004"/>
+      		<class name="Weblinks.TM_JOOMLA_WEBLINKS_005"/>
+      		<class name="Weblinks.TM_JOOMLA_WEBLINKS_006"/>
+    	</classes>
+  	</test>
+  	
+</suite>
