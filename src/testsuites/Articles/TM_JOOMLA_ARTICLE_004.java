@@ -42,7 +42,6 @@ public class TM_JOOMLA_ARTICLE_004 extends ac_ArticlesPage
 		ArticlePage.fillArticleInfo(title1, category1, access_public, null, arttext);
 		ArticlePage.clickToolbarButton(driver, "save");
 		
-		ArticlePage.navigatemenu(driver, "Content", "Articles", null);
 		ArticlePage.clickToolbarButton(driver, "new");
 		ArticlePage.fillArticleInfo(title2, category2, access_public, null, arttext);
 		ArticlePage.clickToolbarButton(driver, "save");

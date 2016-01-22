@@ -30,7 +30,7 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 		verifyTrue(ArticlePage.doesitemExist(driver, title));
 	}
 	
-	@Test (description = "Verify user can edit an article", groups = "regression")
+	@Test (description = "Verify user can edit an article", dependsOnMethods = {"TC_JOOMLA_ARTICLE_001"}, groups = "regression")
 	public void TC_JOOMLA_ARTICLE_002()
 	{
 		ArticlePage.selectCheckboxItem(driver, title);
@@ -41,7 +41,7 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 		verifyTrue(ArticlePage.doesitemExist(driver, title_modified));
 	}
 	
-	@Test (description = "Verify user can publish an unpublished article", groups = "regression")
+	@Test (description = "Verify user can publish an unpublished article", dependsOnMethods = {"TC_JOOMLA_ARTICLE_002"}, groups = "regression")
 	public void TC_JOOMLA_ARTICLE_003()
 	{
 		ArticlePage.selectCheckboxItem(driver, title_modified);
@@ -51,7 +51,7 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 		
 	}
 	
-	@Test (description = "Verify user can unpublish an published article", groups = "regression")
+	@Test (description = "Verify user can unpublish an published article", dependsOnMethods = {"TC_JOOMLA_ARTICLE_003"}, groups = "regression")
 	public void TC_JOOMLA_ARTICLE_004()
 	{
 		ArticlePage.selectCheckboxItem(driver, title_modified);
@@ -60,7 +60,7 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 		verifyTrue(getitemStatus(driver, in_ArticlesPage.unpublish_status, title_modified).equals("icon-unpublish"));
 	}
 	
-	@Test (description = "Verify user can change the status of articles using the Status column", groups = "regression")
+	@Test (description = "Verify user can change the status of articles using the Status column", dependsOnMethods = {"TC_JOOMLA_ARTICLE_004"}, groups = "regression")
 	public void TC_JOOMLA_ARTICLE_015()
 	{
 		ArticlePage.selectCheckboxItem(driver, title_modified);
@@ -75,7 +75,7 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 		verifyTrue(getitemStatus(driver, in_ArticlesPage.unpublish_status, title_modified).equals("icon-unpublish"));
 	}
 	
-	@Test (description = "Verify user can move an article to the archive", groups = "regression")
+	@Test (description = "Verify user can move an article to the archive", dependsOnMethods = {"TC_JOOMLA_ARTICLE_015"}, groups = "regression")
 	public void TC_JOOMLA_ARTICLE_005()
 	{
 		ArticlePage.selectCheckboxItem(driver, title_modified);
@@ -86,7 +86,7 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 	}
 	
 	
-	@Test (description = "Verify user can move an article to trash section", groups = "regression")
+	@Test (description = "Verify user can move an article to trash section", dependsOnMethods = {"TC_JOOMLA_ARTICLE_005"}, groups = "regression")
 	public void TC_JOOMLA_ARTICLE_007()
 	{
 		ArticlePage.selectCheckboxItem(driver, title_modified);
@@ -101,7 +101,6 @@ public class TM_JOOMLA_ARTICLE_001 extends ac_ArticlesPage
 	@AfterClass
 	public void teardown(){
 		AdminPage = new ac_AdministratorPage(driver);
-		AdminPage.deleteItem(driver, title_modified, "Yes");
 		AdminPage.Logout();
 		BrowserExecution.closeJoomla();
 	}

@@ -7,7 +7,7 @@
     <run>
       <include name="regression"/>
      </run>
-   </groups>
+ </groups>
    <packages>
       <package name="Articles" />
       <package name="BannerClient" />

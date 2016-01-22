@@ -255,35 +255,16 @@ public abstract class CommonElements extends Initialize {
 	{
 		String menuitem1_path = "//a[contains(text(),'" + menuitem1 + "')]"; 
 		String menuitem2_path = menuitem1_path + "/../ul/li/a[text()='" + menuitem2 + "']";
-		//String menuitem3_path = menuitem2_path + "/../ul/li/a[text()='" + menuitem3 + "']";
-//		String temp = null;
-//		Actions action = new Actions(driver);
-//		if (menuitem1 != null)
-//		{
-//			WebElement temp2 = driver.findElement(By.xpath(menuitem1_path));
-//			temp2.click();
-//		}
-//		if (menuitem2 != null)
-//		{
-//			action.moveToElement(driver.findElement(By.xpath(menuitem2_path)));
-//			temp = menuitem2_path; 
-//		}
-//		if (menuitem3 != null)
-//		{
-//			action.moveToElement(driver.findElement(By.xpath(menuitem3_path)));
-//			temp = menuitem3_path; 
-//		}
-//		action.build().perform();
-//		click(driver, temp);	
-		/* new */
 		driver.findElement(By.xpath(menuitem1_path)).click();
 		
 		if (menuitem3 != null){
 			Actions actions = new Actions(driver);
 			WebElement mainMenu2 = driver.findElement(By.linkText(menuitem2));
 			actions.moveToElement(mainMenu2).build().perform();
+			waitForPageLoad(Config.short_wait_time);
 			if (menuitem2 != null) {
 				actions.moveToElement(driver.findElement(By.xpath(menuitem2_path))).build().perform();
+				waitForPageLoad(Config.short_wait_time);
 			}			
 			waitForControl(driver, menuitem2_path, Config.short_wait_time);			
 			driver.findElement(By.linkText(menuitem3)).click();
@@ -332,18 +313,19 @@ public abstract class CommonElements extends Initialize {
 		{
 
 			int day, month, year;
-			int second, minute, hour;
+			int millisecond, second, minute, hour;
 			Calendar date = Calendar.getInstance();
 
 			day = date.get(Calendar.DAY_OF_MONTH);
 			month = date.get(Calendar.MONTH);
 			year = date.get(Calendar.YEAR);
 
+			millisecond = date.get(Calendar.MILLISECOND);
 			second = date.get(Calendar.SECOND);
 			minute = date.get(Calendar.MINUTE);
 			hour = date.get(Calendar.HOUR);
 
-			return basestring + " " + day + month + year + second + minute + hour;
+			return basestring + " " + year + month + day + hour + minute + second + millisecond;
 		}
 	 
 	 public void waitForPageLoad(long waittime){
